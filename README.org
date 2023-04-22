@@ -1,7 +1,2 @@
 #+title: Readme
 
-* Does this
-work?
-
-* IDK
-** Maybe
