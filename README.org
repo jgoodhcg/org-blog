@@ -1,2 +1,10 @@
 #+title: Readme
 
+** Requirements
+- pandoc
+- clojure
+
+** Usage
+  #+begin_src shell
+clj -M -m gen-site
+  #+end_src

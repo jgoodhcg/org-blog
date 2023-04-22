@@ -4,3 +4,7 @@ node_modules/
 .clj-kondo/.cache/
 
 .lsp/.cache/
+
+.cpcache/
+
+.nrepl-port
