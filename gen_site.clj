@@ -18,6 +18,7 @@
 
 (defn output-path [input-dir output-dir path]
   (-> path
+      (io/file)
       (.getAbsolutePath)
       (str/replace (.getAbsolutePath (io/file input-dir)) (str (.getAbsolutePath (io/file output-dir)) "/"))
       (str/replace ".org" ".html")))
