@@ -2,16 +2,15 @@
 
 (require '[clojure.java.io :as io]
          '[clojure.string :as str]
-         '[clojure.data.xml :as xml]
-         '[babashka.process :as process])
+         '[clojure.data.xml :as xml])
 
 (defn org-to-html [input-file output-file]
-  (process/run ["emacs" "--batch"
-                "--eval" "(require 'org)"
-                "--eval" "(require 'ox-html)"
-                "-f" "org-html-export-to-html"
-                "--file" input-file
-                "--output" output-file]))
+  (shell/sh "emacs" "--batch"
+            "--eval" "(require 'org)"
+            "--eval" "(require 'ox-html)"
+            "-f" "org-html-export-to-html"
+            "--file" input-file
+            "--output" output-file))
 
 (defn org-files [dir]
   (filter #(str/ends-with? (.getName %) ".org")
