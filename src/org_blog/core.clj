@@ -1,4 +1,4 @@
-(ns gen-site
+(ns org-blog.core
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
@@ -21,12 +21,12 @@
         hiccup-form (->> parsed-html (map hickory/as-hiccup))]
     (html [:div.content-container hiccup-form])))
 
-(defn header [body]
+(defn post-header [body]
   [:html.dark
    [:head
     [:meta {:charset "utf-8"}]
     [:title "Generated Site"]
-    (include-css "./static/css/output.css")
+    (include-css "../css/output.css")
     #_(include-js "/js/scripts.js")]
    [:body
     [:header
@@ -34,11 +34,11 @@
     body
     [:footer]]])
 
-(defn render-post [org-file out-dir]
+(defn gen-post [org-file out-dir]
   (let [post (->> org-file
                   org-to-html
                   wrap-in-hiccup
-                  header
+                  post-header
                   html)
         post-file-name (str (-> org-file
                                 (java.io.File.)
@@ -47,19 +47,25 @@
         post-file-path (str out-dir "/" post-file-name)]
     (spit post-file-path post)))
 
-(defn generate-index [org-files out-dir]
-  (let [latest-posts (map (fn [org-file]
-                             (let [post (->> org-file
-                                            org-to-html
-                                            wrap-in-hiccup)]
-                               [:div.post-preview post])) org-files)
-        index (-> [:div latest-posts] header html)]
-    (spit (str out-dir "/index.html") index)))
+(defn gen-index []
+  (-> [:html.dark
+       [:head
+        [:meta {:charset "utf-8"}]
+        [:title "Generated Site"]
+        (include-css "./css/output.css")
+        #_(include-js "/js/scripts.js")]
+       [:body
+        [:header
+         [:nav]]
+        [:div.content-container [:span "yo"]]
+        [:footer]]]
+      html
+      (->> (spit "./static/index.html"))))
 
 (defn -main [& args]
   (let [org-dir "./posts"
-        out-dir "./"]
-    (-> "Generating site..." c/blue println)
+        out-dir "./static/posts"]
+    (-> "Generating posts..." c/blue println)
     (-> out-dir io/file .mkdirs)
     (let [org-files (->> org-dir
                          io/file
@@ -67,8 +73,8 @@
                          (filter #(re-matches #".*\.org" (.getName %)))
                          (map #(.getCanonicalPath %)))]
       (doseq [org-file org-files]
-        (render-post org-file out-dir))
-      (generate-index org-files out-dir))
+        (-> "Generating html for  " (str org-file) c/blue println)
+        (gen-post org-file out-dir)))
     (-> "Done!" c/blue println)
     #_(System/exit 0)))
 
@@ -76,8 +82,9 @@
   (->> "./posts/hello-world.org"
        org-to-html
        wrap-in-hiccup
-       header
        )
 
   (-main)
+
+  (gen-index)
   )
