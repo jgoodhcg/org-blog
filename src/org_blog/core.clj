@@ -57,7 +57,9 @@
        [:body
         [:header
          [:nav]]
-        [:div.content-container [:span "yo"]]
+        [:div.content-container
+         [:h1 "yo"]
+         [:a {:href "posts/hello-world.html"} "hello world post"]]
         [:footer]]]
       html
       (->> (spit "./static/index.html"))))
