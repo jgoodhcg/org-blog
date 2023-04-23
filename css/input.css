@@ -8,11 +8,11 @@
 }
 
 a {
-  @apply text-blue-500;
+  @apply text-white;
 }
 
 a:hover {
-  @apply text-blue-700;
+  @apply text-pink-500;
 }
 
 .header a {
@@ -20,11 +20,11 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
+  @apply font-bold text-white;
 }
 
 p, ul, ol {
-  @apply text-base;
+  @apply text-base text-gray-300;
 }
 
 .archive ul {
@@ -33,11 +33,12 @@ p, ul, ol {
 
 /* Additional styles */
 body {
-  @apply bg-gray-100;
+  background: linear-gradient(135deg, #6b46c1, #3b2b65);
 }
 
 .content {
-  @apply bg-white p-8 rounded-lg shadow-lg;
+  background: linear-gradient(135deg, #2a1a4a, #1c0e2e);
+  @apply p-8 rounded-lg shadow-lg;
 }
 
 .index-entry {
@@ -45,9 +46,9 @@ body {
 }
 
 .post-date {
-  @apply text-sm text-gray-600;
+  @apply text-sm text-gray-400;
 }
 
 .post-title {
-  @apply text-2xl mt-4 mb-2 text-black no-underline hover:text-blue-500;
+  @apply text-2xl mt-4 mb-2 text-white no-underline hover:text-pink-500;
 }

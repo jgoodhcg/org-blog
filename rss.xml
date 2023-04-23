@@ -4,28 +4,158 @@
 <title><![CDATA[My Static Org Blog]]></title>
 <description><![CDATA[My Static Org Blog]]></description>
 <link>https://jgoodhcg.github.io/org-blog</link>
-<lastBuildDate>Sat, 22 Apr 2023 19:23:55 -0400</lastBuildDate>
+<lastBuildDate>Sat, 22 Apr 2023 21:14:57 -0400</lastBuildDate>
+<item>
+  <title><![CDATA[Permaculture: A Path to Sustainable Living]]></title>
+  <description><![CDATA[
+
+<div id="outline-container-org082fcb1" class="outline-2">
+<h2 id="org082fcb1">Introduction</h2>
+<div class="outline-text-2" id="text-org082fcb1">
+<p>
+Permaculture is a design system that seeks to create sustainable, resilient, and regenerative human habitats by following nature's principles. It is founded on a set of ethics and principles that guide its practitioners in creating landscapes, homes, and communities that work with, rather than against, the Earth's natural systems. This blog post will discuss the core concepts of permaculture, its benefits, and how it can be applied in various settings.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org36f525a" class="outline-2">
+<h2 id="org36f525a">Core Ethics and Principles</h2>
+<div class="outline-text-2" id="text-org36f525a">
+<p>
+Permaculture is built on three core ethics: Earth Care, People Care, and Fair Share. These ethics encourage practitioners to care for the environment, value community and individual well-being, and distribute resources equitably.
+</p>
+
+<p>
+The 12 principles of permaculture, developed by David Holmgren, provide a framework for designing and implementing permaculture systems. These principles include observing and interacting with nature, capturing and storing energy, obtaining a yield, applying self-regulation, and accepting feedback, among others. Each principle helps guide permaculture practitioners toward creating sustainable and resilient systems.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7dbd468" class="outline-2">
+<h2 id="org7dbd468">Benefits of Permaculture</h2>
+<div class="outline-text-2" id="text-org7dbd468">
+<p>
+The benefits of permaculture are numerous and extend beyond just the environment. Here are a few of the key benefits:
+</p>
+</div>
+
+<div id="outline-container-orga29f53e" class="outline-3">
+<h3 id="orga29f53e">Environmental:</h3>
+<div class="outline-text-3" id="text-orga29f53e">
+<p>
+By mimicking natural systems, permaculture promotes biodiversity, soil health, and water conservation. It encourages the use of renewable resources and reduces waste by closing loops and promoting recycling.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdddd7cd" class="outline-3">
+<h3 id="orgdddd7cd">Economic:</h3>
+<div class="outline-text-3" id="text-orgdddd7cd">
+<p>
+Permaculture can lead to reduced reliance on external inputs and help lower living costs by producing food, energy, and other resources locally.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e12d16" class="outline-3">
+<h3 id="org2e12d16">Social:</h3>
+<div class="outline-text-3" id="text-org2e12d16">
+<p>
+By emphasizing community and cooperation, permaculture fosters stronger relationships and support networks among neighbors and community members.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org11c5400" class="outline-3">
+<h3 id="org11c5400">Health:</h3>
+<div class="outline-text-3" id="text-org11c5400">
+<p>
+By encouraging organic and regenerative agriculture, permaculture promotes healthier diets and lifestyles. It also reduces exposure to chemicals and toxins, leading to better overall health.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65755d6" class="outline-2">
+<h2 id="org65755d6">Permaculture in Different Settings</h2>
+<div class="outline-text-2" id="text-org65755d6">
+<p>
+Permaculture is a flexible design system that can be applied in various contexts, from urban to rural settings, and in any climate. Here are some examples of permaculture applications:
+</p>
+</div>
+
+<div id="outline-container-org884999b" class="outline-3">
+<h3 id="org884999b">Urban:</h3>
+<div class="outline-text-3" id="text-org884999b">
+<p>
+Permaculture can transform small urban spaces into productive and regenerative gardens. Techniques such as vertical gardening, rooftop gardens, and community gardens can provide fresh produce, enhance biodiversity, and create green spaces in cities.
+</p>
+
+<p>
+Suburban: Permaculture principles can be applied to suburban landscapes by turning lawns into edible gardens, incorporating rainwater harvesting systems, and planting native species.
+</p>
+
+<p>
+Rural: In rural settings, permaculture can be applied to agriculture, animal husbandry, and forestry practices to create regenerative and sustainable systems that enhance the health of the land and its inhabitants.
+</p>
+
+<p>
+Education: Permaculture can be integrated into school curricula to teach students about sustainability, ecology, and responsible resource management.
+</p>
+
+<p>
+Getting Started with Permaculture
+If you are interested in permaculture, there are several ways to get started:
+</p>
+
+<p>
+Read books and articles about permaculture, such as "Permaculture: A Designer's Manual" by Bill Mollison and "Permaculture: Principles and Pathways Beyond Sustainability" by David Holmgren.
+</p>
+
+<p>
+Take a permaculture design course (PDC) to gain a comprehensive understanding of permaculture principles and techniques.
+</p>
+
+<p>
+Join local permaculture groups or online forums to connect with other practitioners and learn from their experiences.
+</p>
+
+<p>
+Start applying permaculture principles in your own backyard, balcony, or community garden
+</p>
+</div>
+</div>
+</div>
+<div class="taglist"></div>]]></description>
+  <link>https://jgoodhcg.github.io/org-blog/permaculture-test.html</link>
+  <guid>https://jgoodhcg.github.io/org-blog/permaculture-test.html</guid>
+  <pubDate>Sat, 22 Apr 2023 21:14:57 -0400</pubDate>
+</item>
 <item>
   <title><![CDATA[Hello World!]]></title>
   <description><![CDATA[
 
-<div id="outline-container-org88f264b" class="outline-2">
-<h2 id="org88f264b">Header 1</h2>
-<div class="outline-text-2" id="text-org88f264b">
+<div id="outline-container-orgca43a6c" class="outline-2">
+<h2 id="orgca43a6c">Header 1</h2>
+<div class="outline-text-2" id="text-orgca43a6c">
 </div>
-<div id="outline-container-org7cd8bc8" class="outline-3">
-<h3 id="org7cd8bc8">Header 2</h3>
-<div class="outline-text-3" id="text-org7cd8bc8">
+<div id="outline-container-org43ad743" class="outline-3">
+<h3 id="org43ad743">Header 2</h3>
+<div class="outline-text-3" id="text-org43ad743">
 </div>
-<div id="outline-container-org601b189" class="outline-4">
-<h4 id="org601b189">Header 3</h4>
-<div class="outline-text-4" id="text-org601b189">
+<div id="outline-container-org3939eb2" class="outline-4">
+<h4 id="org3939eb2">Header 3</h4>
+<div class="outline-text-4" id="text-org3939eb2">
 <div class="org-src-container">
 <pre class="src src-clojure"><span style="color: #51afef;">(</span><span style="color: #51afef;">defn</span> <span style="color: #c678dd;">plus</span> <span style="color: #c678dd;">[</span>&amp; args<span style="color: #c678dd;">]</span> <span style="color: #c678dd;">(</span>apply + args<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
 </pre>
 </div>
 </div>
 </div>
+</div>
+
+<div id="outline-container-orge804a03" class="outline-3">
+<h3 id="orge804a03">Images?</h3>
 </div>
 </div>
 <div class="taglist"></div>]]></description>
