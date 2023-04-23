@@ -19,20 +19,14 @@
 (defn wrap-in-hiccup [html-string]
   (let [parsed-html (hickory/parse-fragment html-string)
         hiccup-form (->> parsed-html (map hickory/as-hiccup))]
-    (html [:div hiccup-form])))
-
-(defn preamble [body]
-  [:div#preamble body])
-
-(defn postamble [body]
-  [:div#postamble body])
+    (html [:div.content-container hiccup-form])))
 
 (defn header [body]
-  [:html
+  [:html.dark
    [:head
     [:meta {:charset "utf-8"}]
     [:title "Generated Site"]
-    (include-css "/static/css/output.css")
+    (include-css "./static/css/output.css")
     #_(include-js "/js/scripts.js")]
    [:body
     [:header
@@ -44,8 +38,6 @@
   (let [post (->> org-file
                   org-to-html
                   wrap-in-hiccup
-                  preamble
-                  postamble
                   header
                   html)
         post-file-name (str (-> org-file
@@ -59,11 +51,9 @@
   (let [latest-posts (map (fn [org-file]
                              (let [post (->> org-file
                                             org-to-html
-                                            wrap-in-hiccup
-                                            preamble
-                                            postamble)]
+                                            wrap-in-hiccup)]
                                [:div.post-preview post])) org-files)
-        index (-> [:div#index latest-posts] header html)]
+        index (-> [:div latest-posts] header html)]
     (spit (str out-dir "/index.html") index)))
 
 (defn -main [& args]
@@ -86,8 +76,6 @@
   (->> "./posts/hello-world.org"
        org-to-html
        wrap-in-hiccup
-       preamble
-       postamble
        header
        )
 
