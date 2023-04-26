@@ -1,5 +1,6 @@
 {:paths ["src"]
  :deps
- {clojure-term-colors/clojure-term-colors {:mvn/version "0.1.0"}
+ {http-kit/http-kit                       {:mvn/version "2.7.0-beta2"}
+  clojure-term-colors/clojure-term-colors {:mvn/version "0.1.0"}
   org.clj-commons/hickory                 {:mvn/version "0.7.3"}
   hiccup/hiccup                           {:mvn/version "1.0.5"}}}

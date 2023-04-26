@@ -1,12 +1,14 @@
 (ns org-blog.core
   (:require
-   [clojure.walk :as walk]
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
+   [clojure.string :refer [split]]
    [clojure.term.colors :as c]
+   [clojure.walk :as walk]
    [hiccup.core :refer [html]]
-   [hiccup.page :refer [include-css include-js]]
-   [hickory.core :as hickory]))
+   [hiccup.page :refer [include-css]]
+   [hickory.core :as hickory]
+   [org.httpkit.server :as http-kit]))
 
 (defn org-to-html [org-file]
   (let [absolute-org-file (-> (java.io.File. org-file) (.getCanonicalFile))
@@ -42,7 +44,7 @@
    [:head
     [:meta {:charset "utf-8"}]
     [:title "Generated Site"]
-    (include-css "../css/output.css")
+    (include-css "../../css/output.css")
     #_(include-js "/js/scripts.js")
     [:link {:rel            "stylesheet"
             :href           "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
@@ -61,18 +63,27 @@
     body
     [:footer]]])
 
+(defn ensure-directories-exist [path]
+  (let [parent (-> path io/file .getParentFile)]
+    (when-not (.exists parent)
+      (.mkdirs parent))))
+
+(defn spit-with-path [path content]
+  (ensure-directories-exist path)
+  (spit path content))
+
 (defn gen-post [org-file out-dir]
   (let [post (->> org-file
                   org-to-html
                   wrap-in-hiccup
                   post-header
                   html)
-        post-file-name (str (-> org-file
-                                (java.io.File.)
-                                (.getName)
-                                (clojure.string/replace #"\.org$" ".html")))
-        post-file-path (str out-dir "/" post-file-name)]
-    (spit post-file-path post)))
+        post-name (str (-> org-file
+                           (java.io.File.)
+                           (.getName)
+                           (clojure.string/replace #"\.org$" "")))
+        post-file-path (str out-dir "/" post-name "/index.html")]
+    (spit-with-path post-file-path post)))
 
 (defn gen-index []
   (-> [:html.dark
@@ -85,8 +96,8 @@
         [:header
          [:nav]]
         [:div.content-container
-         [:h1 "yo"]
-         [:a {:href "posts/hello-world.html"} "hello world post"]]
+         [:h1 "Main file"]
+         [:a {:href "posts/hello-world"} "hello world post"]]
         [:footer]]]
       html
       (->> (spit "./static/index.html"))))
@@ -118,4 +129,41 @@
   (gen-index)
   )
 
+(gen-index)
 (-main)
+
+(def content-types
+  {"html" "text/html"
+   "css"  "text/css"
+   ;; Add other content types as needed
+   })
+
+(defn content-type-for [filename]
+  (let [ext (->> (split filename #"\.")
+                 last
+                 (get content-types))]
+    (or ext "text/plain")))
+
+(defn handler [req]
+  (let [resource-path (str "static" (:uri req))
+        file (io/file resource-path)]
+    (if (.exists file)
+      (if (.isDirectory file)
+        {:status  200
+         :headers {"Content-Type" "text/html"}
+         :body    (slurp (io/file (str resource-path "/index.html")))}
+        {:status  200
+         :headers {"Content-Type" (content-type-for resource-path)}
+         :body    (slurp file)})
+      {:status  404
+       :headers {"Content-Type" "text/plain"}
+       :body    "Not Found"})))
+
+(defn start-server []
+  (http-kit/run-server handler {:port 8080}))
+
+(defonce server-atom (atom nil))
+
+(when (nil? @server-atom)
+  (-> "starting server" c/blue println)
+  (reset! server-atom (start-server)))
