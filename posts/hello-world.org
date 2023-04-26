@@ -1,69 +1,36 @@
 #+title: Hello World!
 #+date:<2023-04-22 Sat>
 
-* Permaculture: Introduction
-:LOGBOOK:
-CLOCK: [2023-04-25 Tue 19:23]--[2023-04-25 Tue 19:24] =>  0:01
-:END:
-
-Permaculture is a system of agricultural and social design principles that seeks to mimic natural ecosystems. It is based on the idea that humans can work with nature to create sustainable and productive systems.
-
-** Ethics of Permaculture
-
-Permaculture is guided by three ethical principles: care for the earth, care for people, and fair share. These principles provide a framework for designing systems that are sustainable, resilient, and socially just.
-
-** Design Principles of Permaculture
-
-Permaculture design principles provide a set of guidelines for creating sustainable systems. These principles include:
-
-*** Observe and interact
-
-Careful observation of natural systems is essential for designing sustainable systems.
-
-*** Catch and store energy
-
-Systems should be designed to capture and store energy, such as sunlight and water.
-
-*** Obtain a yield
-
-Systems should provide a yield of food, fiber, fuel, or other resources.
-
-*** Apply self-regulation and accept feedback
-
-Systems should be designed to be self-regulating and respond to feedback from the environment.
-
-*** Use and value renewable resources and services
-
-Systems should rely on renewable resources and ecosystem services rather than non-renewable resources.
-
-*** Produce no waste
-
-Systems should be designed to minimize waste and make use of waste products.
-
-*** Design from patterns to details
-
-Systems should be designed based on patterns found in nature.
-
-*** Integrate rather than segregate
-
-Systems should be designed to integrate different elements, rather than segregating them.
-
-*** Use small and slow solutions
-
-Small-scale solutions are often more effective and sustainable than large-scale ones.
-
-*** Use and value diversity
-
-Diversity is essential for creating resilient systems.
-
-** Applications of Permaculture
-
-Permaculture can be applied to a wide range of systems, including agriculture, architecture, community development, and education. It offers a holistic approach to design that can help create sustainable and resilient communities.
-
-
+* h1
+Some text
+** h2
+More text
+*** h3
+Some code
 #+begin_src clojure
 
 (defn foo [a b] (->> a (+ b)))
 
 {:a 1 :b "two" :c #{1 2 3}}
 #+end_src
+
+** h2 again
+
+#+begin_quote
+This is a quote
+#+end_quote
+
+** Other templates
+#+begin_verse
+A verse is here
+#+end_verse
+
+#+begin_comment
+comment here
+#+end_comment
+
+#+begin_example
+example here
+#+end_example
+
+** Images

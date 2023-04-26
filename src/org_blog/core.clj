@@ -2,7 +2,7 @@
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
-   [clojure.string :refer [split]]
+   [clojure.string :refer [split blank?]]
    [clojure.term.colors :as c]
    [clojure.walk :as walk]
    [hiccup.core :refer [html]]
@@ -24,10 +24,12 @@
    (fn [node]
      (if (and (vector? node)
               (= :code (first node)))
-       (let [lang       (->> (second node)
-                             :class
-                             (re-seq #"(?<=sourceCode\s)\w+")
-                             first)
+       (let [class      (->> (second node)
+                             :class)
+             lang       (when (not (blank? class))
+                          (->> class
+                               (re-seq #"(?<=sourceCode\s)\w+")
+                               first))
              lang-class (str "language-" lang)]
          (-> node
              (update 1 #(assoc % :class lang-class))))
