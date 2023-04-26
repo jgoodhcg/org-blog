@@ -2299,16 +2299,7 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-@media (min-width: 1024px) {
-  h1, h2, h3, h4, h5, h6 {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-}
-
 p, ul, ol {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }

@@ -45,6 +45,7 @@
   [:html
    [:head
     [:meta {:charset "utf-8"}]
+    [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
     [:title "Generated Site"]
     (include-css "../../css/output.css")
     #_(include-js "/js/scripts.js")
@@ -91,6 +92,7 @@
   (-> [:html.dark
        [:head
         [:meta {:charset "utf-8"}]
+        [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
         [:title "Generated Site"]
         (include-css "./css/output.css")
         #_(include-js "/js/scripts.js")]
@@ -98,7 +100,7 @@
         [:header
          [:nav]]
         [:div.content-container
-         [:h1 "Main file"]
+         [:h1 "One day this will be a real blog!"]
          [:a {:href "posts/hello-world"} "hello world post"]]
         [:footer]]]
       html

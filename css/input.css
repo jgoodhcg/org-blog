@@ -20,11 +20,11 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold text-white text-lg lg:text-base my-2;
+  @apply font-bold text-white text-lg my-2;
 }
 
 p, ul, ol {
-  @apply text-lg text-gray-200 lg:text-base;
+  @apply text-gray-200 lg:text-base;
 }
 
 .archive ul {
