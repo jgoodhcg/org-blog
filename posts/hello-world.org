@@ -2,6 +2,9 @@
 #+date:<2023-04-22 Sat>
 
 * Permaculture: Introduction
+:LOGBOOK:
+CLOCK: [2023-04-25 Tue 19:23]--[2023-04-25 Tue 19:24] =>  0:01
+:END:
 
 Permaculture is a system of agricultural and social design principles that seeks to mimic natural ecosystems. It is based on the idea that humans can work with nature to create sustainable and productive systems.
 
@@ -56,3 +59,11 @@ Diversity is essential for creating resilient systems.
 ** Applications of Permaculture
 
 Permaculture can be applied to a wide range of systems, including agriculture, architecture, community development, and education. It offers a holistic approach to design that can help create sustainable and resilient communities.
+
+
+#+begin_src clojure
+
+(defn foo [a b] (->> a (+ b)))
+
+{:a 1 :b "two" :c #{1 2 3}}
+#+end_src
