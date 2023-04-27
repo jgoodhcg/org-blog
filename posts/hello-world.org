@@ -1,36 +1,90 @@
 #+title: Hello World!
 #+date:<2023-04-22 Sat>
 
-* h1
-Some text
-** h2
-More text
-*** h3
-Some code
-#+begin_src clojure
+* This is a top-level heading
+** This is a second-level heading
+*** This is a third-level heading
 
-(defn foo [a b] (->> a (+ b)))
+#+OPTIONS: toc:3 num:nil
 
-{:a 1 :b "two" :c #{1 2 3}}
-#+end_src
+* Lists
+- Unordered list item 1
+- Unordered list item 2
+  - Nested unordered list item 1
+  - Nested unordered list item 2
++ Another unordered list item
 
-** h2 again
+1. Ordered list item 1
+2. Ordered list item 2
+   1. Nested ordered list item 1
+   2. Nested ordered list item 2
+3. Another ordered list item
 
-#+begin_quote
-This is a quote
-#+end_quote
+* Text Formatting
+/Italic text/
+*Bold text*
+_underlined text_
+=verbatim text=
++strikethrough text+
+~code text~
 
-** Other templates
-#+begin_verse
-A verse is here
-#+end_verse
+* Hyperlinks
+- External link: [[https://www.example.com][Example Website]]
+- Internal link: [[*Text Formatting][Text Formatting section]]
 
-#+begin_comment
-comment here
-#+end_comment
+* Footnotes
+This is an example of a footnote[fn:1].
 
-#+begin_example
-example here
-#+end_example
+[fn:1] This is the footnote text.
 
-** Images
+* Images
+[[file:image.jpg]]
+
+* Tables
+| Header 1 | Header 2 | Header 3 |
+|----------+----------+----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
+
+* Source Code Blocks
+#+BEGIN_SRC python
+def hello_world():
+    print("Hello, world!")
+hello_world()
+#+END_SRC
+
+* Blockquotes
+#+BEGIN_QUOTE
+This is a blockquote.
+- Author Name
+#+END_QUOTE
+
+* Horizontal Rule
+-----
+
+* LaTeX Equations
+Inline equation: \(E = mc^2\)
+
+Display equation:
+\[
+\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
+1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}} {1+\cdots} } } }
+\]
+
+* Drawers
+:PROPERTIES:
+:custom_id: example_drawer
+:END:
+
+* TODO Items
+- [ ] Task 1
+- [X] Task 2
+- [ ] Task 3
+
+* Tags
+:tag1:tag2:
+
+* Schedule and Deadline
+  DEADLINE: <2023-05-01 Mon>
+  SCHEDULED: <2023-04-29 Sat>
