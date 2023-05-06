@@ -5,19 +5,19 @@
    [hiccup.page :refer [include-css]]))
 
 (defn gen-home []
-  (-> "Generating home (index) page ..." c/blue println)
+  (-> "Generating home (index) page" c/blue println)
   (-> [:html.dark
        [:head
         [:meta {:charset "utf-8"}]
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-        [:title "Generated Site"]
+        [:title "Jgood Blog"]
         (include-css "./css/output.css")
         #_(include-js "/js/scripts.js")]
        [:body
         [:header
          [:nav]]
         [:div.content-container
-         [:h1 "One day this will be a real blog!"]
+         [:h1 "What's my h1?"]
          [:p (str "I'm Justin Good. "
                   "As a full stack software engineer, I have a diverse range of interests and skills. "
                   "My professional experience mainly revolves around web applications "

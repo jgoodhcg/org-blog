@@ -2,14 +2,17 @@
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
-   [clojure.string :refer [blank? split]]
+   [clojure.string :refer [blank? split] :as string]
    [clojure.term.colors :as c]
+   [clojure.tools.namespace.repl :as ns-repl]
    [clojure.walk :as walk]
+   [hawk.core :as hawk]
    [hiccup.core :refer [html]]
    [hiccup.page :refer [include-css]]
    [hickory.core :as hickory]
    [org-blog.pages.home :refer [gen-home]]
-   [org.httpkit.server :as http-kit]))
+   [org.httpkit.server :as http-kit])
+  )
 
 (defn org-to-html [org-file]
   (let [absolute-org-file (-> (java.io.File. org-file) (.getCanonicalFile))
@@ -100,7 +103,7 @@
                          (filter #(re-matches #".*\.org" (.getName %)))
                          (map #(.getCanonicalPath %)))]
       (doseq [org-file org-files]
-        (-> "Generating html for  " (str org-file) c/blue println)
+        (-> "  Generating html for  " (str org-file) c/blue println)
         (gen-post org-file out-dir)))
     (-> "Done!" c/blue println)))
 
@@ -108,8 +111,9 @@
   (println "I don't do anything yet")
   #_(System/exit 0))
 
-(gen-home)
-(gen-posts)
+(defn regenerate-site []
+  (gen-home)
+  (gen-posts))
 
 (def content-types
   {"html" "text/html"
@@ -145,4 +149,25 @@
 
 (when (nil? @server-atom)
   (-> "starting server" c/blue println)
+  (regenerate-site)
   (reset! server-atom (start-server)))
+
+(defn watch-source-files [dirs]
+  (let [handler      (fn [ctx e]
+                       (when (= (:kind e) :modify)
+                         (println "File modified:" (:file e))
+                         ;; Calling `ns-repl/refresh` in another thread (hawk must run this handler in a another thread)
+                         ;; generates an error
+                         ;; By wrapping in future, by some magic, the function calls within are scheduled on the main thread
+                         (future
+                          (println "Refreshing repl ...")
+                          (ns-repl/refresh)
+                          (regenerate-site))))
+        watch-config (hawk/watch! [{:paths   dirs
+                                    :handler handler}])]
+    watch-config))
+
+(defonce source-watchers (atom nil))
+
+(when (nil? @source-watchers)
+  (reset! source-watchers (watch-source-files ["src"])))
