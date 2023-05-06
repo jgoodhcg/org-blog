@@ -2,12 +2,13 @@
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
-   [clojure.string :refer [split blank?]]
+   [clojure.string :refer [blank? split]]
    [clojure.term.colors :as c]
    [clojure.walk :as walk]
    [hiccup.core :refer [html]]
    [hiccup.page :refer [include-css]]
    [hickory.core :as hickory]
+   [org-blog.pages.home :refer [gen-home]]
    [org.httpkit.server :as http-kit]))
 
 (defn org-to-html [org-file]
@@ -88,25 +89,7 @@
         post-file-path (str out-dir "/" post-name "/index.html")]
     (spit-with-path post-file-path post)))
 
-(defn gen-index []
-  (-> [:html.dark
-       [:head
-        [:meta {:charset "utf-8"}]
-        [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-        [:title "Generated Site"]
-        (include-css "./css/output.css")
-        #_(include-js "/js/scripts.js")]
-       [:body
-        [:header
-         [:nav]]
-        [:div.content-container
-         [:h1 "One day this will be a real blog!"]
-         [:a {:href "posts/hello-world"} "hello world post"]]
-        [:footer]]]
-      html
-      (->> (spit "./static/index.html"))))
-
-(defn -main [& args]
+(defn gen-posts []
   (let [org-dir "./posts"
         out-dir "./static/posts"]
     (-> "Generating posts..." c/blue println)
@@ -119,22 +102,14 @@
       (doseq [org-file org-files]
         (-> "Generating html for  " (str org-file) c/blue println)
         (gen-post org-file out-dir)))
-    (-> "Done!" c/blue println)
-    #_(System/exit 0)))
+    (-> "Done!" c/blue println)))
 
-(comment
-  (->> "./posts/hello-world.org"
-       org-to-html
-       wrap-in-hiccup
-       )
+(defn -main [& args]
+  (println "I don't do anything yet")
+  #_(System/exit 0))
 
-  (-main)
-
-  (gen-index)
-  )
-
-(gen-index)
-(-main)
+(gen-home)
+(gen-posts)
 
 (def content-types
   {"html" "text/html"
