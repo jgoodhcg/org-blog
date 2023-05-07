@@ -657,16 +657,8 @@ video {
   clear: none;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
 }
 
 .box-border {
@@ -1614,6 +1606,14 @@ video {
   border-bottom-left-radius: 0.25rem;
 }
 
+.rounded-bl-3xl {
+  border-bottom-left-radius: 1.5rem;
+}
+
+.rounded-bl-lg {
+  border-bottom-left-radius: 0.5rem;
+}
+
 .rounded-br {
   border-bottom-right-radius: 0.25rem;
 }
@@ -1638,28 +1638,16 @@ video {
   border-top-left-radius: 0.25rem;
 }
 
-.rounded-tr {
-  border-top-right-radius: 0.25rem;
-}
-
-.rounded-bl-3xl {
-  border-bottom-left-radius: 1.5rem;
-}
-
 .rounded-tl-3xl {
   border-top-left-radius: 1.5rem;
-}
-
-.rounded-bl-lg {
-  border-bottom-left-radius: 0.5rem;
 }
 
 .rounded-tl-lg {
   border-top-left-radius: 0.5rem;
 }
 
-.rounded-bl-full {
-  border-bottom-left-radius: 9999px;
+.rounded-tr {
+  border-top-right-radius: 0.25rem;
 }
 
 .border {
@@ -1729,29 +1717,19 @@ video {
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-red {
-  --tw-bg-opacity: 1;
-  background-color: rgb(216 33 44 / var(--tw-bg-opacity));
-}
-
-.bg-yellow {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 184 39 / var(--tw-bg-opacity));
-}
-
-.bg-blue {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 78 122 / var(--tw-bg-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-purple {
+.bg-purple-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(139 80 164 / var(--tw-bg-opacity));
+  background-color: rgb(119 80 141 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 91 0 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {
@@ -1868,16 +1846,16 @@ video {
   padding: 1rem;
 }
 
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
 .pl-8 {
   padding-left: 2rem;
 }
 
 .pt-1 {
   padding-top: 0.25rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 
 .text-left {
@@ -2012,9 +1990,14 @@ video {
   color: rgb(51 102 153 / .35);
 }
 
+.text-purple-100 {
+  --tw-text-opacity: 1;
+  color: rgb(223 151 245 / var(--tw-text-opacity));
+}
+
 .text-purple {
   --tw-text-opacity: 1;
-  color: rgb(139 80 164 / var(--tw-text-opacity));
+  color: rgb(188 91 230 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2239,7 +2222,7 @@ video {
 }
 
 .ring-offset-blue {
-  --tw-ring-offset-color: #1F4E7A;
+  --tw-ring-offset-color: #205283;
 }
 
 .blur {
@@ -2349,12 +2332,12 @@ video {
 
 a {
   --tw-text-opacity: 1;
-  color: rgb(77 156 214 / var(--tw-text-opacity));
+  color: rgb(91 167 223 / var(--tw-text-opacity));
 }
 
 a:hover {
   --tw-text-opacity: 1;
-  color: rgb(31 78 122 / var(--tw-text-opacity));
+  color: rgb(32 82 131 / var(--tw-text-opacity));
 }
 
 .header a {
@@ -2364,7 +2347,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(253 184 39 / var(--tw-text-opacity));
+  color: rgb(237 173 40 / var(--tw-text-opacity));
 }
 
 p, ul, ol {
@@ -2407,13 +2390,13 @@ body {
 .lcars-border {
   border-top-width: 4px;
   --tw-border-opacity: 1;
-  border-color: rgb(253 184 39 / var(--tw-border-opacity));
+  border-color: rgb(237 173 40 / var(--tw-border-opacity));
 }
 
 .lcars-panel {
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(229 81 29 / var(--tw-bg-opacity));
+  background-color: rgb(220 76 25 / var(--tw-bg-opacity));
   padding: 1rem;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2423,7 +2406,7 @@ body {
 .lcars-button {
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(216 33 44 / var(--tw-bg-opacity));
+  background-color: rgb(209 20 20 / var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -2439,7 +2422,7 @@ body {
 
 .lcars-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(139 80 164 / var(--tw-bg-opacity));
+  background-color: rgb(188 91 230 / var(--tw-bg-opacity));
 }
 
 .lcars-container-outer {
@@ -2460,6 +2443,72 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   padding: 1rem;
+}
+
+.lcars-top-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.lcars-top-border::before {
+  height: 0.5rem;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to right,
+                                  transparent 0%, transparent 20%,
+                                  #000000 20%, #000000 21%,
+                                  transparent 21%, transparent 22%,
+                                  #000000 22%, #000000 23%,
+                                  transparent 23%, transparent 40%,
+                                  #000000 40%, #000000 41%,
+                                  transparent 41%, transparent 42%,
+                                  #000000 42%, #000000 43%,
+                                  transparent 43%, transparent 60%,
+                                  #000000 60%, #000000 61%,
+                                  transparent 61%, transparent 62%,
+                                  #000000 62%, #000000 63%,
+                                  transparent 63%, transparent 80%,
+                                  #000000 80%, #000000 81%,
+                                  transparent 81%, transparent 82%,
+                                  #000000 82%, #000000 83%,
+                                  transparent 83%, #000000 100%);
+  background-size: 100% 100%;
+}
+
+.lcars-bottom-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.lcars-bottom-border::before {
+  height: 0.5rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to right,
+                                  transparent 0%, transparent 22%,
+                                  #000000 22%, #000000 23%,
+                                  transparent 23%, transparent 24%,
+                                  #000000 24%, #000000 25%,
+                                  transparent 25%, transparent 42%,
+                                  #000000 42%, #000000 43%,
+                                  transparent 43%, transparent 44%,
+                                  #000000 44%, #000000 45%,
+                                  transparent 45%, transparent 62%,
+                                  #000000 62%, #000000 63%,
+                                  transparent 63%, transparent 64%,
+                                  #000000 64%, #000000 65%,
+                                  transparent 65%, transparent 82%,
+                                  #000000 82%, #000000 83%,
+                                  transparent 83%, transparent 84%,
+                                  #000000 84%, #000000 85%,
+                                  transparent 85%, #000000 100%);
+  background-size: 100% 100%;
 }
 
 @media (min-width: 640px) {

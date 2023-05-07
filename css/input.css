@@ -69,3 +69,69 @@ body {
 .lcars-container-inner {
   @apply p-4 rounded-tl-lg bg-black;
 }
+
+.lcars-top-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.lcars-top-border::before {
+  @apply h-2;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to right,
+                                  transparent 0%, transparent 20%,
+                                  #000000 20%, #000000 21%,
+                                  transparent 21%, transparent 22%,
+                                  #000000 22%, #000000 23%,
+                                  transparent 23%, transparent 40%,
+                                  #000000 40%, #000000 41%,
+                                  transparent 41%, transparent 42%,
+                                  #000000 42%, #000000 43%,
+                                  transparent 43%, transparent 60%,
+                                  #000000 60%, #000000 61%,
+                                  transparent 61%, transparent 62%,
+                                  #000000 62%, #000000 63%,
+                                  transparent 63%, transparent 80%,
+                                  #000000 80%, #000000 81%,
+                                  transparent 81%, transparent 82%,
+                                  #000000 82%, #000000 83%,
+                                  transparent 83%, #000000 100%);
+  background-size: 100% 100%;
+}
+
+.lcars-bottom-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.lcars-bottom-border::before {
+  @apply h-2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to right,
+                                  transparent 0%, transparent 22%,
+                                  #000000 22%, #000000 23%,
+                                  transparent 23%, transparent 24%,
+                                  #000000 24%, #000000 25%,
+                                  transparent 25%, transparent 42%,
+                                  #000000 42%, #000000 43%,
+                                  transparent 43%, transparent 44%,
+                                  #000000 44%, #000000 45%,
+                                  transparent 45%, transparent 62%,
+                                  #000000 62%, #000000 63%,
+                                  transparent 63%, transparent 64%,
+                                  #000000 64%, #000000 65%,
+                                  transparent 65%, transparent 82%,
+                                  #000000 82%, #000000 83%,
+                                  transparent 83%, transparent 84%,
+                                  #000000 84%, #000000 85%,
+                                  transparent 85%, #000000 100%);
+   background-size: 100% 100%;
+}
