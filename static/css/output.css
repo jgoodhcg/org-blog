@@ -1781,6 +1781,10 @@ video {
   background-color: rgb(134 91 0 / var(--tw-bg-opacity));
 }
 
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2608,6 +2612,36 @@ body {
       max-width: 1536px;
     }
   }
+}
+
+.hover\:bg-purple:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 91 230 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-purple-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(223 151 245 / var(--tw-bg-opacity));
+}
+
+.hover\:from-purple-900:hover {
+  --tw-gradient-from: #77508D var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(119 80 141 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to-position:  ;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.hover\:via-purple:hover {
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(188 91 230 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+  --tw-gradient-stops: var(--tw-gradient-from), #BC5BE6 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.hover\:to-purple-900:hover {
+  --tw-gradient-to: #77508D var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
 }
 
 .hover\:font-bold:hover {
