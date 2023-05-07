@@ -39,8 +39,12 @@
                     "I care about addressing the climate crisis, promoting socialism, advocating for abolition, and advancing longevity research. "
                     "Welcome to my website, where I share my work, interests, and values. "
                     )]]]
-         [:div.pt-1.pl-8.md:pl-32.mt-2.rounded-tl-3xl.bg-purple-900.lcars-bottom-border
-          [:div.p-4.rounded-tl-lg.bg-black
+         [:div.pt-1.mt-2.w-full.rounded-tl-3xl.bg-purple-900.flex.flex-row.lcars-bottom-border
+          [:div.py-4.w-8.md:w-48
+           [:div.px-4.hidden.md:block.border-t-2.border-black "side panel content here"]
+           [:div.px-4.hidden.md:block.border-t-2.border-black "side panel content here"]
+           [:div.px-4.hidden.md:block.border-t-2.border-black "side panel content here"]]
+          [:div.p-4.w-full.rounded-tl-lg.bg-black
            [:h2.text-purple "Whatever"]
            [:a {:href "posts/hello-world"} "hello world post"]
            ]]]
