@@ -26,17 +26,24 @@
        [:body
         [:header
          [:nav]]
-        [:main.content-container ; Use semantic HTML tags
-         [:h1 "Welcome to Jgood Blog"]
-         [:p (str "I'm Justin Good, a full stack software engineer with a wide range of interests and skills. "
-                  "My professional experience mainly revolves around web applications "
-                  "and mobile development using React Native on Expo, with a focus on writing Clojure code. "
-                  "When I step away from the keyboard, "
-                  "I enjoy transforming my lawn into a food forest and a biodiversity haven, doodling cartoons, "
-                  "delving into sci-fi novels, and immersing myself in ancient history and anthropology through audio-books. "
-                  "I care about addressing the climate crisis, promoting socialism, advocating for abolition, and advancing longevity research. "
-                  "Welcome to my website, where I share my work, interests, and values. "
-                  )]]
+        [:main
+         [:div.pb-1.pl-8.md:pl-32.rounded-bl-3xl.bg-yellow
+          [:div.p-4.rounded-bl-lg.bg-black
+           [:h1 "Jgood Blog"]
+           [:p (str "I'm Justin Good, a full stack software engineer with a wide range of interests and skills. "
+                    "My professional experience mainly revolves around web applications "
+                    "and mobile development using React Native on Expo, with a focus on writing Clojure code. "
+                    "When I step away from the keyboard, "
+                    "I enjoy transforming my lawn into a food forest and a biodiversity hotspot, doodling cartoons, "
+                    "reading sci-fi novels, and listening to audiobooks on ancient history to fall asleep. "
+                    "I care about addressing the climate crisis, promoting socialism, advocating for abolition, and advancing longevity research. "
+                    "Welcome to my website, where I share my work, interests, and values. "
+                    )]]]
+         [:div.pt-1.pl-8.md:pl-32.mt-2.rounded-tl-3xl.bg-purple
+          [:div.p-4.rounded-tl-lg.bg-black
+           [:h2.text-purple "Whatever"]
+           [:a {:href "posts/hello-world"} "hello world post"]
+           ]]]
         [:footer]]]
       html
       (->> (spit "./static/index.html"))))

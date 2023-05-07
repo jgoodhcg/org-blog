@@ -9,6 +9,7 @@
   {"html" "text/html"
    "css"  "text/css"
    "js"   "application/javascript"
+   "svg"  "image/svg+xml"
    ;; Add other content types as needed
    })
 
