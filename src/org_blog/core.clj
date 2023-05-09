@@ -33,7 +33,7 @@
 (when (nil? @dev-server/source-watchers)
   (reset! dev-server/source-watchers
           (dev-server/watch-source-files
-           ["src"]
+           ["src" "posts"]
            (fn [ctx e]
              (when (= (:kind e) :modify)
                (println "File modified:" (:file e))

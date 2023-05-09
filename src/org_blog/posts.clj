@@ -12,7 +12,10 @@
 (defn full-path [rel-path]
   (-> (java.io.File. rel-path) (.getCanonicalFile)))
 
-(defn org-to-html [org-file]
+(defn org-to-html
+  "Requires at least pandoc 3.1.2"
+  [org-file]
+
   (let [absolute-org-file  (full-path org-file)
         toc-template-path  (full-path "./src/org_blog/pandoc-template-toc.html")
         body-template-path (full-path "./src/org_blog/pandoc-template-body.html")
@@ -50,9 +53,9 @@
 
 
 (defn post-page-hiccup [[toc-string body-string]]
-  (let [parsed-toc (hickory/parse-fragment toc-string)
+  (let [parsed-toc  (hickory/parse-fragment toc-string)
         parsed-body (hickory/parse-fragment body-string)
-        hiccup-toc (->> parsed-toc (map hickory/as-hiccup))
+        hiccup-toc  (->> parsed-toc (map hickory/as-hiccup))
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
      [:head
@@ -70,7 +73,9 @@
                 :referrerpolicy "no-referrer"}]
       [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
                 :crossorigin    "anonymous"
-                :referrerpolicy "no-referrer"}]]
+                :referrerpolicy "no-referrer"}]
+      [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
+      [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]]
 
      [:body
       [:header

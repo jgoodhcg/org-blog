@@ -1,4 +1,4 @@
-{:paths ["src"]
+{:paths ["src" "posts"]
  :deps
  {http-kit/http-kit                       {:mvn/version "2.7.0-beta2"}
   hawk/hawk                               {:mvn/version "0.2.11"}
