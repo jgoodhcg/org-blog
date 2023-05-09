@@ -657,11 +657,6 @@ video {
   clear: none;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -765,28 +760,12 @@ video {
   display: none;
 }
 
-.w-12 {
-  width: 3rem;
-}
-
 .w-8 {
   width: 2rem;
 }
 
 .w-full {
   width: 100%;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.max-w-md {
-  max-width: 28rem;
-}
-
-.max-w-sm {
-  max-width: 24rem;
 }
 
 .flex-shrink {
@@ -1635,10 +1614,6 @@ video {
   border-bottom-left-radius: 0.25rem;
 }
 
-.rounded-bl-3xl {
-  border-bottom-left-radius: 1.5rem;
-}
-
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
 }
@@ -1667,10 +1642,6 @@ video {
   border-top-left-radius: 0.25rem;
 }
 
-.rounded-tl-3xl {
-  border-top-left-radius: 1.5rem;
-}
-
 .rounded-tl-lg {
   border-top-left-radius: 0.5rem;
 }
@@ -1691,11 +1662,6 @@ video {
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
-}
-
-.border-y-2 {
-  border-top-width: 2px;
-  border-bottom-width: 2px;
 }
 
 .border-b {
@@ -1753,12 +1719,6 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
-.border-y-black {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(0 0 0 / var(--tw-border-opacity));
-  border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
@@ -1899,18 +1859,9 @@ video {
   padding: 1rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .pb-1 {
@@ -1923,6 +1874,10 @@ video {
 
 .pt-1 {
   padding-top: 0.25rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-left {
@@ -2055,11 +2010,6 @@ video {
 
 .text-\[\#336699\]\/\[\.35\] {
   color: rgb(51 102 153 / .35);
-}
-
-.text-purple-100 {
-  --tw-text-opacity: 1;
-  color: rgb(223 151 245 / var(--tw-text-opacity));
 }
 
 .text-purple {
@@ -2515,6 +2465,13 @@ body {
 .lcars-top-border {
   position: relative;
   overflow: hidden;
+  border-bottom-left-radius: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .lcars-top-border {
+    border-bottom-left-radius: 5rem;
+  }
 }
 
 .lcars-top-border::before {
@@ -2548,6 +2505,13 @@ body {
 .lcars-bottom-border {
   position: relative;
   overflow: hidden;
+  border-top-left-radius: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .lcars-bottom-border {
+    border-top-left-radius: 5rem;
+  }
 }
 
 .lcars-bottom-border::before {
@@ -2558,23 +2522,23 @@ body {
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 22%,
-                                  #000000 22%, #000000 23%,
-                                  transparent 23%, transparent 24%,
-                                  #000000 24%, #000000 25%,
-                                  transparent 25%, transparent 42%,
-                                  #000000 42%, #000000 43%,
-                                  transparent 43%, transparent 44%,
-                                  #000000 44%, #000000 45%,
-                                  transparent 45%, transparent 62%,
-                                  #000000 62%, #000000 63%,
-                                  transparent 63%, transparent 64%,
-                                  #000000 64%, #000000 65%,
-                                  transparent 65%, transparent 82%,
-                                  #000000 82%, #000000 83%,
-                                  transparent 83%, transparent 84%,
-                                  #000000 84%, #000000 85%,
-                                  transparent 85%, #000000 100%);
+                                  transparent 0%, transparent 32%,
+                                  #000000 32%, #000000 33%,
+                                  transparent 33%, transparent 34%,
+                                  #000000 34%, #000000 35%,
+                                  transparent 35%, transparent 52%,
+                                  #000000 52%, #000000 53%,
+                                  transparent 53%, transparent 54%,
+                                  #000000 54%, #000000 55%,
+                                  transparent 55%, transparent 72%,
+                                  #000000 72%, #000000 73%,
+                                  transparent 73%, transparent 74%,
+                                  #000000 74%, #000000 75%,
+                                  transparent 75%, transparent 92%,
+                                  #000000 92%, #000000 93%,
+                                  transparent 93%, transparent 94%,
+                                  #000000 94%, #000000 95%,
+                                  transparent 95%, #000000 100%);
   background-size: 100% 100%;
 }
 
@@ -2612,11 +2576,6 @@ body {
       max-width: 1536px;
     }
   }
-}
-
-.hover\:bg-purple:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(188 91 230 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-purple-100:hover {
@@ -2677,28 +2636,12 @@ body {
     display: block;
   }
 
-  .md\:w-32 {
-    width: 8rem;
-  }
-
-  .md\:w-40 {
-    width: 10rem;
-  }
-
-  .md\:w-36 {
-    width: 9rem;
-  }
-
   .md\:w-48 {
     width: 12rem;
   }
 
-  .md\:max-w-sm {
-    max-width: 24rem;
-  }
-
-  .md\:pl-32 {
-    padding-left: 8rem;
+  .md\:pl-40 {
+    padding-left: 10rem;
   }
 }
 

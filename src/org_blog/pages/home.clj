@@ -27,7 +27,7 @@
         [:header
          [:nav]]
         [:main
-         [:div.pb-1.pl-8.md:pl-32.rounded-bl-3xl.bg-yellow-900.lcars-top-border.
+         [:div.pb-1.pl-8.md:pl-40.bg-yellow-900.lcars-top-border
           [:div.p-4.rounded-bl-lg.bg-black
            [:h1 "Jgood Blog"]
            [:p (str "I'm Justin Good, a full stack software engineer with a wide range of interests and skills. "
@@ -39,8 +39,8 @@
                     "I care about addressing the climate crisis, promoting socialism, advocating for abolition, and advancing longevity research. "
                     "Welcome to my website, where I share my work, interests, and values. "
                     )]]]
-         [:div.pt-1.mt-2.w-full.rounded-tl-3xl.bg-purple-900.flex.flex-row.lcars-bottom-border
-          [:div.py-4.w-8.md:w-48.bg-gradient-to-b.hover:from-purple-900.hover:to-purple-900.hover:via-purple
+         [:div.pt-1.mt-2.w-full.bg-purple-900.flex.flex-row.lcars-bottom-border
+          [:div.pt-8.w-8.md:w-48.bg-gradient-to-b.hover:from-purple-900.hover:to-purple-900.hover:via-purple
            (for [i (-> (range 25))]
              [:div.px-4.hidden.md:block.border-t-2.border-black.hover:bg-purple-100 "side panel content here"])]
           [:div.p-4.w-full.rounded-tl-lg.bg-black
