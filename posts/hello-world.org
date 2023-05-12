@@ -4,10 +4,10 @@
 * This is a top-level heading!
 ** This is a second-level heading
 *** This is a third-level heading
-
-#+OPTIONS: toc:3 num:nil
-
-* Lists
+**** 4h
+***** 5th
+****** 6th
+** Lists
 - Unordered list item 1
 - Unordered list item 2
   - Nested unordered list item 1
@@ -20,7 +20,7 @@
    2. Nested ordered list item 2
 3. Another ordered list item
 
-* Text Formatting
+** Text Formatting
 /Italic text/
 *Bold text*
 _underlined text_
@@ -28,41 +28,41 @@ _underlined text_
 +strikethrough text+
 ~code text~
 
-* Hyperlinks
+** Hyperlinks
 - External link: [[https://www.example.com][Example Website]]
 - Internal link: [[*Text Formatting][Text Formatting section]]
 
-* Footnotes
+** Footnotes
 This is an example of a footnote[fn:1].
 
 [fn:1] This is the footnote text.
 
-* Images
+** Images
 [[file:image.jpg]]
 
-* Tables
+** Tables
 | Header 1 | Header 2 | Header 3 |
 |----------+----------+----------|
 | Cell 1   | Cell 2   | Cell 3   |
 | Cell 4   | Cell 5   | Cell 6   |
 
-* Source Code Blocks
+** Source Code Blocks
 #+BEGIN_SRC python
 def hello_world():
     print("Hello, world!")
 hello_world()
 #+END_SRC
 
-* Blockquotes
+** Blockquotes
 #+BEGIN_QUOTE
 This is a blockquote.
 - Author Name
 #+END_QUOTE
 
-* Horizontal Rule
+** Horizontal Rule
 -----
 
-* LaTeX Equations
+** LaTeX Equations
 Inline equation: \(E = mc^2\)
 
 Display equation:
@@ -72,19 +72,19 @@ Display equation:
 {1+\frac{e^{-8\pi}} {1+\cdots} } } }
 \]
 
-* Drawers
+** Drawers
 :PROPERTIES:
 :custom_id: example_drawer
 :END:
 
-* TODO Items
+** TODO Items
 - [ ] Task 1
 - [X] Task 2
 - [ ] Task 3
 
-* Tags
+** Tags
 :tag1:tag2:
 
-* Schedule and Deadline
+** Schedule and Deadline
   DEADLINE: <2023-05-01 Mon>
   SCHEDULED: <2023-04-29 Sat>
