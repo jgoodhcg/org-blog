@@ -21,15 +21,15 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold mb-2;
+  @apply font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-b;
 }
 
-h1 { @apply text-green-100 text-4xl mb-4; }
-h2 { @apply text-purple-100 text-3xl; }
-h3 { @apply text-cyan-100 text-2xl; }
-h4 { @apply text-red-100 text-xl; }
-h5 { @apply text-red-100 text-lg; }
-h6 { @apply text-red-100 text-base; }
+h1 { @apply from-green-100 to-cyan-100 text-4xl mb-4; }
+h2 { @apply from-purple-100 to-pink-100 text-3xl; }
+h3 { @apply from-cyan-100 to-green-100 text-2xl; }
+h4 { @apply from-red-100  to-pink-100 text-xl; }
+h5 { @apply from-red-100  to-pink text-lg; }
+h6 { @apply from-red-100 to-pink-900 text-base; }
 
 p, ul, ol {
   @apply text-white mb-2;
