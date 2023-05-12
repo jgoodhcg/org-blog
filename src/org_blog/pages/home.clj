@@ -1,8 +1,10 @@
 (ns org-blog.pages.home
   (:require
+   [clojure.java.io :as io]
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
-   [hiccup.page :refer [include-css]]))
+   [hiccup.page :refer [include-css]]
+   [org-blog.posts :as posts]))
 
 (defn gen-home []
   (-> "Generating home (index) page" c/blue println)
@@ -30,21 +32,24 @@
          [:div.lcars-top-border.lcars-border-green
           [:div.p-4.rounded-bl-lg.bg-black
            [:h1 "Jgood Blog"]
-           [:p (str "👋🏻 Greetings, fellow Earthling, I am Justin Good. "
-                 "Capitalism dictates my identity so the most relevant thing about me is that I work as a "
-                 "full stack software engineer. "
-                 "I've specialized in web and mobile application development "
-                 "with a recent focus in Clojure. "
-                 "If you are interested, here is ")
-            [:a {:href "/resume"} "my resume."]]]]
+           [:p "Intro here"]]]
          [:div.lcars-bottom-border.lcars-border-purple
           [:div.pt-8.w-8.md:w-48
-           (for [i (-> (range 25))]
-             [:div.px-4.hidden.md:block.border-t-2.border-black.hover:bg-purple-100
-              "side panel content here"])]
+           ]
           [:div.p-4.w-full.rounded-tl-lg.bg-black
-           [:h2 "Whatever"]
-           [:a {:href "posts/hello-world"} "hello world post"]
+           [:h2 "Things I've got going on"]
+           [:p "More stuff maybe"]
+           [:h2 "Blog posts"]
+           [:ul.flex.flex-col
+            (->> posts/org-dir
+                 io/file
+                 file-seq
+                 (filter #(re-matches #".*\.org" (.getName %)))
+                 (sort)
+                 (map #(str (.getCanonicalPath %)))
+                 (map (fn [org-file]
+                        (let [post-name (posts/get-org-file-name org-file)]
+                          [:a {:href (str "/posts/" post-name)} post-name]))))]
            ]]]
         [:footer]]]
       html

@@ -51,7 +51,6 @@
        node))
    hiccup))
 
-
 (defn post-page-hiccup [[toc-string body-string]]
   (let [parsed-toc  (hickory/parse-fragment toc-string)
         parsed-body (hickory/parse-fragment body-string)
@@ -93,22 +92,27 @@
   (ensure-directories-exist path)
   (spit path content))
 
+(defn get-org-file-name [org-file]
+  (str (-> org-file
+           (java.io.File.)
+           (.getName)
+           (clojure.string/replace #"\.org$" ""))))
+
 (defn gen-post [org-file out-dir]
   (let [post (->> org-file
                   org-to-html
                   post-page-hiccup
                   html)
-        post-name (str (-> org-file
-                           (java.io.File.)
-                           (.getName)
-                           (clojure.string/replace #"\.org$" "")))
+        post-name (get-org-file-name org-file)
         post-file-path (str out-dir "/" post-name "/index.html")]
     (spit-with-path post-file-path post)))
 
+(def org-dir "./posts")
+
+(def out-dir "./static/posts")
+
 (defn gen-posts []
-  (let [org-dir "./posts"
-        out-dir "./static/posts"]
-    (-> "Generating posts..." c/blue println)
+  (-> "Generating posts..." c/blue println)
     (-> out-dir io/file .mkdirs)
     (let [org-files (->> org-dir
                          io/file
@@ -118,4 +122,4 @@
       (doseq [org-file org-files]
         (-> "  Generating html for  " (str org-file) c/blue println)
         (gen-post org-file out-dir)))
-    (-> "Done!" c/blue println)))
+    (-> "Done!" c/blue println))
