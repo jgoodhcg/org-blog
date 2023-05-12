@@ -9,11 +9,11 @@
 }
 
 a {
-  @apply text-light-blue;
+  @apply text-cyan;
 }
 
 a:hover {
-  @apply text-blue;
+  @apply text-cyan-100;
 }
 
 .header a {
@@ -21,11 +21,18 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-yellow font-bold;
+  @apply font-bold mb-2;
 }
 
+h1 { @apply text-green-100 text-4xl mb-4; }
+h2 { @apply text-purple-100 text-3xl; }
+h3 { @apply text-cyan-100 text-2xl; }
+h4 { @apply text-red-100 text-xl; }
+h5 { @apply text-red-100 text-lg; }
+h6 { @apply text-red-100 text-base; }
+
 p, ul, ol {
-  @apply text-white;
+  @apply text-white mb-2;
 }
 
 .archive ul {
@@ -51,7 +58,7 @@ body {
 }
 
 .lcars-panel {
-  @apply bg-orange p-4 rounded-lg shadow-lg;
+  @apply bg-purple p-4 rounded-lg shadow-lg;
 }
 
 .lcars-button {
@@ -71,6 +78,7 @@ body {
 }
 
 .lcars-top-border {
+  @apply bg-gradient-to-b pb-1 pl-8 md:pl-40;
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 2rem;
@@ -83,34 +91,47 @@ body {
 }
 
 .lcars-top-border::before {
-  @apply h-2;
+  @apply h-1;
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 20%,
-                                  #000000 20%, #000000 21%,
-                                  transparent 21%, transparent 22%,
-                                  #000000 22%, #000000 23%,
-                                  transparent 23%, transparent 40%,
-                                  #000000 40%, #000000 41%,
-                                  transparent 41%, transparent 42%,
-                                  #000000 42%, #000000 43%,
-                                  transparent 43%, transparent 60%,
-                                  #000000 60%, #000000 61%,
-                                  transparent 61%, transparent 62%,
-                                  #000000 62%, #000000 63%,
-                                  transparent 63%, transparent 80%,
-                                  #000000 80%, #000000 81%,
-                                  transparent 81%, transparent 82%,
-                                  #000000 82%, #000000 83%,
-                                  transparent 83%, #000000 100%);
+                                  transparent 0%, transparent 15%,
+                                  #B967FF 15%, #B967FF 16%,
+                                  transparent 16%, transparent 18%,
+                                  #000000 18%, #000000 19%, /* Black Section */
+                                  #05FFA1 19%, #05FFA1 20%,
+                                  rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 21%, /* Fade to Black Section */
+                                  #01CDFE 21%, #01CDFE 22%,
+                                  transparent 22%, transparent 37%,
+                                  #B967FF 37%, #B967FF 38%,
+                                  transparent 38%, transparent 40%,
+                                  #000000 40%, #000000 41%, /* Black Section */
+                                  #05FFA1 41%, #05FFA1 42%,
+                                  rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.5) 43%, /* Fade to Black Section */
+                                  #01CDFE 43%, #01CDFE 44%,
+                                  transparent 44%, transparent 59%,
+                                  #B967FF 59%, #B967FF 60%,
+                                  transparent 60%, transparent 62%,
+                                  #000000 62%, #000000 63%, /* Black Section */
+                                  #05FFA1 63%, #05FFA1 64%,
+                                  rgba(0, 0, 0, 0.5) 64%, rgba(0, 0, 0, 0.5) 65%, /* Fade to Black Section */
+                                  #01CDFE 65%, #01CDFE 66%,
+                                  transparent 66%, transparent 81%,
+                                  #B967FF 81%, #B967FF 82%,
+                                  transparent 82%, transparent 84%,
+                                  #000000 84%, #000000 85%, /* Black Section */
+                                  #05FFA1 85%, #05FFA1 86%,
+                                  rgba(0, 0, 0, 0.5) 86%, rgba(0, 0, 0, 0.5) 87%, /* Fade to Black Section */
+                                  #01CDFE 87%, #01CDFE 88%,
+                                  transparent 88%, #000000 100%);
   background-size: 100% 100%;
 }
 
 .lcars-bottom-border {
+  @apply bg-gradient-to-t pt-1 mt-2 w-full flex flex-row;
   position: relative;
   overflow: hidden;
   border-top-left-radius: 2rem;
@@ -122,29 +143,41 @@ body {
   }
 }
 .lcars-bottom-border::before {
-  @apply h-2;
+  @apply h-1;
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 32%,
-                                  #000000 32%, #000000 33%,
-                                  transparent 33%, transparent 34%,
-                                  #000000 34%, #000000 35%,
-                                  transparent 35%, transparent 52%,
-                                  #000000 52%, #000000 53%,
-                                  transparent 53%, transparent 54%,
-                                  #000000 54%, #000000 55%,
-                                  transparent 55%, transparent 72%,
-                                  #000000 72%, #000000 73%,
-                                  transparent 73%, transparent 74%,
-                                  #000000 74%, #000000 75%,
-                                  transparent 75%, transparent 92%,
-                                  #000000 92%, #000000 93%,
-                                  transparent 93%, transparent 94%,
-                                  #000000 94%, #000000 95%,
-                                  transparent 95%, #000000 100%);
+                                  transparent 0%, transparent 24%,
+                                  #B967FF 24%, #B967FF 26%,
+                                  transparent 11%, transparent 26%,
+                                  #05FFA1 26%, #05FFA1 27%,
+                                  transparent 27%, transparent 30%,
+                                  #000000 30%, #000000 31%, /* Black Section */
+                                  #01CDFE 31%, #01CDFE 32%,
+                                  transparent 32%, transparent 45%,
+                                  #B967FF 45%, #B967FF 46%,
+                                  transparent 46%, transparent 58%,
+                                  #05FFA1 58%, #05FFA1 59%,
+                                  rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.5) 60%, /* Fade to Black Section */
+                                  #01CDFE 60%, #01CDFE 61%,
+                                  transparent 61%, transparent 74%,
+                                  #B967FF 74%, #B967FF 75%,
+                                  transparent 75%, transparent 80%,
+                                  #000000 80%, #000000 81%, /* Black Section */
+                                  #05FFA1 81%, #05FFA1 82%,
+                                  rgba(0, 0, 0, 0.5) 82%, rgba(0, 0, 0, 0.5) 83%, /* Fade to Black Section */
+                                  #01CDFE 83%, #01CDFE 84%,
+                                  transparent 84%, #000000 100%);
    background-size: 100% 100%;
+}
+
+.lcars-border-green{
+  @apply from-black via-green-900 to-cyan-900;
+}
+
+.lcars-border-purple {
+  @apply from-black via-pink-900 to-purple-900;
 }

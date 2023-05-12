@@ -27,24 +27,23 @@
         [:header
          [:nav]]
         [:main
-         [:div.pb-1.pl-8.md:pl-40.bg-yellow-900.lcars-top-border
+         [:div.lcars-top-border.lcars-border-green
           [:div.p-4.rounded-bl-lg.bg-black
            [:h1 "Jgood Blog"]
-           [:p (str "I'm Justin Good, a full stack software engineer with a wide range of interests and skills. "
-                    "My professional experience mainly revolves around web applications "
-                    "and mobile development using React Native on Expo, with a focus on writing Clojure code. "
-                    "When I step away from the keyboard, "
-                    "I enjoy transforming my lawn into a food forest and a biodiversity hotspot, doodling cartoons, "
-                    "reading sci-fi novels, and listening to audiobooks on ancient history to fall asleep. "
-                    "I care about addressing the climate crisis, promoting socialism, advocating for abolition, and advancing longevity research. "
-                    "Welcome to my website, where I share my work, interests, and values. "
-                    )]]]
-         [:div.pt-1.mt-2.w-full.bg-purple-900.flex.flex-row.lcars-bottom-border
-          [:div.pt-8.w-8.md:w-48.bg-gradient-to-b.hover:from-purple-900.hover:to-purple-900.hover:via-purple
+           [:p (str "👋🏻 Greetings, fellow Earthling, I am Justin Good. "
+                 "Capitalism dictates my identity so the most relevant thing about me is that I work as a "
+                 "full stack software engineer. "
+                 "I've specialized in web and mobile application development "
+                 "with a recent focus in Clojure. "
+                 "If you are interested, here is ")
+            [:a {:href "/resume"} "my resume."]]]]
+         [:div.lcars-bottom-border.lcars-border-purple
+          [:div.pt-8.w-8.md:w-48
            (for [i (-> (range 25))]
-             [:div.px-4.hidden.md:block.border-t-2.border-black.hover:bg-purple-100 "side panel content here"])]
+             [:div.px-4.hidden.md:block.border-t-2.border-black.hover:bg-purple-100
+              "side panel content here"])]
           [:div.p-4.w-full.rounded-tl-lg.bg-black
-           [:h2.text-purple "Whatever"]
+           [:h2 "Whatever"]
            [:a {:href "posts/hello-world"} "hello world post"]
            ]]]
         [:footer]]]

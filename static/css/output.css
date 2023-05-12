@@ -1731,20 +1731,6 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-purple-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(119 80 141 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(134 91 0 / var(--tw-bg-opacity));
-}
-
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -1862,18 +1848,6 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-
-.pl-8 {
-  padding-left: 2rem;
-}
-
-.pt-1 {
-  padding-top: 0.25rem;
 }
 
 .pt-8 {
@@ -2010,11 +1984,6 @@ video {
 
 .text-\[\#336699\]\/\[\.35\] {
   color: rgb(51 102 153 / .35);
-}
-
-.text-purple {
-  --tw-text-opacity: 1;
-  color: rgb(188 91 230 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2238,10 +2207,6 @@ video {
   --tw-ring-inset: inset;
 }
 
-.ring-offset-blue {
-  --tw-ring-offset-color: #205283;
-}
-
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -2349,12 +2314,12 @@ video {
 
 a {
   --tw-text-opacity: 1;
-  color: rgb(91 167 223 / var(--tw-text-opacity));
+  color: rgb(1 205 254 / var(--tw-text-opacity));
 }
 
 a:hover {
   --tw-text-opacity: 1;
-  color: rgb(32 82 131 / var(--tw-text-opacity));
+  color: rgb(51 225 253 / var(--tw-text-opacity));
 }
 
 .header a {
@@ -2362,12 +2327,55 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
   font-weight: 700;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
   --tw-text-opacity: 1;
-  color: rgb(237 173 40 / var(--tw-text-opacity));
+  color: rgb(48 255 179 / var(--tw-text-opacity));
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(202 127 255 / var(--tw-text-opacity));
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(51 225 253 / var(--tw-text-opacity));
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 139 139 / var(--tw-text-opacity));
+}
+
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 139 139 / var(--tw-text-opacity));
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 139 139 / var(--tw-text-opacity));
 }
 
 p, ul, ol {
+  margin-bottom: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -2413,7 +2421,7 @@ body {
 .lcars-panel {
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(220 76 25 / var(--tw-bg-opacity));
+  background-color: rgb(185 103 255 / var(--tw-bg-opacity));
   padding: 1rem;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2423,7 +2431,7 @@ body {
 .lcars-button {
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(209 20 20 / var(--tw-bg-opacity));
+  background-color: rgb(255 107 107 / var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -2439,7 +2447,7 @@ body {
 
 .lcars-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(188 91 230 / var(--tw-bg-opacity));
+  background-color: rgb(185 103 255 / var(--tw-bg-opacity));
 }
 
 .lcars-container-outer {
@@ -2463,6 +2471,18 @@ body {
 }
 
 .lcars-top-border {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+  padding-bottom: 0.25rem;
+  padding-left: 2rem;
+}
+
+@media (min-width: 768px) {
+  .lcars-top-border {
+    padding-left: 10rem;
+  }
+}
+
+.lcars-top-border {
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 2rem;
@@ -2475,34 +2495,52 @@ body {
 }
 
 .lcars-top-border::before {
-  height: 0.5rem;
+  height: 0.25rem;
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 20%,
-                                  #000000 20%, #000000 21%,
-                                  transparent 21%, transparent 22%,
-                                  #000000 22%, #000000 23%,
-                                  transparent 23%, transparent 40%,
-                                  #000000 40%, #000000 41%,
-                                  transparent 41%, transparent 42%,
-                                  #000000 42%, #000000 43%,
-                                  transparent 43%, transparent 60%,
-                                  #000000 60%, #000000 61%,
-                                  transparent 61%, transparent 62%,
-                                  #000000 62%, #000000 63%,
-                                  transparent 63%, transparent 80%,
-                                  #000000 80%, #000000 81%,
-                                  transparent 81%, transparent 82%,
-                                  #000000 82%, #000000 83%,
-                                  transparent 83%, #000000 100%);
+                                  transparent 0%, transparent 15%,
+                                  #B967FF 15%, #B967FF 16%,
+                                  transparent 16%, transparent 18%,
+                                  #000000 18%, #000000 19%, /* Black Section */
+                                  #05FFA1 19%, #05FFA1 20%,
+                                  rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 21%, /* Fade to Black Section */
+                                  #01CDFE 21%, #01CDFE 22%,
+                                  transparent 22%, transparent 37%,
+                                  #B967FF 37%, #B967FF 38%,
+                                  transparent 38%, transparent 40%,
+                                  #000000 40%, #000000 41%, /* Black Section */
+                                  #05FFA1 41%, #05FFA1 42%,
+                                  rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.5) 43%, /* Fade to Black Section */
+                                  #01CDFE 43%, #01CDFE 44%,
+                                  transparent 44%, transparent 59%,
+                                  #B967FF 59%, #B967FF 60%,
+                                  transparent 60%, transparent 62%,
+                                  #000000 62%, #000000 63%, /* Black Section */
+                                  #05FFA1 63%, #05FFA1 64%,
+                                  rgba(0, 0, 0, 0.5) 64%, rgba(0, 0, 0, 0.5) 65%, /* Fade to Black Section */
+                                  #01CDFE 65%, #01CDFE 66%,
+                                  transparent 66%, transparent 81%,
+                                  #B967FF 81%, #B967FF 82%,
+                                  transparent 82%, transparent 84%,
+                                  #000000 84%, #000000 85%, /* Black Section */
+                                  #05FFA1 85%, #05FFA1 86%,
+                                  rgba(0, 0, 0, 0.5) 86%, rgba(0, 0, 0, 0.5) 87%, /* Fade to Black Section */
+                                  #01CDFE 87%, #01CDFE 88%,
+                                  transparent 88%, #000000 100%);
   background-size: 100% 100%;
 }
 
 .lcars-bottom-border {
+  margin-top: 0.5rem;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+  padding-top: 0.25rem;
   position: relative;
   overflow: hidden;
   border-top-left-radius: 2rem;
@@ -2515,31 +2553,59 @@ body {
 }
 
 .lcars-bottom-border::before {
-  height: 0.5rem;
+  height: 0.25rem;
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 32%,
-                                  #000000 32%, #000000 33%,
-                                  transparent 33%, transparent 34%,
-                                  #000000 34%, #000000 35%,
-                                  transparent 35%, transparent 52%,
-                                  #000000 52%, #000000 53%,
-                                  transparent 53%, transparent 54%,
-                                  #000000 54%, #000000 55%,
-                                  transparent 55%, transparent 72%,
-                                  #000000 72%, #000000 73%,
-                                  transparent 73%, transparent 74%,
-                                  #000000 74%, #000000 75%,
-                                  transparent 75%, transparent 92%,
-                                  #000000 92%, #000000 93%,
-                                  transparent 93%, transparent 94%,
-                                  #000000 94%, #000000 95%,
-                                  transparent 95%, #000000 100%);
+                                  transparent 0%, transparent 24%,
+                                  #B967FF 24%, #B967FF 26%,
+                                  transparent 11%, transparent 26%,
+                                  #05FFA1 26%, #05FFA1 27%,
+                                  transparent 27%, transparent 30%,
+                                  #000000 30%, #000000 31%, /* Black Section */
+                                  #01CDFE 31%, #01CDFE 32%,
+                                  transparent 32%, transparent 45%,
+                                  #B967FF 45%, #B967FF 46%,
+                                  transparent 46%, transparent 58%,
+                                  #05FFA1 58%, #05FFA1 59%,
+                                  rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.5) 60%, /* Fade to Black Section */
+                                  #01CDFE 60%, #01CDFE 61%,
+                                  transparent 61%, transparent 74%,
+                                  #B967FF 74%, #B967FF 75%,
+                                  transparent 75%, transparent 80%,
+                                  #000000 80%, #000000 81%, /* Black Section */
+                                  #05FFA1 81%, #05FFA1 82%,
+                                  rgba(0, 0, 0, 0.5) 82%, rgba(0, 0, 0, 0.5) 83%, /* Fade to Black Section */
+                                  #01CDFE 83%, #01CDFE 84%,
+                                  transparent 84%, #000000 100%);
   background-size: 100% 100%;
+}
+
+.lcars-border-green {
+  --tw-gradient-from: #000000 var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(5 214 142 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #05D68E var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #01B2D6 var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+}
+
+.lcars-border-purple {
+  --tw-gradient-from: #000000 var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(224 100 183 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #E064B7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #A355E2 var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
 }
 
 @media (min-width: 640px) {
@@ -2580,27 +2646,7 @@ body {
 
 .hover\:bg-purple-100:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(223 151 245 / var(--tw-bg-opacity));
-}
-
-.hover\:from-purple-900:hover {
-  --tw-gradient-from: #77508D var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(119 80 141 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-to-position:  ;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.hover\:via-purple:hover {
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to: rgb(188 91 230 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
-  --tw-gradient-stops: var(--tw-gradient-from), #BC5BE6 var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.hover\:to-purple-900:hover {
-  --tw-gradient-to: #77508D var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
+  background-color: rgb(202 127 255 / var(--tw-bg-opacity));
 }
 
 .hover\:font-bold:hover {
@@ -2638,10 +2684,6 @@ body {
 
   .md\:w-48 {
     width: 12rem;
-  }
-
-  .md\:pl-40 {
-    padding-left: 10rem;
   }
 }
 
