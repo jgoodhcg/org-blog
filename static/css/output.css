@@ -621,6 +621,10 @@ video {
   inset-inline-end: 0.25rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -655,6 +659,14 @@ video {
 
 .clear-none {
   clear: none;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .mt-2 {
@@ -760,12 +772,29 @@ video {
   display: none;
 }
 
-.w-8 {
-  width: 2rem;
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-60 {
+  width: 15rem;
 }
 
 .flex-shrink {
@@ -1580,6 +1609,10 @@ video {
   border-radius: 0.25rem;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded-b {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -1832,12 +1865,32 @@ video {
      object-fit: scale-down;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
+.p-72 {
+  padding: 18rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
+}
+
+.pl-72 {
+  padding-left: 18rem;
+}
+
+.pl-64 {
+  padding-left: 16rem;
+}
+
+.pl-60 {
+  padding-left: 15rem;
 }
 
 .text-left {
@@ -2487,16 +2540,6 @@ body {
 .lcars-top-border {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
   padding-bottom: 0.25rem;
-  padding-left: 2rem;
-}
-
-@media (min-width: 768px) {
-  .lcars-top-border {
-    padding-left: 10rem;
-  }
-}
-
-.lcars-top-border {
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 2rem;
@@ -2556,7 +2599,6 @@ body {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
   padding-top: 0.25rem;
   position: relative;
-  overflow: hidden;
   border-top-left-radius: 2rem;
 }
 
@@ -2687,8 +2729,8 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:w-48 {
-    width: 12rem;
+  .md\:pl-40 {
+    padding-left: 10rem;
   }
 }
 

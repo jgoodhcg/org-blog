@@ -34,6 +34,16 @@
       (do (println (str "Error(s):" [(:error toc-result) (:error body-result)]))
           nil))))
 
+(comment
+  (->> "./posts/2023-04-22-kitchen-sink.org"
+       org-to-html
+       first
+       hickory/parse-fragment
+       (map hickory/as-hiccup)
+       first
+       )
+  )
+
 (defn add-prism-class [hiccup]
   (walk/postwalk
    (fn [node]
@@ -78,9 +88,15 @@
 
      [:body
       [:header
-       hiccup-toc]
+       [:div.lcars-top-border.lcars-border-green.pl-60
+        [:div.bg-black.rounded-lg
+         [:p "yo"]]]]
       [:main
-       hiccup-body]
+       [:div.lcars-bottom-border.lcars-border-purple.h-fit
+        [:header.p-2.m-2.w-60.rounded-lg.mt-16.bg-black.h-fit.sticky.top-0
+         hiccup-toc]
+        [:div.p-4.w-full.rounded-tl-lg.bg-black.h-fit
+         hiccup-body]]]
       [:footer]]]))
 
 (defn ensure-directories-exist [path]
@@ -99,11 +115,11 @@
            (clojure.string/replace #"\.org$" ""))))
 
 (defn gen-post [org-file out-dir]
-  (let [post (->> org-file
-                  org-to-html
-                  post-page-hiccup
-                  html)
-        post-name (get-org-file-name org-file)
+  (let [post           (->> org-file
+                            org-to-html
+                            post-page-hiccup
+                            html)
+        post-name      (get-org-file-name org-file)
         post-file-path (str out-dir "/" post-name "/index.html")]
     (spit-with-path post-file-path post)))
 

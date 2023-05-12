@@ -29,13 +29,11 @@
         [:header
          [:nav]]
         [:main
-         [:div.lcars-top-border.lcars-border-green
+         [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
           [:div.p-4.rounded-bl-lg.bg-black
            [:h1 "Jgood Blog"]
            [:p "Intro here"]]]
-         [:div.lcars-bottom-border.lcars-border-purple
-          [:div.pt-8.w-8.md:w-48
-           ]
+         [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
           [:div.p-4.w-full.rounded-tl-lg.bg-black
            [:h2 "Things I've got going on"]
            [:p "More stuff maybe"]

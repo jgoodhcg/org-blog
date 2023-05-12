@@ -78,7 +78,7 @@ body {
 }
 
 .lcars-top-border {
-  @apply bg-gradient-to-b pb-1 pl-8 md:pl-40;
+  @apply bg-gradient-to-b pb-1;
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 2rem;
@@ -133,7 +133,6 @@ body {
 .lcars-bottom-border {
   @apply bg-gradient-to-t pt-1 mt-2 w-full flex flex-row;
   position: relative;
-  overflow: hidden;
   border-top-left-radius: 2rem;
 }
 
