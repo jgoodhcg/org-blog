@@ -27,14 +27,14 @@
         ]
        [:body
         [:header
-         [:nav]]
-        [:main
          [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
           [:div.p-4.rounded-bl-lg.bg-black
-           [:h1 "Jgood Blog"]
-           [:p "Intro here"]]]
+           [:a.text-xl {:href "/"} "something "]
+           [:a.text-xl {:href "/"} "other"]]]]
+        [:main
          [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
           [:div.p-4.w-full.rounded-tl-lg.bg-black
+           [:h1 "Jgood Blog"]
            [:h2 "Things I've got going on"]
            [:p "More stuff maybe"]
            [:h2 "Blog posts"]

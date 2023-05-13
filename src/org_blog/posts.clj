@@ -87,16 +87,18 @@
       [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]]
 
      [:body
-      [:header
-       [:div.lcars-top-border.lcars-border-green.pl-60
-        [:div.bg-black.rounded-lg
-         [:p "yo"]]]]
-      [:main
-       [:div.lcars-bottom-border.lcars-border-purple.h-fit
-        [:header.p-2.m-2.w-60.rounded-lg.mt-16.bg-black.h-fit.sticky.top-0
+      [:header.lg:pl-40.xl:pl-72
+       [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
+        [:div.p-4.rounded-bl-lg.bg-black
+         [:a.text-xl {:href "/"} "Home"]]]]
+      [:main.lg:pl-40.xl:pl-72
+       [:div.lcars-bottom-border.lcars-border-purple.h-fit.pl-8.md:pl-40
+        ;; No TOC for now, styling it is too difficult and my content probably won't be that long
+        #_[:header.p-2.m-2.w-60.rounded-lg.mt-16.bg-black.h-fit.sticky.top-0
          hiccup-toc]
         [:div.p-4.w-full.rounded-tl-lg.bg-black.h-fit
-         hiccup-body]]]
+         [:div.w-fit
+          hiccup-body]]]]
       [:footer]]]))
 
 (defn ensure-directories-exist [path]
