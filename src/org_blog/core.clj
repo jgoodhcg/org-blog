@@ -1,27 +1,22 @@
 (ns org-blog.core
   (:require
-   [clojure.java.io :as io]
-   [clojure.java.shell :as shell]
-   [clojure.string :refer [blank?] :as string]
    [clojure.term.colors :as c]
    [clojure.tools.namespace.repl :as ns-repl]
-   [clojure.walk :as walk]
-   [hiccup.core :refer [html]]
-   [hiccup.page :refer [include-css]]
-   [hickory.core :as hickory]
    [org-blog.dev-server :as dev-server]
-   [org-blog.pages.home :refer [gen-home]]
-   [org-blog.posts :refer [gen-posts]]
-   )
-  )
+   [org-blog.pages.archive :as archive]
+   [org-blog.pages.home :as home]
+   [org-blog.pages.resume :as resume]
+   [org-blog.posts :as posts]))
 
 (defn -main [& args]
   (println "I don't do anything yet")
   #_(System/exit 0))
 
 (defn regenerate-site []
-  (gen-home)
-  (gen-posts))
+  (archive/gen)
+  (home/gen)
+  (resume/gen)
+  (posts/gen))
 
 ;; Start dev server
 (when (nil? @dev-server/server-atom)
@@ -33,7 +28,7 @@
 (when (nil? @dev-server/source-watchers)
   (reset! dev-server/source-watchers
           (dev-server/watch-source-files
-           ["src" "posts"]
+           ["src" "posts" "pages"]
            (fn [ctx e]
              (when (= (:kind e) :modify)
                (println "File modified:" (:file e))
@@ -41,6 +36,12 @@
                ;; generates an error
                ;; By wrapping in future, by some magic, the function calls within are scheduled on the main thread
                (future
-                 (println "Refreshing repl ...")
-                 (ns-repl/refresh)
-                 (regenerate-site)))))))
+                 (try
+                   (println "Refreshing repl ...")
+                   (ns-repl/refresh)
+                   (println "Ahhhh, so refreshed!")
+                   (regenerate-site)
+                   (catch Exception e
+                     (when-not (and (instance? IllegalStateException e)
+                                    (.contains (.getMessage e) "Can't change/establish root binding of: *ns* with set"))
+                       (println "Error refreshing repl:" e))))))))))

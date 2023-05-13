@@ -1,0 +1,61 @@
+#+TITLE: Resume
+* Resume
+#+begin_quote
+I'm a full stack engineer and obsessive note taker!
+#+end_quote
+
+** Experience
+*** Lead Software Architect, Archemedx
+- 2022-08-28 - Present
+- Lead customer integration efforts as the main point of contact
+- Organized and conducted project management ceremonies
+- Set up a new paradigm (garden style knowledge graph) for documentation
+- Recruited for full-time developers and contractors
+- Diagnosed and solved intricate performance issues with aggregated data dashboards
+
+*** Senior Software Engineer, Archemedx
+- 2020-11-09 - 2022-08-28
+- Major contributor to a rewrite that converted RESTish backend to graph-based pathom
+- Lead an internationalization project utilizing tongue and message-format
+- Worked frequently with the product team scoping, defining, refining, and prioritizing projects and features
+- Some devops tasks involving cloud-formation cdk
+- Other notable tech:
+ #+begin_src markup
+clojurescript, lambda, dynamo-db, babashka, sqs, event-bridge, re-frame, code-pipeline
+ #+end_src
+
+*** Full Stack Developer, Gordon Food Service
+- 2018-05-14 - 2020-10-23
+- Lead development on Gordon Now, a mobile app, built with expo, react-native, redux, and redux-saga
+- Worked on automated and Live Chat support utilizing web-sockets, spring-boot, pub-sub, and dialog flow
+- Was a contributor and regular user of a git-ops style CI/CD process utilizing cloud-build, Jenkins, and Kubernetes
+- Other notable tech:
+ #+begin_src markup
+javascript, java, kotlin, gcp, gke, helm, my-sql, auto-ml, spring-boot, angular
+ #+end_src
+
+*** Software Developer, Tek Systems
+- 2017-05-11 - 2018-05-14
+- Targeted advertising service built with Drupal, supported a whole new revenue stream for the business
+- Extended an internal news site with features that improved engagement and scaled management of content
+- Other notable tech:
+#+begin_src markup
+php, javascript, jquery
+#+end_src
+
+*** Web Developer, One Stop Inc
+- 2016-02-18 - 2017-05-11
+- Automated initialization and failover for e-commerce and customer digital products platform that improved fault tolerance and system upgrading
+- Extended e-commerce application with features that improved the ordering process
+- Other notable tech:
+   #+begin_src markup
+javascript, jquery, bash, mongo-db, postgres, php, python
+   #+end_src
+
+*** IT Intern, City of Wyoming MI
+- 2015-05-19 - 2015-11-13
+- Developed an internal prototype application for automated work order recording that improved technology standard
+- Other notable tech:
+ #+begin_src markup
+php, javascript, jquery
+ #+end_src
