@@ -1,6 +1,7 @@
 (ns org-blog.pages.home
   (:require
    [clojure.java.io :as io]
+   [org-blog.common.components :as comps]
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
    [hiccup.page :refer [include-css]]
@@ -29,12 +30,16 @@
         [:header
          [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
           [:div.p-4.rounded-bl-lg.bg-black
-           [:a.text-xl {:href "/"} "something "]
-           [:a.text-xl {:href "/"} "other"]]]]
+           [:h1.text-4xl.font-bold.mb-2.bg-clip-text.text-transparent.bg-gradient-to-b.from-green-100.to-cyan-100
+            "JGood Blog"]
+           [:nav.flex.flex-col.md:flex-row
+            [:a.text-xl.font-bold.m-2 {:href "/"} "Home"]
+            [:a.text-xl.font-bold.m-2 {:href "/"} "Archive"]
+            [:a.text-xl.font-bold.m-2 {:href "/"} "Resume"]]]]]
+
         [:main
          [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
           [:div.p-4.w-full.rounded-tl-lg.bg-black
-           [:h1 "Jgood Blog"]
            [:h2 "Things I've got going on"]
            [:p "More stuff maybe"]
            [:h2 "Blog posts"]
@@ -44,11 +49,13 @@
                  file-seq
                  (filter #(re-matches #".*\.org" (.getName %)))
                  (sort)
+                 (take 5)
                  (map #(str (.getCanonicalPath %)))
                  (map (fn [org-file]
                         (let [post-name (posts/get-org-file-name org-file)]
                           [:a {:href (str "/posts/" post-name)} post-name]))))]
            ]]]
-        [:footer]]]
+        [:footer
+         [:p "I'll have something one day"]]]]
       html
       (->> (spit "./static/index.html"))))

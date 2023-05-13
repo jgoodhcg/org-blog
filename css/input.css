@@ -4,10 +4,6 @@
 @tailwind utilities;
 
 /* Customizations */
-.container {
-  @apply mx-auto px-4;
-}
-
 a {
   @apply text-cyan;
 }
@@ -44,43 +40,10 @@ body {
   @apply bg-black;
 }
 
-.content-container {
-  @apply m-4 p-8 rounded-lg shadow-lg text-white;
-}
-
 /* LCARS-inspired styling */
-.lcars-title {
-  @apply text-4xl uppercase tracking-wider;
-}
-
-.lcars-border {
-  @apply border-t-4 border-yellow;
-}
-
-.lcars-panel {
-  @apply bg-purple p-4 rounded-lg shadow-lg;
-}
-
-.lcars-button {
-  @apply bg-red text-white px-4 py-2 rounded-lg shadow-lg uppercase tracking-wider;
-}
-
-.lcars-button:hover {
-  @apply bg-purple;
-}
-
-.lcars-container-outer {
-  @apply pt-1 pl-8 md:pl-32 m-2 rounded-tl-3xl;
-}
-
-.lcars-container-inner {
-  @apply p-4 rounded-tl-lg bg-black;
-}
-
 .lcars-top-border {
   @apply bg-gradient-to-b pb-1;
   position: relative;
-  overflow: hidden;
   border-bottom-left-radius: 2rem;
 }
 
@@ -98,14 +61,14 @@ body {
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 15%,
-                                  #B967FF 15%, #B967FF 16%,
-                                  transparent 16%, transparent 18%,
-                                  #000000 18%, #000000 19%, /* Black Section */
-                                  #05FFA1 19%, #05FFA1 20%,
-                                  rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 21%, /* Fade to Black Section */
-                                  #01CDFE 21%, #01CDFE 22%,
-                                  transparent 22%, transparent 37%,
+                                  transparent 0%, transparent 25%,
+                                  #B967FF 25%, #B967FF 26%,
+                                  transparent 26%, transparent 28%,
+                                  #000000 28%, #000000 29%, /* Black Section */
+                                  #05FFA1 29%, #05FFA1 30%,
+                                  rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.5) 31%, /* Fade to Black Section */
+                                  #01CDFE 31%, #01CDFE 32%,
+                                  transparent 32%, transparent 37%,
                                   #B967FF 37%, #B967FF 38%,
                                   transparent 38%, transparent 40%,
                                   #000000 40%, #000000 41%, /* Black Section */
@@ -131,7 +94,7 @@ body {
 }
 
 .lcars-bottom-border {
-  @apply bg-gradient-to-t pt-1 mt-2 w-full flex flex-row;
+  @apply bg-gradient-to-t pt-1 mt-2 w-full;
   position: relative;
   border-top-left-radius: 2rem;
 }

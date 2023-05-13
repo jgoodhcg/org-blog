@@ -2,6 +2,7 @@
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
+   [org-blog.common.components :as comps]
    [clojure.string :refer [blank?] :as string]
    [clojure.term.colors :as c]
    [clojure.walk :as walk]
@@ -88,9 +89,7 @@
 
      [:body
       [:header.lg:pl-40.xl:pl-72
-       [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
-        [:div.p-4.rounded-bl-lg.bg-black
-         [:a.text-xl {:href "/"} "Home"]]]]
+       (comps/nav)]
       [:main.lg:pl-40.xl:pl-72
        [:div.lcars-bottom-border.lcars-border-purple.h-fit.pl-8.md:pl-40
         ;; No TOC for now, styling it is too difficult and my content probably won't be that long
