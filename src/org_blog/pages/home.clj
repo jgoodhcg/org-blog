@@ -26,24 +26,18 @@
         (include-css "./css/output.css")
         [:link {:rel "icon" :href "/path/to/favicon.ico"}] ;; TODO
         ]
-       [:body
+
+       [:body.container.md:mx-auto.md:max-w-screen-md.lg:max-w-screen-lg
         [:header
-         [:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
-          [:div.p-4.rounded-bl-lg.bg-black
-           [:h1.text-4xl.font-bold.mb-2.bg-clip-text.text-transparent.bg-gradient-to-b.from-green-100.to-cyan-100
-            "JGood Blog"]
-           [:nav.flex.flex-col.md:flex-row
-            [:a.text-xl.font-bold.m-2 {:href "/"} "Home"]
-            [:a.text-xl.font-bold.m-2 {:href "/"} "Archive"]
-            [:a.text-xl.font-bold.m-2 {:href "/"} "Resume"]]]]]
+         (comps/nav)]
 
         [:main
          [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
           [:div.p-4.w-full.rounded-tl-lg.bg-black
-           [:h2 "Things I've got going on"]
+           [:h1 "Things I've got going on"]
            [:p "More stuff maybe"]
-           [:h2 "Blog posts"]
-           [:ul.flex.flex-col
+           [:h2 "Recent writing"]
+           [:ul.grid.md:grid-cols-2.lg:grid-cols-4
             (->> posts/org-dir
                  io/file
                  file-seq
@@ -53,9 +47,8 @@
                  (map #(str (.getCanonicalPath %)))
                  (map (fn [org-file]
                         (let [post-name (posts/get-org-file-name org-file)]
-                          [:a {:href (str "/posts/" post-name)} post-name]))))]
-           ]]]
-        [:footer
-         [:p "I'll have something one day"]]]]
+                          [:a {:href (str "/posts/" post-name)} post-name]))))]]]]
+        [:footer]]
+]
       html
       (->> (spit "./static/index.html"))))

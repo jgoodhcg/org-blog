@@ -87,10 +87,10 @@
       [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
       [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]]
 
-     [:body
-      [:header.lg:pl-40.xl:pl-72
+     [:body.container.md:mx-auto.md:max-w-screen-md.lg:max-w-screen-lg
+      [:header
        (comps/nav)]
-      [:main.lg:pl-40.xl:pl-72
+      [:main
        [:div.lcars-bottom-border.lcars-border-purple.h-fit.pl-8.md:pl-40
         ;; No TOC for now, styling it is too difficult and my content probably won't be that long
         #_[:header.p-2.m-2.w-60.rounded-lg.mt-16.bg-black.h-fit.sticky.top-0
