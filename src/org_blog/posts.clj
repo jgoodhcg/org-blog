@@ -91,13 +91,14 @@
       [:header
        (comps/nav)]
       [:main
-       [:div.lcars-bottom-border.lcars-border-purple.h-fit.pl-8.md:pl-40
-        ;; No TOC for now, styling it is too difficult and my content probably won't be that long
-        #_[:header.p-2.m-2.w-60.rounded-lg.mt-16.bg-black.h-fit.sticky.top-0
+       [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
+        ;; TOC is hard
+        #_[:header.h-fit.sticky.top-0.absolute.right-0.bg-purple-900.rounded.mt-4
          hiccup-toc]
         [:div.p-4.w-full.rounded-tl-lg.bg-black.h-fit
          [:div.w-fit
           hiccup-body]]]]
+
       [:footer]]]))
 
 (defn ensure-directories-exist [path]

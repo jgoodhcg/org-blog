@@ -143,3 +143,25 @@ body {
 .lcars-border-purple {
   @apply from-black via-pink-900 to-purple-900;
 }
+
+/* Table of contents is hard */
+/* #table-of-contents a{ */
+/*   @apply text-black; */
+/* } */
+
+/* /\* h1 *\/ */
+/* #table-of-contents ul{ */
+/*   @apply mb-0 pl-1; */
+/* } */
+/* /\* h2 *\/ */
+/* #table-of-contents ul li ul{ */
+/*   @apply pl-2; */
+/* } */
+/* /\* h3 *\/ */
+/* #table-of-contents ul li ul{ */
+/*   @apply pl-3; */
+/* } */
+/* /\* h4 *\/ */
+/* #table-of-contents ul li ul{ */
+/*   @apply pl-4; */
+/* } */

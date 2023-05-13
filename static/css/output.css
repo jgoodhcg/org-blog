@@ -2570,6 +2570,46 @@ body {
   --tw-gradient-to-position:  ;
 }
 
+/* Table of contents is hard */
+
+/* #table-of-contents a{ */
+
+/*   @apply text-black; */
+
+/* } */
+
+/* /\* h1 *\/ */
+
+/* #table-of-contents ul{ */
+
+/*   @apply mb-0 pl-1; */
+
+/* } */
+
+/* /\* h2 *\/ */
+
+/* #table-of-contents ul li ul{ */
+
+/*   @apply pl-2; */
+
+/* } */
+
+/* /\* h3 *\/ */
+
+/* #table-of-contents ul li ul{ */
+
+/*   @apply pl-3; */
+
+/* } */
+
+/* /\* h4 *\/ */
+
+/* #table-of-contents ul li ul{ */
+
+/*   @apply pl-4; */
+
+/* } */
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
