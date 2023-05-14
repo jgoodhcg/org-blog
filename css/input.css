@@ -165,3 +165,47 @@ body {
 /* #table-of-contents ul li ul{ */
 /*   @apply pl-4; */
 /* } */
+
+blockquote {
+  @apply border-l-4 pl-4 my-4 italic bg-black border-cyan-900;
+}
+
+/* blockquote p { */
+/*   @apply text-purple; */
+/* } */
+
+table {
+  @apply w-full text-center mb-4 text-purple bg-black;
+}
+
+th {
+  @apply uppercase text-sm font-bold bg-gradient-to-b from-green-900 to-cyan-900 text-black border border-black;
+}
+
+td {
+  @apply border border-cyan p-2;
+}
+
+tr:nth-child(even) {
+}
+
+hr {
+  @apply border-none bg-gradient-to-r from-purple-900 via-pink-900 to-black h-1 my-4 rounded;
+}
+
+ul > li, ol > li {
+  @apply relative pl-6;
+}
+
+ul > li::before, ol > li::before {
+  content: '';
+  @apply w-2 h-2 rounded-full bg-gradient-to-r from-purple-900 to-pink absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Removes nested, might need to be removed in favor of explicit nesting levels */
+ul li *::before, ol li *::before {
+  content: none;
+}

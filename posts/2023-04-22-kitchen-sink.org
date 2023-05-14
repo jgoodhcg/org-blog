@@ -4,9 +4,11 @@
 * This is a top-level heading!
 ** This is a second-level heading
 *** This is a third-level heading
-**** 4h
-***** 5th
-****** 6th
+**** Fourth level
+***** Fifth level
+****** Sixth level
+******* Seventh level
+
 ** Lists
 - Unordered list item 1
 - Unordered list item 2

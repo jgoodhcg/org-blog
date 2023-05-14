@@ -2610,6 +2610,110 @@ body {
 
 /* } */
 
+blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(1 178 214 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+/* blockquote p { */
+
+/*   @apply text-purple; */
+
+/* } */
+
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(185 103 255 / var(--tw-text-opacity));
+}
+
+th {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+  --tw-gradient-from: #05D68E var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(5 214 142 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #01B2D6 var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+td {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(1 205 254 / var(--tw-border-opacity));
+  padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 0.25rem;
+  border-radius: 0.25rem;
+  border-style: none;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #A355E2 var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(163 85 226 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(224 100 183 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #E064B7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #000000 var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+}
+
+ul > li, ol > li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+ul > li::before, ol > li::before {
+  content: '';
+  position: absolute;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #A355E2 var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(163 85 226 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Removes nested, might need to be removed in favor of explicit nesting levels */
+
+ul li *::before, ol li *::before {
+  content: none;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

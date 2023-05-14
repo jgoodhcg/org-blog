@@ -34,7 +34,7 @@
                (println "File modified:" (:file e))
                ;; Calling `ns-repl/refresh` in another thread (hawk must run this handler in a another thread)
                ;; generates an error
-               ;; By wrapping in future, by some magic, the function calls within are scheduled on the main thread
+               ;; By wrapping in future, by some magic, the function calls within are scheduled on the main thread I guess
                (future
                  (try
                    (println "Refreshing repl ...")
@@ -43,5 +43,6 @@
                    (regenerate-site)
                    (catch Exception e
                      (when-not (and (instance? IllegalStateException e)
+                                    ;; Not sure why this error happens but the repl refreshes when it's thrown so I guess it doesn't matter
                                     (.contains (.getMessage e) "Can't change/establish root binding of: *ns* with set"))
                        (println "Error refreshing repl:" e))))))))))
