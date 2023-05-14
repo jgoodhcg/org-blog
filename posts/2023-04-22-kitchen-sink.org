@@ -22,6 +22,11 @@
    2. Nested ordered list item 2
 3. Another ordered list item
 
+*** One flat list
+- A
+- B
+- C
+- D
 ** Text Formatting
 /Italic text/
 *Bold text*
