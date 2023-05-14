@@ -4,5 +4,7 @@
   hawk/hawk                               {:mvn/version "0.2.11"}
   org.clojure/tools.namespace             {:mvn/version "1.4.4"}
   clojure-term-colors/clojure-term-colors {:mvn/version "0.1.0"}
+  org.clojure/data.xml                    {:mvn/version "0.0.8"}
   org.clj-commons/hickory                 {:mvn/version "0.7.3"}
+  metosin/potpuri                         {:mvn/version "0.5.3"}
   hiccup/hiccup                           {:mvn/version "1.0.5"}}}

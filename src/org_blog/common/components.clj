@@ -14,7 +14,8 @@
     [:nav.flex.flex-col.md:flex-row
      [:a.text-xl.font-bold.m-2 {:href "/"} "Home"]
      [:a.text-xl.font-bold.m-2 {:href "/archive"} "Archive"]
-     [:a.text-xl.font-bold.m-2 {:href "/resume"} "Resume"]]]])
+     [:a.text-xl.font-bold.m-2 {:href "/resume"} "Resume"]
+     [:a.text-xl.font-bold.m-2 {:href "/rss.xml"} "RSS"]]]])
 
 (defn head []
   [:head

@@ -6,7 +6,9 @@
    [org-blog.pages.archive :as archive]
    [org-blog.pages.home :as home]
    [org-blog.pages.resume :as resume]
-   [org-blog.posts :as posts]))
+   [org-blog.pages.rss :as rss]
+   [org-blog.posts :as posts]
+   ))
 
 (defn -main [& args]
   (println "I don't do anything yet")
@@ -16,6 +18,7 @@
   (home/gen)
   (archive/gen)
   (resume/gen)
+  (rss/gen)
   (posts/gen))
 
 ;; Start dev server
