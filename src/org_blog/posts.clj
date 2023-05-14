@@ -1,17 +1,27 @@
 (ns org-blog.posts
   (:require
    [clojure.java.io :as io]
-   [org-blog.common.components :as comps]
    [clojure.string :as string]
    [clojure.term.colors :as c]
+   [clojure.walk :as walk]
    [hiccup.core :refer [html]]
-   [org-blog.common.files :refer [spit-with-path
-                                  posts-org-dir
-                                  posts-out-dir]]
-   [org-blog.common.org :refer [org->html
-                                add-prism-class]]
    [hiccup.page :refer [include-css]]
-   [hickory.core :as hickory]))
+   [hickory.core :as hickory]
+   [org-blog.common.components :as comps]
+   [org-blog.common.files :refer [posts-org-dir posts-out-dir spit-with-path]]
+   [org-blog.common.org :refer [add-prism-class org->html]]))
+
+(defn get-a-elements
+  [form]
+  (if (and (coll? form) (= :a (first form)))
+    [form]
+    (if (coll? form)
+      (apply concat (map get-a-elements form))
+      [])))
+
+(defn get-links-from-toc
+  [toc]
+  (get-a-elements toc))
 
 (comment
   (->> "./posts/2023-04-22-kitchen-sink.org"
@@ -20,13 +30,23 @@
        hickory/parse-fragment
        (map hickory/as-hiccup)
        first
+       get-links-from-toc
+       (cons {:id "toc"})
+       (cons :ul)
+       vec
        )
   )
 
 (defn post-page-hiccup [[toc-string body-string]]
   (let [parsed-toc  (hickory/parse-fragment toc-string)
         parsed-body (hickory/parse-fragment body-string)
-        hiccup-toc  (->> parsed-toc (map hickory/as-hiccup))
+        hiccup-toc  (->> parsed-toc
+                         (map hickory/as-hiccup)
+                         first
+                         get-links-from-toc
+                         (cons {:id "toc"})
+                         (cons :nav.flex.flex-col)
+                         vec)
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
      [:head
@@ -52,9 +72,8 @@
       [:header
        (comps/nav)]
       [:main
-       [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
-        ;; TOC is hard
-        #_[:header.h-fit.sticky.top-0.absolute.right-0.bg-purple-900.rounded.mt-4
+       [:div.lcars-bottom-border.lcars-border-purple.flex.flex-row.pl-8.md:pl-0
+        [:header.hidden.md:block.md.md:mt-24.border-b-2.border-black.h-fit
          hiccup-toc]
         [:div.p-4.w-full.rounded-tl-lg.bg-black.h-fit
          [:div.w-fit
