@@ -4,7 +4,18 @@
 - pandoc
 - clojure
 
-** Usage
-  #+begin_src shell
-clj -M -m gen-site
-  #+end_src
+** Development & Publication
+#+begin_src shell
+# in emacs
+cider-jack-in-clj
+cider-eval-buffer # in org-blog.core
+# This starts a file watcher that regenerates the static site and reloads the repl
+# with any changes to the src/, posts/, or pages/ directories
+
+# in a shell at the project root
+npx tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
+
+# Go to http://localhost:8080 to see the site locally
+
+# Push the repository, with the site in static/ dir, and Digital Ocean will deploy it
+#+end_src

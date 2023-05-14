@@ -13,8 +13,8 @@
   #_(System/exit 0))
 
 (defn regenerate-site []
-  (archive/gen)
   (home/gen)
+  (archive/gen)
   (resume/gen)
   (posts/gen))
 

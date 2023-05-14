@@ -2635,7 +2635,7 @@ table {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   text-align: center;
   --tw-text-opacity: 1;
-  color: rgb(185 103 255 / var(--tw-text-opacity));
+  color: rgb(1 205 254 / var(--tw-text-opacity));
 }
 
 th {
@@ -2674,13 +2674,15 @@ hr {
   border-radius: 0.25rem;
   border-style: none;
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  --tw-gradient-from: #A355E2 var(--tw-gradient-from-position);
+  --tw-gradient-from: #000000 var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(163 85 226 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-via-position:  ;
   --tw-gradient-to: rgb(224 100 183 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #E064B7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(163 85 226 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #A355E2 var(--tw-gradient-via-position), var(--tw-gradient-to);
   --tw-gradient-to: #000000 var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
 }

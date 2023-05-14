@@ -175,7 +175,7 @@ blockquote {
 /* } */
 
 table {
-  @apply w-full text-center mb-4 text-purple bg-black;
+  @apply w-full text-center mb-4 text-cyan bg-black;
 }
 
 th {
@@ -190,7 +190,7 @@ tr:nth-child(even) {
 }
 
 hr {
-  @apply border-none bg-gradient-to-r from-purple-900 via-pink-900 to-black h-1 my-4 rounded;
+  @apply border-none bg-gradient-to-r from-black via-pink-900 via-purple-900 to-black h-1 my-4 rounded;
 }
 
 ul > li, ol > li {
