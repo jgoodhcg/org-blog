@@ -2,6 +2,7 @@
   (:require
    [clojure.java.io :as io]
    [clojure.string :refer [split] :as string]
+   [potpuri.core :as pot]
    [hawk.core :as hawk]
    [org.httpkit.server :as http-kit]))
 
@@ -11,7 +12,9 @@
    "js"   "application/javascript"
    "svg"  "image/svg+xml"
    "xml"  "application/xml"
-   ;; Add other content types as needed
+   "jpg"  "image/jpeg"
+   "png"  "image/png"
+   "gif"  "image/gif"
    })
 
 (defn content-type-for [filename]
@@ -22,7 +25,10 @@
 
 (defn handler [req]
   (let [resource-path (str "static" (:uri req))
-        file (io/file resource-path)]
+        file (io/file resource-path)
+        ext  (->> (split resource-path #"\.")
+                  last)]
+    (println (pot/map-of resource-path ext))
     (if (.exists file)
       (if (.isDirectory file)
         {:status  200
@@ -30,7 +36,9 @@
          :body    (slurp (io/file (str resource-path "/index.html")))}
         {:status  200
          :headers {"Content-Type" (content-type-for resource-path)}
-         :body    (slurp file)})
+         :body    (if (#{"jpg" "png" "gif"} ext)
+                    (io/input-stream file)
+                    (slurp file))})
       {:status  404
        :headers {"Content-Type" "text/plain"}
        :body    "Not Found"})))

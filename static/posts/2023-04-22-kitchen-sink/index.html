@@ -2,7 +2,9 @@
   heading</a><a href="#this-is-a-third-level-heading" id="toc-this-is-a-third-level-heading">This is a third-level
   heading</a><a href="#lists" id="toc-lists">Lists</a><a href="#one-flat-list" id="toc-one-flat-list">One flat
   list</a><a href="#text-formatting" id="toc-text-formatting">Text
-  Formatting</a><a href="#hyperlinks" id="toc-hyperlinks">Hyperlinks</a><a href="#footnotes" id="toc-footnotes">Footnotes</a><a href="#images" id="toc-images">Images</a><a href="#tables" id="toc-tables">Tables</a><a href="#source-code-blocks" id="toc-source-code-blocks">Source
+  Formatting</a><a href="#hyperlinks" id="toc-hyperlinks">Hyperlinks</a><a href="#footnotes" id="toc-footnotes">Footnotes</a><a href="#images" id="toc-images">Images</a><a href="#file-image-link-relative-to-the-org-file" id="toc-file-image-link-relative-to-the-org-file">File image link
+  relative to the org file</a><a href="#file-image-link-relative-to-the-output-html" id="toc-file-image-link-relative-to-the-output-html">File image link
+  relative to the output html</a><a href="#tables" id="toc-tables">Tables</a><a href="#source-code-blocks" id="toc-source-code-blocks">Source
   Code Blocks</a><a href="#blockquotes" id="toc-blockquotes">Blockquotes</a><a href="#horizontal-rule" id="toc-horizontal-rule">Horizontal
   Rule</a><a href="#latex-equations" id="toc-latex-equations">LaTeX
   Equations</a><a href="#example_drawer" id="toc-example_drawer">Drawers</a><a href="#items" id="toc-items"><span class="todo TODO">TODO</span> Items</a><a href="#tags" id="toc-tags">Tags</a><a href="#schedule-and-deadline" id="toc-schedule-and-deadline">Schedule and Deadline</a></nav></header><div class="p-4 w-full rounded-tl-lg bg-black h-fit"><div class="w-fit"><h1 id="this-is-a-top-level-heading">This is a top-level heading!</h1>
@@ -61,7 +63,12 @@ Website</a></li>
 <h2 id="footnotes">Footnotes</h2>
 <p>This is an example of a footnote<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <h2 id="images">Images</h2>
-<p><img src="image.jpg" /></p>
+<h3 id="file-image-link-relative-to-the-org-file">File image link
+relative to the org file</h3>
+<p>This will not render in the browser. <img src="./../static/img/2023-05-13-garden.jpg" /></p>
+<h3 id="file-image-link-relative-to-the-output-html">File image link
+relative to the output html</h3>
+<p>This should render in the browser. <img src="./../img/2023-05-13-garden.jpg" /></p>
 <h2 id="tables">Tables</h2>
 <table>
 <thead>

@@ -45,7 +45,13 @@ This is an example of a footnote[fn:1].
 [fn:1] This is the footnote text.
 
 ** Images
-[[file:image.jpg]]
+*** File image link relative to the org file
+This will not render in the browser.
+[[file:./../static/img/2023-05-13-garden.jpg]]
+
+*** File image link relative to the output html
+This should render in the browser.
+[[file:./../img/2023-05-13-garden.jpg]]
 
 ** Tables
 | Header 1 | Header 2 | Header 3 |
