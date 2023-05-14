@@ -24,6 +24,7 @@
                  file-seq
                  (filter #(re-matches #".*\.org" (.getName %)))
                  (sort)
+                 (reverse)
                  (map #(str (.getCanonicalPath %)))
                  (map (fn [org-file]
                         (let [post-name (posts/get-org-file-name org-file)]

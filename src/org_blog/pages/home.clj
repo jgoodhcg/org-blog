@@ -27,6 +27,7 @@
                  file-seq
                  (filter #(re-matches #".*\.org" (.getName %)))
                  (sort)
+                 (reverse)
                  (take 5)
                  (map #(str (.getCanonicalPath %)))
                  (map (fn [org-file]
