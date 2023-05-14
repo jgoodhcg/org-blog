@@ -1,5 +1,6 @@
 #+title: Hello World!
 #+date:<2023-04-22 Sat>
+#+options: H:6
 
 * This is a top-level heading!
 ** This is a second-level heading
@@ -9,6 +10,11 @@
 ****** Sixth level
 ******* Seventh level
 
+** Html export
+#+BEGIN_EXPORT html
+<h4>Fourth Level</h4>
+<p> Look mah, it's html pandoc didn't have to parse! </p>
+#+END_EXPORT
 ** Lists
 - Unordered list item 1
 - Unordered list item 2
@@ -35,6 +41,7 @@ _underlined text_
 +strikethrough text+
 ~code text~
 
+- ~code text in list item~
 ** Hyperlinks
 - External link: [[https://www.example.com][Example Website]]
 - Internal link: [[*Text Formatting][Text Formatting section]]

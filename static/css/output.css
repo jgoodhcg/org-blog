@@ -790,10 +790,6 @@ video {
   width: 100%;
 }
 
-.w-40 {
-  width: 10rem;
-}
-
 .flex-shrink {
   flex-shrink: 1;
 }
@@ -2381,7 +2377,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  margin-bottom: 1rem;
   --tw-gradient-from: #CA7FFF var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
   --tw-gradient-to: rgb(202 127 255 / 0)  var(--tw-gradient-from-position);
@@ -2415,33 +2410,33 @@ h3 {
 }
 
 h4 {
-  --tw-gradient-from: #FF8B8B var(--tw-gradient-from-position);
+  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(255 139 139 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FDCF70 var(--tw-gradient-to-position);
+  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 h5 {
-  --tw-gradient-from: #FF8B8B var(--tw-gradient-from-position);
+  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(255 139 139 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
+  --tw-gradient-to: #FF6B6B var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
 h6 {
-  --tw-gradient-from: #FF8B8B var(--tw-gradient-from-position);
+  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(255 139 139 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #A355E2 var(--tw-gradient-to-position);
+  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2843,14 +2838,6 @@ ul li *::before, ol li *::before {
 
   .md\:block {
     display: block;
-  }
-
-  .md\:w-40 {
-    width: 10rem;
-  }
-
-  .md\:w-44 {
-    width: 11rem;
   }
 
   .md\:w-48 {

@@ -33,8 +33,9 @@
                                     "--template=" toc-template-path " "
                                     "--table-of-contents " absolute-org-file)
         body-cmd           (str "pandoc -f org -t html "
-                                     "--template=" body-template-path " "
-                                     absolute-org-file)
+                                #_"--atx-headers <(printf \"#+OPTIONS: H:6\") "
+                                "--template=" body-template-path " "
+                                absolute-org-file)
         toc-result         (shell/sh "sh" "-c" toc-cmd)
         body-result        (shell/sh "sh" "-c" body-cmd)]
     (if (and (zero? (:exit toc-result))
