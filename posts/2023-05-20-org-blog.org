@@ -1,0 +1,113 @@
+#+title: Org-Mode Blog with Clojure
+#+date:<2023-04-22 Sat>
+#+options: H:6
+
+* Org-Mode Blog Homesteading with Clojure!
+:LOGBOOK:
+CLOCK: [2023-05-20 Sat 10:45]--[2023-05-20 Sat 11:51] =>  1:06
+:END:
+
+** Introduction
+  :PROPERTIES:
+  :CUSTOM_ID: intro
+  :END:
+  - Background of your interest in creating a personal blog site with Clojure
+  - Why Clojure? Brief explanation of Clojure's benefits for web development
+
+
+** My Journey: Previous Blogging Solutions
+  :PROPERTIES:
+  :CUSTOM_ID: journey
+  :END:
+
+My journey to find the perfect platform for my blog site led me through different options, each with its own strengths and drawbacks. Here, I'll share a bit of my exploration, my experiences with different platforms, and why I eventually decided on the tools I'm currently using.
+
+*** Cryogen
+   :PROPERTIES:
+   :CUSTOM_ID: cryogen
+   :END:
+
+Cryogen was the first option I tried. Cryogen is a static site generator for Clojure, and it worked well for what it offered. However, my main challenge with Cryogen was its templating syntax, which I wasn't familiar with. Styling the themes required time and effort that I'd rather invest in content creation. Moreover, my preference leaned towards writing in Org mode, and Cryogen is built primarily for Markdown or Asciidoc.
+
+*** Ghost
+   :PROPERTIES:
+   :CUSTOM_ID: ghost
+   :END:
+
+Next on my journey was Ghost. Ghost is a popular platform that offers beautiful out-of-the-box themes. I appreciated how it took care of certain conveniences like meta data for Twitter previews and Google result displays. However, my experiences using the editor weren't as pleasant as I would have liked, and I was reluctant to learn yet another theme syntax to customize styles.
+
+*** Other Considerations
+   :PROPERTIES:
+   :CUSTOM_ID: considerations
+   :END:
+
+A few other platforms caught my attention as well:
+
+- Roam Research as the blog site: While the idea of using Roam Research was interesting, the fact that it would create a Single Page Application (SPA) and not a static site raised concerns about load times. Additionally, setting up a custom domain appeared to be either difficult or potentially costly.
+
+- org-static-blog: As the name implies, org-static-blog does exactly what it promises – it's a simple static blog generator for Emacs' Org-mode. However, styling it proved to be an arduous task, as all the templating HTML is embedded within a string in an Emacs configuration file.
+
+As I moved through these different options, I found myself drawn towards a platform that would offer flexibility, be compatible with Org mode, and allow for easy customization and styling.
+
+
+** Choosing the Right Tools
+  :PROPERTIES:
+  :CUSTOM_ID: tools
+  :END:
+  - Briefly describe the tools used and why they were chosen
+    - Clojure and ClojureScript: The primary languages used
+    - Org-mode: For easy note-taking and organization
+    - Pandoc: For converting org-mode files into HTML
+    - exiftool: For managing image metadata
+
+
+** Setting Up the Project
+  :PROPERTIES:
+  :CUSTOM_ID: setup
+  :END:
+  - Setting up the environment
+  - Starting the project, writing the first lines of code
+  - Organizing the project: An overview of the project structure
+
+** Design Choices
+  :PROPERTIES:
+  :CUSTOM_ID: design
+  :END:
+  - Brief about the design inspiration (vaporwave color scheme, lcars borders)
+  - Making it responsive: How to ensure the site works well on all device sizes
+
+** Working with org-mode
+  :PROPERTIES:
+  :CUSTOM_ID: orgmode
+  :END:
+  - Discuss org-mode's benefits for project organization and note-taking
+  - Describe how to utilize org-mode for blog writing (e.g., headings, links, etc.)
+  - Share the workaround for Pandoc's heading interpretation to h6 in org-mode
+
+** Handling Images
+  :PROPERTIES:
+  :CUSTOM_ID: images
+  :END:
+  - Importance of image management: enhancing blog posts, privacy concerns
+  - How to use exiftool to strip GPS data from images
+  - Discuss the pros and cons of storing images on GitHub
+
+** Lessons Learned and Tips for Other Developers
+  :PROPERTIES:
+  :CUSTOM_ID: lessons
+  :END:
+  - Share your experiences and any challenges you faced during the project
+  - Tips and advice for Clojure developers looking to create their own personal blog sites
+
+** Conclusion
+  :PROPERTIES:
+  :CUSTOM_ID: conclusion
+  :END:
+  - Summarize the main points of the blog post
+  - Encourage readers to start their own projects and invite them to share their experiences
+
+#+BEGIN_EXPORT html
+<footer>
+  Copyright © 2023 Justin Good
+</footer>
+#+END_EXPORT
