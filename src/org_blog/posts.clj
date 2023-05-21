@@ -76,8 +76,8 @@
       [:header
        (comps/nav)]
       [:main
-       [:div.lcars-bottom-border.lcars-border-purple.flex.flex-row.pl-8.md:pl-0
-        [:header.hidden.md:block.md:mt-24.border-b-2.border-black.h-fit.sticky.top-0.z-50.md:w-48
+       [:div.lcars-bottom-border.from-purple-900.via-pink-900.to-purple-900.flex.flex-row.pl-8.md:pl-0
+        [:header.hidden.md:block.md:mt-24.border-b-2.border-black.h-fit.sticky.top-0.z-50.md:w-48.overflow-auto
          hiccup-toc]
         [:div.p-4.w-full.rounded-tl-lg.bg-black.h-fit
          [:div.w-fit

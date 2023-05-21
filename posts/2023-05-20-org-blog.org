@@ -1,40 +1,55 @@
-#+title: Org-Mode Blog with Clojure
+#+title: Org-Mode Blog Homesteading with Clojure: Building a Personal Blog with Customized Needs
+#+subtitle: A journey through finding the perfect blogging platform that suits my unique needs and the joy of crafting my own.
 #+date:<2023-04-22 Sat>
 #+options: H:6
 
 * Org-Mode Blog Homesteading with Clojure!
 :LOGBOOK:
+CLOCK: [2023-05-21 Sun 13:55]--[2023-05-21 Sun 14:59] =>  1:04
+CLOCK: [2023-05-21 Sun 13:21]--[2023-05-21 Sun 13:54] =>  0:33
 CLOCK: [2023-05-20 Sat 10:45]--[2023-05-20 Sat 11:51] =>  1:06
 :END:
+This post is about creating a personal website and blog platform that let's me write posts and content in Org Mode and generate a static site using some Cojure. It's not a generalized platform, it's just a collection of functions that let me publish a static site that is easy /for me/ to create with. The github repo [[https://github.com/jgoodhcg/org-blog][is here]].
 
-** Introduction
+** What am I looking for?
   :PROPERTIES:
   :CUSTOM_ID: intro
   :END:
-  - Background of your interest in creating a personal blog site with Clojure
-  - Why Clojure? Brief explanation of Clojure's benefits for web development
+  I need a personal site. I want to write blogs, share projects, and build in public. For that I need some sort of Content Management System. I've developed some picky requirements though:
 
+*** Org-mode Compatibility
+I like to write in org mode. It feels like the best medium for creating written content. It's convenient for me because I use Doom Emacs as my primary text editor. I could probably save a bunch of time and effort by just being comfortable writing in markdown but ... /I just don't want to do that/.
+*** Ease of Styling
+I want to use Clojure hiccup and tailwind for making HTML. I don't want to learn a template language or the conventions of an arbitrary theme plugin system.
+*** Efficient Load Times
+I want a static site with minimal dependencies.
+*** Flexibility
+If I want to do something interesting like add comments, or make an interactive experience on my site I don't want to have to /swim against the current/ with a platform's conventions to do it.
+*** Minimal Overhead
+I want to be as close to basic HTML, CSS, and javascript as possible while still writing and creating in Clojure, hiccup, and org mode. Deploying and writing should also be easy. Low friction to producing will help me actually write more.
+*** Cost-Effective
+Cheap is good, so free or low cost hosting with no scaling concerns would be best.
 
-** My Journey: Previous Blogging Solutions
+** Previous Blogging Solutions
   :PROPERTIES:
   :CUSTOM_ID: journey
   :END:
 
-My journey to find the perfect platform for my blog site led me through different options, each with its own strengths and drawbacks. Here, I'll share a bit of my exploration, my experiences with different platforms, and why I eventually decided on the tools I'm currently using.
+Some of the things I've tried recently have been interesting but didn't satisfy enough of my requirements.
 
 *** Cryogen
    :PROPERTIES:
    :CUSTOM_ID: cryogen
    :END:
 
-Cryogen was the first option I tried. Cryogen is a static site generator for Clojure, and it worked well for what it offered. However, my main challenge with Cryogen was its templating syntax, which I wasn't familiar with. Styling the themes required time and effort that I'd rather invest in content creation. Moreover, my preference leaned towards writing in Org mode, and Cryogen is built primarily for Markdown or Asciidoc.
+Cryogen was the first option I tried. Cryogen is a static site generator for Clojure, and it worked well for what it offered. However, my main challenge with Cryogen was its template syntax, which I wasn't familiar with. Styling the themes required time and effort that I'd rather invest in content creation. Moreover, my preference leaned towards writing in Org mode, and Cryogen is built primarily for Markdown or AsciiDoc.
 
 *** Ghost
    :PROPERTIES:
    :CUSTOM_ID: ghost
    :END:
 
-Next on my journey was Ghost. Ghost is a popular platform that offers beautiful out-of-the-box themes. I appreciated how it took care of certain conveniences like meta data for Twitter previews and Google result displays. However, my experiences using the editor weren't as pleasant as I would have liked, and I was reluctant to learn yet another theme syntax to customize styles.
+Ghost is a popular platform that offers beautiful out-of-the-box themes. I appreciated how it took care of certain conveniences like meta data for Twitter previews and Google result displays. However, my experiences using the editor weren't as pleasant as I would have liked, and I was reluctant to learn yet another theme syntax to customize styles.
 
 *** Other Considerations
    :PROPERTIES:
@@ -43,37 +58,67 @@ Next on my journey was Ghost. Ghost is a popular platform that offers beautiful 
 
 A few other platforms caught my attention as well:
 
-- Roam Research as the blog site: While the idea of using Roam Research was interesting, the fact that it would create a Single Page Application (SPA) and not a static site raised concerns about load times. Additionally, setting up a custom domain appeared to be either difficult or potentially costly.
+- *Roam Research* as the blog site: While the idea of using Roam Research was interesting, the fact that it would create a Single Page Application (SPA) and not a static site raised concerns about load times. Additionally, setting up a custom domain appeared to be either difficult or potentially costly.
 
-- org-static-blog: As the name implies, org-static-blog does exactly what it promises – it's a simple static blog generator for Emacs' Org-mode. However, styling it proved to be an arduous task, as all the templating HTML is embedded within a string in an Emacs configuration file.
+- *org-static-blog*: As the name implies, org-static-blog does exactly what it promises – it's a simple static blog generator for Emacs' Org-mode. However, styling it proved to be an arduous task, as all the template HTML is embedded within a string in an Emacs configuration file.
 
 As I moved through these different options, I found myself drawn towards a platform that would offer flexibility, be compatible with Org mode, and allow for easy customization and styling.
 
 
-** Choosing the Right Tools
+** Homesteading
   :PROPERTIES:
   :CUSTOM_ID: tools
   :END:
-  - Briefly describe the tools used and why they were chosen
-    - Clojure and ClojureScript: The primary languages used
-    - Org-mode: For easy note-taking and organization
-    - Pandoc: For converting org-mode files into HTML
-    - exiftool: For managing image metadata
+  Jack Rusher [[https://jackrusher.com/journal/homesteading.html][has a post about digital homesteading]]. The post touches on crafting your own online presence and not relying solely on social media. I've heard similar advice on the internet. Keeping your content in a medium and place you control and /syndicating/ it out to social media seems like generally good advice. I think, if I were smart, I would just use a static site generator, like Cyrogen, follow that advice with some hosting on Github pages and call it good.
 
+  However, this quote helps me justify spending /too much/ time building a custom CMS system from scratch.
 
-** Setting Up the Project
+  #+begin_quote
+  The early blogging scene was exclusive in the way new things often are. We felled our own timber, configured our own servers, wrote our own software, and carved our webpages out of wood using Stone Age tools — none of it was particularly easy or convenient. ... my handmade personal site was like a cabin in the woods
+  #+end_quote
+
+  I like the romantic idea of building something from nothing. What I make will be just a log cabin and I could have a much nicer prefabricated house. But I feel a sense of pride in a simple log cabin and I'll learn more fundamentals from the exercise.
+
+** Project Overview
   :PROPERTIES:
   :CUSTOM_ID: setup
   :END:
-  - Setting up the environment
-  - Starting the project, writing the first lines of code
-  - Organizing the project: An overview of the project structure
+  Here is the layout of the project directories:
+  #+begin_example
+├── css
+├── pages
+├── posts
+├── src
+│   └── org_blog
+│       ├── common
+│       └── pages
+└── static
+    ├── archive
+    ├── css
+    │   └── svg
+    ├── img
+    ├── posts
+    │   ├── 2023-04-22-kitchen-sink
+    │   └── 2023-05-20-org-blog
+    └── resume
+  #+end_example
 
+*** css
+  Contains one ~input.css~ file with some tailwind `@apply` statements for things that I can't style directly in the template src files.
+
+*** pages
+Contains one off org files for pages that are not blog posts. As of now, that is just my resume.
+
+*** posts
+All of the org files representing my blog posts.
+
+*** src
+This is where all of the clojure code exists to build the site. It's starts with ~core.clj~ wich
 ** Design Choices
   :PROPERTIES:
   :CUSTOM_ID: design
   :END:
-  - Brief about the design inspiration (vaporwave color scheme, lcars borders)
+  - Brief about the design inspiration (vaporwave color scheme, LCARS borders)
   - Making it responsive: How to ensure the site works well on all device sizes
 
 ** Working with org-mode
