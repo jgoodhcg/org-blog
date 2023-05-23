@@ -15,11 +15,20 @@
   #_(System/exit 0))
 
 (defn regenerate-site []
-  (home/gen)
-  (archive/gen)
-  (resume/gen)
-  (rss/gen)
-  (posts/gen))
+  (time
+   (let [home-future    (future (home/gen))
+         archive-future (future (archive/gen))
+         resume-future  (future (resume/gen))
+         rss-future     (future (rss/gen))
+         posts-future   (future (posts/gen))]
+     ;; ensure all futures are completed before moving forward
+     @home-future
+     @archive-future
+     @resume-future
+     @rss-future
+     @posts-future
+     )))
+
 
 ;; Start dev server
 (when (nil? @dev-server/server-atom)

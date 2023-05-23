@@ -100,13 +100,16 @@
 
 (defn gen []
   (-> "Generating posts..." c/blue println)
-    (-> posts-out-dir io/file .mkdirs)
-    (let [org-files (->> posts-org-dir
-                         io/file
-                         file-seq
-                         (filter #(re-matches #".*\.org" (.getName %)))
-                         (map #(.getCanonicalPath %)))]
-      (doseq [org-file org-files]
-        (-> "  Generating html for  " (str org-file) c/blue println)
-        (gen-post org-file posts-out-dir)))
-    (-> "Done!" c/blue println))
+  (-> posts-out-dir io/file .mkdirs)
+  (let [org-files (->> posts-org-dir
+                       io/file
+                       file-seq
+                       (filter #(re-matches #".*\.org" (.getName %)))
+                       (map #(.getCanonicalPath %)))]
+    (->> org-files
+         (pmap (fn [org-file]
+                 (-> "  Generating html for  " (str org-file) c/blue println)
+                 (gen-post org-file posts-out-dir)))
+         doall))
+  (-> "Done!" c/blue println))
+
