@@ -1,10 +1,12 @@
-#+title: Blog Homesteading with Clojure and Org-Mode
-#+subtitle: Building a custom static site generator for just me
+#+title: Building a Custom Static Site Generator: A Homesteading Journey with Clojure and Org-Mode
+#+subtitle: How to craft a unique digital presence tailored to your needs
 #+date:<2023-04-22 Sat>
 #+options: H:6
 
-* Blog Homesteading with Clojure and Org-Mode
+* Homesteading in the Digital World with Clojure and Org-Mode
+
 :LOGBOOK:
+CLOCK: [2023-05-25 Thu 12:25]--[2023-05-25 Thu 13:10] =>  0:45
 CLOCK: [2023-05-25 Thu 11:25]--[2023-05-25 Thu 12:17] =>  0:52
 CLOCK: [2023-05-24 Wed 21:45]--[2023-05-24 Wed 22:10] =>  0:25
 CLOCK: [2023-05-21 Sun 13:55]--[2023-05-21 Sun 14:59] =>  1:04
@@ -12,61 +14,57 @@ CLOCK: [2023-05-21 Sun 13:21]--[2023-05-21 Sun 13:54] =>  0:33
 CLOCK: [2023-05-20 Sat 10:45]--[2023-05-20 Sat 11:51] =>  1:06
 :END:
 
-** What is Blog Homesteading?
+** Building a Homestead: Why?
+
 :PROPERTIES:
 :CUSTOM_ID: intro
 :END:
-Jack Rusher [[https://jackrusher.com/journal/homesteading.html][has a post about digital homesteading]]. The post touches on crafting your own online presence and not relying solely on social media. I've heard similar advice on the internet. I think it's good advice to keep your content in a medium and place you control and /syndicate/ it out to social media.
+[[https://jackrusher.com/journal/homesteading.html][Jack Rusher]] articulates the concept of digital homesteading – a call for the crafting of your own online presence, rather than relying solely on social media platforms. This is advice that resonates with me. I firmly believe in maintaining control over my content and choosing to distribute it across social media platforms (or syndicate it) rather than being solely reliant on them.
 
-I want to generate content, host it on my own website, and syndicate it out to social media. If I were smart, and valued my time, I would use a ready made static site generator. There are many available. However, I'm /not/ smart, and I /don't/ value my time. I also have specific requirements that are too niche to satisfy with any generic static site generator!
+Indeed, there are numerous ready-made static site generators available, and the smart (and time-valuing) choice would be to use one of them. However, I have some specific needs that, while niche, aren't quite met by any existing generator. This brings me to my digital homesteading project: building a custom static site generator from scratch.
 
-There is a quote from the homesteading post that helps me validate building a totally custom, from scratch, static site generator.
+** My Custom Static Site Generator: What is it?
 
-  #+begin_quote
-  The early blogging scene was exclusive in the way new things often are. We felled our own timber, configured our own servers, wrote our own software, and carved our webpages out of wood using Stone Age tools — none of it was particularly easy or convenient. ... my handmade personal site was like a cabin in the woods
-  #+end_quote
+This blog post documents the journey of creating a personal website and blog platform. The purpose of this platform is to enable me to write posts and content in Org Mode and generate a static site using Clojure. It's not intended to be a generalized platform, but rather a collection of functions that allow me to publish a static site. You can find the Github repository [[https://Github.com/jgoodhcg/org-blog][here]], and I host it using [[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform][Digital Ocean's app platform]].
 
-This blog post is about creating a personal website and blog platform that let's me write posts and content in Org Mode and generate a static site using some Cojure in a quick and /easy/ way. It's not a generalized platform, it's just a collection of functions that let me publish a static site. The Github repo [[https://Github.com/jgoodhcg/org-blog][is here]]. I host it using [[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform][digital ocean app platform]].
+** My Specific Requirements
 
-** Specific Requirements
 :PROPERTIES:
 :CUSTOM_ID: specifics
 :END:
-Here is a list of requirements for this project that I haven't found holistically in any other platform.
+My requirements for this project were as follows:
 
-*** Org-Mode Compatibility
-I like to write in org mode. It feels like the best medium for creating written content. It's convenient for me because I use Doom Emacs as my primary text editor. I could probably save a bunch of time and effort by just being comfortable writing in markdown but ... /I just don't want to do that/.
+*** Compatibility with Org-Mode
+Since I primarily use Doom Emacs as my text editor, writing in org mode is my preferred medium for content creation.
+
 *** Ease of Styling
-I want to use Clojure hiccup and tailwind for making HTML. I don't want to learn a template language or the conventions of an arbitrary theme plugin system.
+I sought to leverage Clojure hiccup and Tailwind for creating HTML without learning a new template language or an arbitrary theme plugin system.
+
 *** Efficient Load Times
-I want a static site with minimal dependencies.
+A static site with minimal dependencies was essential for efficient loading times.
+
 *** Flexibility
-If I want to do something interesting like add comments, or make an interactive experience on my site I don't want to have to /swim against the current/ with a platform's conventions to do it.
+I wanted the freedom to add features such as comments or interactive experiences on my site without having to defy platform conventions.
+
 *** Minimal Overhead
-I want to be as close to basic HTML, CSS, and javascript as possible while still writing and creating in Clojure, hiccup, tailwind, and org mode. Deploying and writing should also be easy. Low friction to producing will help me actually write more.
-*** Cost-Effective
-Cheap is good, so free or low cost hosting with no scaling concerns would be best.
+I aimed to be as close to basic HTML, CSS, and JavaScript as possible, while still utilizing Clojure, hiccup, tailwind, and org mode. I also wanted an easy process for deploying and writing, as a low barrier to content production encourages more frequent writing.
 
-** Previous Blogging Solutions
-  :PROPERTIES:
-  :CUSTOM_ID: journey
-  :END:
+*** Cost Effectiveness
+A cheap or free hosting solution that wouldn't require scaling considerations was a must.
 
-Some of the things I've tried recently have been interesting but didn't satisfy enough of my requirements.
+** My Journey through Existing Blogging Solutions
+
+:PROPERTIES:
+:CUSTOM_ID: journey
+:END:
+
+Several platforms I tested were interesting but ultimately fell short of meeting my needs.
 
 *** Cryogen
-   :PROPERTIES:
-   :CUSTOM_ID: cryogen
-   :END:
-
-Cryogen is a static site generator written in Clojure, and it worked well for what it offered. However, my main challenge with Cryogen was writing in markdown. I want to write in Org-Mode. I tried to write in Org-Mode and convert to markdown but it was a tedious process. I also found deployment tedious. I had a repo for the static site generator and a different repo for the static site it generated. There are probably easier ways to do it but I found the process I had, and the idea of figuring out a better process, too daunting.
+Cryogen, a static site generator written in Clojure, served its purpose well, but I encountered some challenges. Writing in markdown was less comfortable for me than in Org-Mode, and deployment was somewhat tedious.
 
 *** Ghost
-   :PROPERTIES:
-   :CUSTOM_ID: ghost
-   :END:
-
-Ghost is a popular platform that offers beautiful out-of-the-box themes. I appreciated how it took care of certain conveniences like meta data for Twitter previews and Google result displays. However, my experiences using the editor weren't as pleasant as I would have liked, and I was reluctant to learn yet another theme syntax to customize styles. Also on a cold request the load times were pretty bad.
+Ghost's themes were impressive and offered certain conveniences such as metadata for Twitter previews and Google result displays. However, the experience with the editor left something to be desired, and I was hesitant to learn another theme syntax to customize styles.
 
 *** Other Considerations
    :PROPERTIES:
@@ -124,12 +122,20 @@ This is the directory with the static assets. All of the html, css, and images a
   :CUSTOM_ID: workflow
   :END:
 
-  I'm really happy with my workflow. It starts with opening Doom Emacs. If I want to just write I open or create an org file in the ~posts/~ directory and start writing. If I want to save my progress I can commit and push my changes to the Github repo.
+  I'm really happy with my workflow. It starts with opening Doom Emacs.
 
+*** TODO  Insert images
+
+*** Easy writing
+  If I want to just write I open or create an org file in the ~posts/~ directory and start writing. If I want to save my progress I can commit and push my changes to the Github repo.
+
+*** Preview with the REPL
   If I want to see what a post looks like I can start a repl and eval the ~org-blog.core~ namespace. That starts up a development webserver locally and generates all the static files. It includes a filewatcher so any changes to source code or the org mode blog posts trigger a re-generation of the static files. I can then go to ~localhost:8080~ and see the post I'm working on.
 
+*** Custom pages
   Not everything I want to make is an Org-Mode based blog post. For one off pages I make a clojure namespace that uses hiccup to generate an html page. All of the reusable components of the site are clojure functions that generate hiccup. Building up a page is functional and almost /React/ like.
 
+*** Deployment
   When I'm ready to deploy I just need to commit the changes in ~static/~.
 
 ** Code
