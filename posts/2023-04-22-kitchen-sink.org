@@ -76,6 +76,10 @@ def hello_world():
 hello_world()
 #+END_SRC
 
+*** A Really Wide Source code block
+#+begin_src javascript
+let exampleLongLine = "This is a very long line of code in JavaScript that might be harder to read on mobile screens due to its length and the fact that it does not contain any breaks or spaces that would naturally wrap the line.";
+#+end_src
 ** Blockquotes
 #+BEGIN_QUOTE
 This is a blockquote.

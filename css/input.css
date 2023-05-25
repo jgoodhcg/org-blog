@@ -41,7 +41,7 @@ p, ul, ol {
 
 /* Additional styles */
 body {
-  @apply bg-black;
+  @apply bg-black max-w-full;
 }
 
 /* LCARS-inspired styling */
@@ -233,4 +233,9 @@ ul li *::before, ol li *::before {
   100% {
     background-color: rgba(255, 255, 255, 0.2);
   }
+}
+
+/* Wide code blocks break the responsive formatting, limit them in width responsively */
+pre {
+  @apply max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl;
 }

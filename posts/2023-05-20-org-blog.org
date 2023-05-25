@@ -5,7 +5,7 @@
 
 * Blog Homesteading with Clojure and Org-Mode
 :LOGBOOK:
-CLOCK: [2023-05-25 Thu 11:25]
+CLOCK: [2023-05-25 Thu 11:25]--[2023-05-25 Thu 12:17] =>  0:52
 CLOCK: [2023-05-24 Wed 21:45]--[2023-05-24 Wed 22:10] =>  0:25
 CLOCK: [2023-05-21 Sun 13:55]--[2023-05-21 Sun 14:59] =>  1:04
 CLOCK: [2023-05-21 Sun 13:21]--[2023-05-21 Sun 13:54] =>  0:33
