@@ -23,7 +23,7 @@
    hiccup))
 
 (defn org->html
-  "Requires at least pandoc 3.1.2"
+  "Requires at least pandoc 3.1.2 installed locally"
   [org-file]
 
   (let [absolute-org-file  (full-path org-file)

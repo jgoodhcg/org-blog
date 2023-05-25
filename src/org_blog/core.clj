@@ -29,7 +29,6 @@
      @posts-future
      )))
 
-
 ;; Start dev server
 (when (nil? @dev-server/server-atom)
   (-> "starting server" c/blue println)

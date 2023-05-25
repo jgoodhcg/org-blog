@@ -28,9 +28,8 @@
         file (io/file resource-path)
         ext  (->> (split resource-path #"\.")
                   last)]
-    (println (pot/map-of resource-path ext))
     (if (.exists file)
-      (if (.isDirectory file)
+      (if (.isDirectory file) ;; This is to support urls that don't end in .html
         {:status  200
          :headers {"Content-Type" "text/html"}
          :body    (slurp (io/file (str resource-path "/index.html")))}
