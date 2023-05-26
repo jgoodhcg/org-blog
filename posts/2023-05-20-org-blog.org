@@ -1,11 +1,12 @@
-#+title: Building a Custom Static Site Generator: A Homesteading Journey with Clojure and Org-Mode
-#+subtitle: How to craft a unique digital presence tailored to your needs
+#+title: Building a Custom Static Site Generator
+#+subtitle: A Homesteading Journey with Clojure and Org-Mode
 #+date:<2023-04-22 Sat>
 #+options: H:6
 
-* Homesteading in the Digital World with Clojure and Org-Mode
-
+* Digital Homesteading with Clojure and Org-Mode
 :LOGBOOK:
+CLOCK: [2023-05-26 Fri 12:31]--[2023-05-26 Fri 13:12] =>  0:41
+CLOCK: [2023-05-26 Fri 12:17]--[2023-05-26 Fri 12:30] =>  0:13
 CLOCK: [2023-05-25 Thu 12:25]--[2023-05-25 Thu 13:10] =>  0:45
 CLOCK: [2023-05-25 Thu 11:25]--[2023-05-25 Thu 12:17] =>  0:52
 CLOCK: [2023-05-24 Wed 21:45]--[2023-05-24 Wed 22:10] =>  0:25
@@ -14,23 +15,24 @@ CLOCK: [2023-05-21 Sun 13:21]--[2023-05-21 Sun 13:54] =>  0:33
 CLOCK: [2023-05-20 Sat 10:45]--[2023-05-20 Sat 11:51] =>  1:06
 :END:
 
-** Building a Homestead: Why?
-
+** Digital Homestead?
 :PROPERTIES:
-:CUSTOM_ID: intro
+:CUSTOM_ID: digital-homestead
 :END:
 [[https://jackrusher.com/journal/homesteading.html][Jack Rusher]] articulates the concept of digital homesteading – a call for the crafting of your own online presence, rather than relying solely on social media platforms. This is advice that resonates with me. I firmly believe in maintaining control over my content and choosing to distribute it across social media platforms (or syndicate it) rather than being solely reliant on them.
 
-Indeed, there are numerous ready-made static site generators available, and the smart (and time-valuing) choice would be to use one of them. However, I have some specific needs that, while niche, aren't quite met by any existing generator. This brings me to my digital homesteading project: building a custom static site generator from scratch.
+There are numerous ready-made static site generators available, and the smart (and time-valuing) choice would be to use one of them. However, I have some specific niche needs that aren't met by any existing generator. This brings me to my digital homesteading project: building a custom static site generator from scratch.
 
-** My Custom Static Site Generator: What is it?
-
-This blog post documents the journey of creating a personal website and blog platform. The purpose of this platform is to enable me to write posts and content in Org Mode and generate a static site using Clojure. It's not intended to be a generalized platform, but rather a collection of functions that allow me to publish a static site. You can find the Github repository [[https://Github.com/jgoodhcg/org-blog][here]], and I host it using [[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform][Digital Ocean's app platform]].
-
-** My Specific Requirements
-
+** My Custom Static Site Generator
 :PROPERTIES:
-:CUSTOM_ID: specifics
+:CUSTOM_ID: my-static-site-generator
+:END:
+
+This blog post documents creating a personal website and blog platform. The purpose of this platform is to enable me to write posts and content in Org Mode and generate a static site using Clojure. It's not intended to be a generalized platform, but rather a collection of functions that allow me to publish a static site. You can find the Github repository [[https://Github.com/jgoodhcg/org-blog][here]], and I host it using [[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform][Digital Ocean's app platform]].
+
+** Specific Requirements
+:PROPERTIES:
+:CUSTOM_ID: requirements
 :END:
 My requirements for this project were as follows:
 
@@ -52,10 +54,9 @@ I aimed to be as close to basic HTML, CSS, and JavaScript as possible, while sti
 *** Cost Effectiveness
 A cheap or free hosting solution that wouldn't require scaling considerations was a must.
 
-** My Journey through Existing Blogging Solutions
-
+** Other Blogging Solutions
 :PROPERTIES:
-:CUSTOM_ID: journey
+:CUSTOM_ID: other-solutions
 :END:
 
 Several platforms I tested were interesting but ultimately fell short of meeting my needs.
@@ -79,9 +80,9 @@ A few other platforms caught my attention as well:
 
 ** Project Overview
   :PROPERTIES:
-  :CUSTOM_ID: setup
+  :CUSTOM_ID: overview
   :END:
-I decided to start from scratch. From an empty git repo I added a directory with some org mode blog posts and a jvm clojure file. I went from there building with the REPL. What I ended up with looked like this:
+I decided to start from scratch. From an empty git repo I added a directory with some org mode blog posts and a jvm clojure file. From there I let the REPL guide me. What I ended up with looked like this:
 
   #+begin_example
 ├── css
@@ -121,23 +122,67 @@ This is the directory with the static assets. All of the html, css, and images a
   :PROPERTIES:
   :CUSTOM_ID: workflow
   :END:
-
   I'm really happy with my workflow. It starts with opening Doom Emacs.
 
-*** TODO  Insert images
+[[file:./../img/2023-05-26_12-41-doom.png]]
 
 *** Easy writing
   If I want to just write I open or create an org file in the ~posts/~ directory and start writing. If I want to save my progress I can commit and push my changes to the Github repo.
 
+[[file:./../img/2023-05-26_12-46-writing.png]]
 *** Preview with the REPL
-  If I want to see what a post looks like I can start a repl and eval the ~org-blog.core~ namespace. That starts up a development webserver locally and generates all the static files. It includes a filewatcher so any changes to source code or the org mode blog posts trigger a re-generation of the static files. I can then go to ~localhost:8080~ and see the post I'm working on.
+  If I want to see what a post looks like I can start a repl and eval the ~org-blog.core~ namespace. That starts up a development webserver locally and generates all the static files. It includes a filewatcher so any changes to source code or the org mode blog posts trigger a re-generation of the static files.
 
+[[file:./../img/2023-05-26_12-48-repl.png]]
+
+  I can then go to ~localhost:8080~ and see the post I'm working on.
+
+[[file:./../img/2023-05-26_12-52-preview.png]]
 *** Custom pages
   Not everything I want to make is an Org-Mode based blog post. For one off pages I make a clojure namespace that uses hiccup to generate an html page. All of the reusable components of the site are clojure functions that generate hiccup. Building up a page is functional and almost /React/ like.
+
+  Here is the home page generation function.
+
+  #+begin_src clojure
+(defn gen []
+  (-> "Generating home (index) page" c/blue println)
+  (-> [:html {:lang "en"} ; Add language attribute
+       (comps/head)
+       (comps/body
+        [:header
+         (comps/nav)]
+        [:main
+         [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
+          [:div.p-4.w-full.rounded-tl-lg.bg-black
+           [:h1 "Things I've got going on"]
+           [:p "More stuff maybe"]
+           [:h2 "Recent writing"]
+           [:ul.grid.md:grid-cols-2.lg:grid-cols-4
+            (->> posts-org-dir
+                 io/file
+                 file-seq
+                 (filter #(re-matches #".*\.org" (.getName %)))
+                 (sort)
+                 (reverse)
+                 (take 5)
+                 (map #(str (.getCanonicalPath %)))
+                 (map (fn [org-file]
+                        (let [post-name (posts/get-org-file-name org-file)]
+                          [:a {:href (str "/posts/" post-name)} post-name]))))]]]])]
+      html
+      (->> (spit-with-path "./static/index.html"))))
+  #+end_src
+
+  It's essentially one thread ~->~ macro. It pushes some hiccup with embedded function calls that generate other hiccup /components/. The hiccup is turned into ~html~ then ~spit~ into a file in the ~static/~ directory. It feels /right/ to have the templating language (hiccup) be so /close/ to the programming language.
+
+  In this example I'm grabbing a directory on the file system and finding the latest 5 blog posts to generate a link on the home page. It's just right inline with the templating of the html. There are no `{{%!?? whatever ??!%}}` escape hatches. This is just plain clojure code.
+
+  ✨ /The templating and the language are one/ ✨.
 
 *** Deployment
   When I'm ready to deploy I just need to commit the changes in ~static/~.
 
+[[file:./../img/2023-05-26_13-09-deploy.png]]
 ** Code
   :PROPERTIES:
   :CUSTOM_ID: code
