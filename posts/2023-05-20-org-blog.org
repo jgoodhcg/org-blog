@@ -3,8 +3,10 @@
 #+date:<2023-04-22 Sat>
 #+options: H:6
 
+
 * Digital Homesteading with Clojure and Org-Mode
 :LOGBOOK:
+CLOCK: [2023-05-26 Fri 13:22]--[2023-05-26 Fri 14:07] =>  0:45
 CLOCK: [2023-05-26 Fri 12:31]--[2023-05-26 Fri 13:12] =>  0:41
 CLOCK: [2023-05-26 Fri 12:17]--[2023-05-26 Fri 12:30] =>  0:13
 CLOCK: [2023-05-25 Thu 12:25]--[2023-05-25 Thu 13:10] =>  0:45
@@ -280,36 +282,132 @@ In ~org-blog.common.org~ is the actual conversion of Org-Mode content to html. I
   :PROPERTIES:
   :CUSTOM_ID: design
   :END:
-  - Brief about the design inspiration (vaporwave color scheme, LCARS borders)
-  - Making it responsive: How to ensure the site works well on all device sizes
+  I leaned heavily on chatgpt to get somewhere with the UI design. I knew I wanted to draw inspiration from LCARS Star Trek interface design. I didn't use anything from the [[https://www.thelcars.com/][LCARS Online Template]] but I did look at it for awhile to figure out what I wanted.
 
-** Working with Org-Mode
-  :PROPERTIES:
-  :CUSTOM_ID: orgmode
-  :END:
-  - Discuss Org-Mode's benefits for project organization and note-taking
-  - Describe how to utilize Org-Mode for blog writing (e.g., headings, links, etc.)
-  - Share the workaround for Pandoc's heading interpretation to h6 in Org-Mode
+  The color scheme was entirely generated from chatgpt. I asked for a /Vaporwave/ color palette and plugged it into [[https://palettte.app/][palettte.app]] (three T's) to make some different shades. Chatgpt was useful for converting the export of Palettte to the config of TailwindCSs.
+
+  #+begin_src javascript
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: '#000000',
+      white: '#ffffff',
+      yellow: {
+        100: "#FDCF70",
+        200: "#F9BF46",
+        DEFAULT: "#EDAD28",
+        400: "#B8820F",
+        900: "#865B00",
+      },
+      pink: {
+        100: '#FF88D1',
+        DEFAULT: '#FF71CE',
+        900: '#E064B7',
+      },
+      cyan: {
+        100: '#33E1FD',
+        DEFAULT: '#01CDFE',
+        900: '#01B2D6',
+      },
+      green: {
+        100: '#30FFB3',
+        DEFAULT: '#05FFA1',
+        900: '#05D68E',
+      },
+      purple: {
+        100: '#CA7FFF',
+        DEFAULT: '#B967FF',
+        900: '#A355E2',
+      },
+      red: {
+        100: '#FF8B8B',
+        DEFAULT: '#FF6B6B',
+        900: '#E25B5B',
+      },
+    },
+  #+end_src
+
+  With that custom theme in place styling with Tailwind is really /easy/. Here is the code that creates the top section of the LCARS border and side panel.
+
+  #+begin_src clojure
+[:div.lcars-top-border.lcars-border-green.pl-8.md:pl-40
+   [:div.p-4.rounded-bl-lg.bg-black
+    [:div.text-4xl.font-bold.mb-2.bg-clip-text.text-transparent.bg-gradient-to-b.from-green-100.to-cyan-100
+     "JGood Blog"]
+    ;; ...
+    ]]
+  #+end_src
+
+  There are some style defined in the css file. Includin a pseudo element to create a "break up" effect on the long thin horizontal part of the border.
+
+  #+begin_src css
+/* LCARS-inspired styling */
+.lcars-top-border {
+  @apply bg-gradient-to-b pb-1;
+  position: relative;
+  border-bottom-left-radius: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .lcars-top-border {
+    border-bottom-left-radius: 5rem;
+  }
+}
+
+.lcars-top-border::before {
+  @apply h-1;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to right,
+                                  transparent 0%, transparent 25%,
+                                  #B967FF 25%, #B967FF 26%,
+                                  transparent 26%, transparent 28%,
+                                  #000000 28%, #000000 29%, /* Black Section */
+                                  #05FFA1 29%, #05FFA1 30%,
+                                  rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.5) 31%, /* Fade to Black Section */
+                                  #01CDFE 31%, #01CDFE 32%,
+                                  transparent 32%, transparent 37%,
+                                  #B967FF 37%, #B967FF 38%,
+                                  transparent 38%, transparent 40%,
+                                  #000000 40%, #000000 41%, /* Black Section */
+                                  #05FFA1 41%, #05FFA1 42%,
+                                  rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.5) 43%, /* Fade to Black Section */
+                                  #01CDFE 43%, #01CDFE 44%,
+                                  transparent 44%, transparent 59%,
+                                  #B967FF 59%, #B967FF 60%,
+                                  transparent 60%, transparent 62%,
+                                  #000000 62%, #000000 63%, /* Black Section */
+                                  #05FFA1 63%, #05FFA1 64%,
+                                  rgba(0, 0, 0, 0.5) 64%, rgba(0, 0, 0, 0.5) 65%, /* Fade to Black Section */
+                                  #01CDFE 65%, #01CDFE 66%,
+                                  transparent 66%, transparent 81%,
+                                  #B967FF 81%, #B967FF 82%,
+                                  transparent 82%, transparent 84%,
+                                  #000000 84%, #000000 85%, /* Black Section */
+                                  #05FFA1 85%, #05FFA1 86%,
+                                  rgba(0, 0, 0, 0.5) 86%, rgba(0, 0, 0, 0.5) 87%, /* Fade to Black Section */
+                                  #01CDFE 87%, #01CDFE 88%,
+                                  transparent 88%, #000000 100%);
+  background-size: 100% 100%;
+}
+  #+end_src
 
 ** Handling Images
   :PROPERTIES:
   :CUSTOM_ID: images
   :END:
-  - Importance of image management: enhancing blog posts, privacy concerns
-  - How to use exiftool to strip GPS data from images
-  - Discuss the pros and cons of storing images on Github
+  I'm using two tools for image generation. [[https://flameshot.org/][flameshot]] is for taking screenshots and [[https://exiftool.org/][exiftool]] for stripping gps data from photos.
 
-** Lessons Learned and Tips for Other Developers
-  :PROPERTIES:
-  :CUSTOM_ID: lessons
-  :END:
-  - Share your experiences and any challenges you faced during the project
-  - Tips and advice for Clojure developers looking to create their own personal blog sites
+  Images are stored in the ~static/img/~ directory and committed right to the repo. I don't have any videos yet but I anticipate putting those in Digital Ocean bucket and linking to them from there.
+
+  I don't do any resizing of images yet. If I notice some issues with performance I'll think about doing that.
 
 ** Conclusion
   :PROPERTIES:
   :CUSTOM_ID: conclusion
   :END:
-  - Summarize the main points of the blog post
-  - Encourage readers to start their own projects and invite them to share their experiences
-
+  Thanks for reading this. Hope seeing an example of someone /rolling their own/ static site generator was helpful in some way!

@@ -1765,8 +1765,28 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-purple-900 {
+  --tw-gradient-from: #A355E2 var(--tw-gradient-from-position);
+  --tw-gradient-from-position:  ;
+  --tw-gradient-to: rgb(163 85 226 / 0)  var(--tw-gradient-from-position);
+  --tw-gradient-to-position:  ;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-pink-900 {
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to: rgb(224 100 183 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+  --tw-gradient-stops: var(--tw-gradient-from), #E064B7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .to-cyan-100 {
   --tw-gradient-to: #33E1FD var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+}
+
+.to-purple-900 {
+  --tw-gradient-to: #A355E2 var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
 }
 
@@ -2356,6 +2376,8 @@ video {
 a {
   --tw-text-opacity: 1;
   color: rgb(1 205 254 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
 }
 
 a:hover {
@@ -2367,7 +2389,7 @@ a:hover {
   text-decoration-line: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   margin-bottom: 0.5rem;
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
   -webkit-background-clip: text;
@@ -2376,12 +2398,17 @@ h1, h2, h3, h4, h5, h6 {
   color: transparent;
 }
 
+h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
 h1 {
   --tw-gradient-from: #CA7FFF var(--tw-gradient-from-position);
   --tw-gradient-from-position:  ;
   --tw-gradient-to: rgb(202 127 255 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FDCF70 var(--tw-gradient-to-position);
+  --tw-gradient-to: #FF8B8B var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -2392,54 +2419,38 @@ h2 {
   --tw-gradient-from-position:  ;
   --tw-gradient-to: rgb(202 127 255 / 0)  var(--tw-gradient-from-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF8B8B var(--tw-gradient-to-position);
+  --tw-gradient-to: #FF88D1 var(--tw-gradient-to-position);
   --tw-gradient-to-position:  ;
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
 h3 {
-  --tw-gradient-from: #CA7FFF var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(202 127 255 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF88D1 var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   font-size: 1.5rem;
   line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(202 127 255 / var(--tw-text-opacity));
 }
 
 h4 {
-  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(202 127 255 / var(--tw-text-opacity));
 }
 
 h5 {
-  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF6B6B var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   font-size: 1.125rem;
   line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(185 103 255 / var(--tw-text-opacity));
 }
 
 h6 {
-  --tw-gradient-from: #B967FF var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(185 103 255 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FF71CE var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   font-size: 1rem;
   line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(185 103 255 / var(--tw-text-opacity));
 }
 
 p, ul, ol {
@@ -2456,6 +2467,7 @@ p, ul, ol {
 /* Additional styles */
 
 body {
+  max-width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
@@ -2741,6 +2753,7 @@ ul li *::before, ol li *::before {
   padding-left: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+  text-decoration-line: none;
   transition: background-color 0.5s ease;
 }
 
@@ -2759,6 +2772,42 @@ ul li *::before, ol li *::before {
 
   100% {
     background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Wide code blocks break the responsive formatting, limit them in width responsively */
+
+pre {
+  max-width: 20rem;
+}
+
+@media (min-width: 640px) {
+  pre {
+    max-width: 24rem;
+  }
+}
+
+@media (min-width: 768px) {
+  pre {
+    max-width: 28rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  pre {
+    max-width: 36rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  pre {
+    max-width: 42rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  pre {
+    max-width: 48rem;
   }
 }
 
