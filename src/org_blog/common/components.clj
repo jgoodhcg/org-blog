@@ -21,16 +21,16 @@
   [:head
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-   [:meta {:name    "description" ; Add a description meta tag
-           :content "Justin Good's personal blog about software engineering, permaculture, and more."}]
-        ; Add Open Graph tags
+   [:meta {:name    "description" ;; Add a description meta tag
+           :content "Justin Good's personal blog"}]
+   ;; Add Open Graph tags
    [:meta {:property "og:title" :content "Jgood Blog"}]
-   [:meta {:property "og:description" :content "Justin Good's personal blog about software engineering, permaculture, and more."}]
+   [:meta {:property "og:description" :content "Justin Good's personal blog"}]
    [:meta {:property "og:type" :content "website"}]
-   [:meta {:property "og:url" :content "https://your-domain.com"}] ;; TODO
-   [:meta {:property "og:image" :content "https://your-domain.com/path/to/your/image.jpg"}] ;; TODO
+   [:meta {:property "og:url" :content "https://jgood.online"}]
+   [:meta {:property "og:image" :content "https://jgood.online/img/2023-05-28-og-image-robot-steps.png"}]
 
    [:title "Jgood Blog"]
-   (include-css "./css/output.css")
-   [:link {:rel "icon" :href "/path/to/favicon.ico"}] ;; TODO
+   [:link {:href "/css/output.css" :rel "stylesheet" :type "text/css"}]
+   [:link {:rel "icon" :href "/img/2023-05-28-robot-head-favicon.png"}]
    ])

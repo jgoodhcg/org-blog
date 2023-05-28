@@ -49,28 +49,24 @@
                          vec)
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
-     [:head
-      [:meta {:charset "utf-8"}]
-      [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-      [:title "Generated Site"]
-      (include-css "../../css/output.css")
-      #_(include-js "/js/scripts.js")
+     (-> (comps/head)
+         (concat [;; prism code syntax highlighting
+                  [:link {:rel            "stylesheet"
+                          :href           "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+                          :crossorigin    "anonymous"
+                          :referrerpolicy "no-referrer"}]
+                  [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
+                            :crossorigin    "anonymous"
+                            :referrerpolicy "no-referrer"}]
+                  [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+                            :crossorigin    "anonymous"
+                            :referrerpolicy "no-referrer"}]
 
-      ;; prism code syntax highlighting
-      [:link {:rel            "stylesheet"
-              :href           "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
-              :crossorigin    "anonymous"
-              :referrerpolicy "no-referrer"}]
-      [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
-                :crossorigin    "anonymous"
-                :referrerpolicy "no-referrer"}]
-      [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
-                :crossorigin    "anonymous"
-                :referrerpolicy "no-referrer"}]
+                  ;; LaTeX rendering
+                  [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
+                  [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]])
+         vec)
 
-      ;; LaTeX rendering
-      [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
-      [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]]
 
      (comps/body
       [:header
