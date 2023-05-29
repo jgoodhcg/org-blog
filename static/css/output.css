@@ -776,6 +776,10 @@ video {
   display: none;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -1902,6 +1906,18 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-16 {
+  padding: 4rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 .pl-8 {

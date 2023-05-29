@@ -17,7 +17,7 @@
          (comps/nav)]
         [:main
          [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
-          [:div.p-4.w-full.rounded-tl-lg.bg-black
+          [:div.p-8.w-full.rounded-tl-lg.bg-black
            [:h1 "Things I've got going on"]
            [:p "More stuff maybe"]
            [:h2 "Recent writing"]
