@@ -32,5 +32,5 @@
 
    [:title "Jgood Blog"]
    [:link {:href "/css/output.css" :rel "stylesheet" :type "text/css"}]
-   [:link {:rel "icon" :href "/img/2023-05-28-robot-head-favicon.png"}]
+   [:link {:rel "icon" :href "/img/2023-06-03-vaporwave-wigle-favicon.png"}]
    ])
