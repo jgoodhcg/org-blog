@@ -406,7 +406,7 @@ In ~org-blog.common.org~ is the actual conversion of Org-Mode content to html. I
 
   I don't do any resizing of images yet. If I notice some issues with performance I'll think about doing that.
 
-** Conclusion
+** /End
   :PROPERTIES:
   :CUSTOM_ID: conclusion
   :END:
