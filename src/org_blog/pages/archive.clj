@@ -15,19 +15,18 @@
         [:header
          (comps/nav)]
         [:main
-         [:div.lcars-bottom-border.lcars-border-purple.pl-8.md:pl-40
-          [:div.p-4.w-full.rounded-tl-lg.bg-black
-           [:h1 "All posts"]
-           [:ul.flex.flex-col
-            (->> posts-org-dir
-                 io/file
-                 file-seq
-                 (filter #(re-matches #".*\.org" (.getName %)))
-                 (sort)
-                 (reverse)
-                 (map #(str (.getCanonicalPath %)))
-                 (map (fn [org-file]
-                        (let [post-name (posts/get-org-file-name org-file)]
-                          [:a {:href (str "/posts/" post-name)} post-name]))))]]]])]
+         [:div.w-full
+          [:h1 "All posts"]
+          [:ul.flex.flex-col
+           (->> posts-org-dir
+                io/file
+                file-seq
+                (filter #(re-matches #".*\.org" (.getName %)))
+                (sort)
+                (reverse)
+                (map #(str (.getCanonicalPath %)))
+                (map (fn [org-file]
+                       (let [post-name (posts/get-org-file-name org-file)]
+                         [:a {:href (str "/posts/" post-name)} post-name]))))]]])]
       html
       (->> (spit-with-path "./static/archive/index.html"))))

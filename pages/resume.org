@@ -2,12 +2,11 @@
 #+options: H:6
 
 * Resume
-#+begin_quote
+#+begin_verse
 I'm a full stack engineer and obsessive note taker!
-#+end_quote
+#+end_verse
 
-** Experience
-*** Lead Software Architect, Archemedx
+** Lead Software Architect, Archemedx
 /2022-08-28 - Present/
 
 - Lead customer integration efforts as the main point of contact
@@ -16,51 +15,63 @@ I'm a full stack engineer and obsessive note taker!
 - Recruited for full-time developers and contractors
 - Diagnosed and solved intricate performance issues
 
-*** Senior Software Engineer, Archemedx
+** Senior Software Engineer, Archemedx
 /2020-11-09 - 2022-08-28/
 
 - Major contributor to a rewrite that converted RESTish backend to graph-based pathom
 - Lead an internationalization project utilizing ~tongue~ and ~message-format~
 - Worked frequently with the product team scoping, defining, refining, and prioritizing projects and features
-- Some devops tasks involving ~cloud-formation~ ~cdk~
-**** Other notable tech:
+- Some devops tasks involving ~cloud-formation~ and ~cdk~
+
+#+begin_verse
+Other Notable Tech
+#+end_verse
+
 #+begin_quote
 clojurescript, lambda, dynamo-db, babashka, sqs, event-bridge, re-frame, code-pipeline
 #+end_quote
 
-*** Full Stack Developer, Gordon Food Service
+** Full Stack Developer, Gordon Food Service
 /2018-05-14 - 2020-10-23/
 
 - Lead development on Gordon Now, a mobile app, built with ~expo~, ~react-native~, ~redux~, and ~redux-saga~
 - Worked on automated and Live Chat support utilizing web-sockets, ~spring-boot~, ~pub-sub~, and ~dialog flow~
 - Was a contributor and regular user of a git-ops style CI/CD process utilizing ~cloud-build~, ~Jenkins~, and ~Kubernetes~
-Other notable tech:
+#+begin_verse
+Other Notable Tech
+#+end_verse
 #+begin_quote
 javascript, java, kotlin, gcp, gke, helm, my-sql, auto-ml, spring-boot, angular
 #+end_quote
 
-*** Software Developer, Tek Systems
+** Software Developer, Tek Systems
 /2017-05-11 - 2018-05-14/
 - Targeted advertising service built with Drupal, supported a whole new revenue stream for the business
 - Extended an internal news site with features that improved engagement and scaled management of content
-**** Other notable tech:
+#+begin_verse
+Other Notable Tech
+#+end_verse
 #+begin_quote
 php, javascript, jquery
 #+end_quote
 
-*** Web Developer, One Stop Inc
+** Web Developer, One Stop Inc
 /2016-02-18 - 2017-05-11/
 - Automated initialization and failover for e-commerce and customer digital products platform that improved fault tolerance and system upgrading
 - Extended e-commerce application with features that improved the ordering process
-**** Other notable tech:
+#+begin_verse
+Other Notable Tech
+#+end_verse
 #+begin_quote
 javascript, jquery, bash, mongo-db, postgres, php, python
 #+end_quote
 
-*** IT Intern, City of Wyoming MI
+** IT Intern, City of Wyoming MI
 /2015-05-19 - 2015-11-13/
 - Developed an internal prototype application for automated work order recording that improved technology standard
-**** Other notable tech:
+#+begin_verse
+Other Notable Tech
+#+end_verse
 #+begin_quote
 php, javascript, jquery
 #+end_quote

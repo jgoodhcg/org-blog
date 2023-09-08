@@ -33,9 +33,7 @@
        get-links-from-toc
        (cons {:id "toc"})
        (cons :ul)
-       vec
-       )
-  )
+       vec))
 
 (defn post-page-hiccup [[toc-string body-string]]
   (let [parsed-toc  (hickory/parse-fragment toc-string)
@@ -43,41 +41,23 @@
         hiccup-toc  (->> parsed-toc
                          (map hickory/as-hiccup)
                          first
-                         get-links-from-toc
-                         (cons {:id "toc"})
-                         (cons :nav.flex.flex-col)
+                         #_get-links-from-toc
+                         #_(cons {:id "toc"})
+                         #_(cons :nav.flex.flex-col)
                          vec)
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
-     (-> (comps/head)
-         (concat [;; prism code syntax highlighting
-                  [:link {:rel            "stylesheet"
-                          :href           "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
-                          :crossorigin    "anonymous"
-                          :referrerpolicy "no-referrer"}]
-                  [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
-                            :crossorigin    "anonymous"
-                            :referrerpolicy "no-referrer"}]
-                  [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
-                            :crossorigin    "anonymous"
-                            :referrerpolicy "no-referrer"}]
-
-                  ;; LaTeX rendering
-                  [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
-                  [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]])
-         vec)
-
-
+     (comps/head {:prism true})
      (comps/body
       [:header
        (comps/nav)]
-      [:main
-       [:div.lcars-bottom-border.from-purple-900.via-pink-900.to-purple-900.flex.flex-row.md:pl-0
-        [:header.hidden.md:block.md:mt-24.border-b-2.border-black.h-fit.sticky.top-0.z-50.md:w-48.overflow-auto
-         hiccup-toc]
-        [:div.p-8.w-full.rounded-tl-lg.bg-black.h-fit
-         [:div.w-fit
-          hiccup-body]]]])]))
+      [:main.grid.grid-cols-4.gap-4
+       [:div.col-span-4.md:col-span-3
+        [:div hiccup-body]]
+       [:div.hidden.md:block.md:h-full
+        [:div.sticky.top-0
+         [:h4 "Table of Contents"]
+         hiccup-toc]]])]))
 
 (defn get-org-file-name [org-file]
   (str (-> org-file
@@ -108,4 +88,3 @@
                  (gen-post org-file posts-out-dir)))
          doall))
   (-> "Done!" c/blue println))
-

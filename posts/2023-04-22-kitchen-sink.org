@@ -86,6 +86,22 @@ This is a blockquote.
 - Author Name
 #+END_QUOTE
 
+** Other Structure Templates
+#+begin_center
+I'm some center text
+#+end_center
+#+begin_comment
+I'm some comment text
+#+end_comment
+#+begin_example
+I'm some example text
+#+end_example
+#+begin_src
+I'm some src text
+#+end_src
+#+begin_verse
+I'm some verse text
+#+end_verse
 ** Horizontal Rule
 -----
 

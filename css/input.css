@@ -16,20 +16,16 @@ a:hover {
   @apply no-underline;
 }
 
-h1, h2 {
-  @apply font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-b;
+h1, h2, h3, h4, h5, h6 {
+  @apply text-white font-bold mb-2 mt-8;
 }
 
-h3, h4, h5, h6 {
-  @apply font-bold mb-2;
-}
-
-h1 { @apply from-purple-100 to-red-100 text-4xl; }
-h2 { @apply from-purple-100 to-pink-100 text-3xl; }
-h3 { @apply text-purple-100 text-2xl; }
-h4 { @apply text-purple-100 text-xl; }
-h5 { @apply text-purple text-lg; }
-h6 { @apply text-purple text-base; }
+h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan-100 via-cyan to-green-100; }
+h2 { @apply text-3xl; }
+h3 { @apply text-2xl; }
+h4 { @apply text-xl; }
+h5 { @apply text-lg; }
+h6 { @apply text-base; }
 
 p, ul, ol {
   @apply text-white mb-2;
@@ -44,114 +40,24 @@ body {
   @apply bg-black max-w-full;
 }
 
-/* LCARS-inspired styling */
-.lcars-top-border {
-  @apply bg-gradient-to-b pb-4 pl-8;
-  position: relative;
-  border-bottom-left-radius: 2rem;
-}
-
-@media screen and (min-width: 768px) {
-  .lcars-top-border {
-    border-bottom-left-radius: 5rem;
-  }
-}
-
-.lcars-top-border::before {
-  @apply h-4;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 53%,  /* shift 25% to right */
-                                  #000000 53%, #000000 54%, /* Black Section */
-                                  #05D68E 54%, #05D68E 58%, /* shift 25% to right */
-                                  #000000 58%, #000000 59%, /* Black Section */
-                                  transparent 59%, transparent 65%, /* shift 25% to right */
-                                  #000000 65%, #000000 66%, /* Black Section */
-                                  #A355E2 66%, #A355E2 70%, /* shift 25% to right */
-                                  #000000 70%, #000000 71%, /* Black Section */
-                                  transparent 71%, #000000 100%); /* shift 25% to right */
-  background-size: 100% 100%;
-}
-.lcars-bottom-border {
-  @apply bg-gradient-to-t pt-4 pl-8 mt-2 w-full;
-  position: relative;
-  border-top-left-radius: 2rem;
-}
-
-@media screen and (min-width: 768px) {
-  .lcars-bottom-border {
-    border-top-left-radius: 5rem;
-  }
-}
-.lcars-bottom-border::before {
-  @apply h-4;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-image: linear-gradient(to right,
-                                  transparent 0%, transparent 38%,  /* shift 15% to left */
-                                  #000000 38%, #000000 39%, /* Black Section */
-                                  #05D68E 39%, #05D68E 43%, /* shift 15% to left */
-                                  #000000 43%, #000000 44%, /* Black Section */
-                                  transparent 44%, transparent 47%,  /* shift 15% to left */
-                                  #000000 47%, #000000 48%, /* Black Section */
-                                  #01B2D6 48%, #01B2D6 52%, /* shift 15% to left */
-                                  #000000 52%, #000000 53%, /* Black Section */
-                                  transparent 53%, transparent 71%,  /* shift 15% to left */
-                                  transparent 71%, #000000 100%); /* shift 15% to left */
-  background-size: 100% 100%;
-}
-
-.lcars-border-green{
-  @apply from-black via-green-900 to-cyan-900;
-}
-
-.lcars-border-purple {
-  @apply from-black via-pink-900 to-purple-900;
-}
-
-/* Table of contents is hard */
-/* #table-of-contents a{ */
-/*   @apply text-black; */
-/* } */
-
-/* /\* h1 *\/ */
-/* #table-of-contents ul{ */
-/*   @apply mb-0 pl-1; */
-/* } */
-/* /\* h2 *\/ */
-/* #table-of-contents ul li ul{ */
-/*   @apply pl-2; */
-/* } */
-/* /\* h3 *\/ */
-/* #table-of-contents ul li ul{ */
-/*   @apply pl-3; */
-/* } */
-/* /\* h4 *\/ */
-/* #table-of-contents ul li ul{ */
-/*   @apply pl-4; */
-/* } */
-
 blockquote {
-  @apply border-l-4 pl-4 my-4 italic bg-black border-cyan-900;
+  @apply border-l-4 pl-4 py-2 my-4 italic border-cyan-100 bg-grey-100 rounded-r;
 }
 
-/* blockquote p { */
-/*   @apply text-purple; */
-/* } */
+blockquote p {
+  @apply m-0;
+}
+
+.line-block{
+  @apply text-white-900;
+}
 
 table {
-  @apply w-full text-center mb-4 text-cyan bg-black;
+  @apply w-full text-center mb-4 text-cyan;
 }
 
 th {
-  @apply uppercase text-sm font-bold bg-gradient-to-b from-green-900 to-cyan-900 text-black border border-black;
+  @apply uppercase text-sm font-bold border border-cyan bg-cyan text-black border;
 }
 
 td {
@@ -162,7 +68,7 @@ tr:nth-child(even) {
 }
 
 hr {
-  @apply border-none bg-gradient-to-r from-black via-pink-900 via-purple-900 to-black h-1 my-4 rounded;
+  @apply border-none bg-gradient-to-r from-grey via-cyan to-grey h-1 my-4 rounded;
 }
 
 ul > li, ol > li {
@@ -171,7 +77,7 @@ ul > li, ol > li {
 
 ul > li::before, ol > li::before {
   content: '';
-  @apply w-2 h-2 rounded-full bg-gradient-to-r from-purple-900 to-pink absolute;
+  @apply w-2 h-2 rounded-full bg-gradient-to-r from-cyan-900 to-cyan absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
@@ -182,13 +88,17 @@ ul li *::before, ol li *::before {
   content: none;
 }
 
-#toc > a {
-  @apply text-black border-t-2 border-black pl-2 py-2 no-underline;
-  transition: background-color 0.5s ease;
+#table-of-contents a {
+  @apply no-underline rounded;
+  transition: background-color 3s ease;
 }
 
-#toc > a:hover {
+#table-of-contents > a:hover {
   animation: pulse 3s infinite;
+}
+
+#table-of-contents li::before {
+  content: none;
 }
 
 @keyframes pulse {
@@ -196,7 +106,7 @@ ul li *::before, ol li *::before {
     background-color: rgba(255, 255, 255, 0.2);
   }
   50% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
   }
   100% {
     background-color: rgba(255, 255, 255, 0.2);
