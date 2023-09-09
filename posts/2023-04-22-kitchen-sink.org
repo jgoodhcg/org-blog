@@ -1,5 +1,7 @@
 #+title: Hello World!
 #+date:<2023-04-22 Sat>
+#+description: A kitchen sink of org mode elements to test rendering to html
+#+thumbnail: /img/thumbnail/2023-09-09-kitchen-sink.png
 #+options: H:6
 
 This post is a test page to make sure my conversion from org mode to html is working.

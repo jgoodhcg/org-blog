@@ -6,9 +6,9 @@
    [org-blog.pages.archive :as archive]
    [org-blog.pages.home :as home]
    [org-blog.pages.resume :as resume]
+   [org-blog.pages.now :as now]
    [org-blog.pages.rss :as rss]
-   [org-blog.posts :as posts]
-   ))
+   [org-blog.posts :as posts]))
 
 (defn -main [& args]
   (println "I don't do anything yet")
@@ -19,15 +19,16 @@
    (let [home-future    (future (home/gen))
          archive-future (future (archive/gen))
          resume-future  (future (resume/gen))
+         now-future     (future (now/gen))
          rss-future     (future (rss/gen))
          posts-future   (future (posts/gen))]
      ;; ensure all futures are completed before moving forward
      @home-future
      @archive-future
      @resume-future
+     @now-future
      @rss-future
-     @posts-future
-     )))
+     @posts-future)))
 
 ;; Start dev server
 (when (nil? @dev-server/server-atom)

@@ -1,6 +1,7 @@
 #+title: Building a Custom Static Site Generator
-#+subtitle: A Homesteading Journey with Clojure and Org-Mode
+#+description: A Digital Homesteading Journey with Clojure and Org-Mode
 #+date:<2023-04-22 Sat>
+#+thumbnail: /img/thumbnail/2023-09-09-clojure-org.png
 #+options: H:6
 
 

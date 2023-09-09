@@ -8,11 +8,10 @@
 
 (defn nav []
   [:div.md:flex.md:flex-row.mt-4
-   [:div.text-xl.font-bold.mr-8.text-white "JGood Blog"]
    [:nav.flex.flex-col.md:flex-row.mb-8
-    [:a.text-xl.font-bold.mr-2 {:href "/"} "Home"]
+    [:a.text-xl.font-bold.mr-2.text-white.no-underline {:href "/"} "JGood Blog"]
+    [:a.text-xl.font-bold.mr-2 {:href "/now"} "Now"]
     [:a.text-xl.font-bold.mr-2 {:href "/archive"} "Archive"]
-    [:a.text-xl.font-bold.mr-2 {:href "/resume"} "Resume"]
     [:a.text-xl.font-bold.mr-2 {:href "/rss.xml"} "RSS"]]])
 
 (defn head

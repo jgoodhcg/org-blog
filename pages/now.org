@@ -1,0 +1,8 @@
+#+TITLE: Now
+#+options: H:6
+
+* Now Page
+** Now Page?
+** Consumption
+** Thoughts
+** Production

@@ -88,6 +88,10 @@ ul li *::before, ol li *::before {
   content: none;
 }
 
+li.no-bullet::before {
+  content: none;
+}
+
 #table-of-contents a {
   @apply no-underline rounded;
   transition: background-color 3s ease;
