@@ -2,7 +2,19 @@
 #+options: H:6
 
 * Now Page
-** Now Page?
-** Consumption
+#+begin_verse
+Last updated: 2023-09-09
+#+end_verse
+What's a now page? It's an idea originally from [[https://sive.rs/nowff][Derek Sivers]]. Basically, what I'm up to.
+** Intentionally Consuming interesting things
+*** Permaculture
+Other relevant terms in this category include: gardening, composting, market gardening, anti-lawn, and no-till.
+- Red Gardens
+- Edible Acres
+- Epic Gardens
+*** City Planning
+- Nerd City
+*** Ancient History
+- Great Courses
 ** Thoughts
 ** Production

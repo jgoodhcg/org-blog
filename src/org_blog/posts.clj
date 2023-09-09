@@ -49,8 +49,7 @@
     [:html
      (comps/head {:prism true})
      (comps/body
-      [:header
-       (comps/nav)]
+      [:header (comps/nav)]
       [:main.grid.grid-cols-4.gap-4
        [:div.col-span-4.md:col-span-3
         [:div hiccup-body]]

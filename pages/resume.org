@@ -18,7 +18,7 @@ I'm a full stack engineer and obsessive note taker!
 ** Senior Software Engineer, Archemedx
 /2020-11-09 - 2022-08-28/
 
-- Major contributor to a rewrite that converted RESTish backend to graph-based pathom
+- Major contributor to a rewrite that converted RESTish backend to graph-based ~pathom~ (similar to /graphql/)
 - Lead an internationalization project utilizing ~tongue~ and ~message-format~
 - Worked frequently with the product team scoping, defining, refining, and prioritizing projects and features
 - Some devops tasks involving ~cloud-formation~ and ~cdk~

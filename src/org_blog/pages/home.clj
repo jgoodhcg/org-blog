@@ -34,40 +34,37 @@
        (comps/head)
        (comps/body
         [:header (comps/nav)]
-        [:main
-         [:h1 "Justin's Blog"]
-         [:p "If you are thinking about hiring me check out my "
-          [:a {:href "https://github.com/jgoodhcg"} "github"]
-          " and my "
-          [:a {:href "/resume"} "resume"]
-          "."]
-         [:p "If you are curious about what I'm up to check out my "
-          [:a {:href "/now"} "now page"]
-          "."]
-         [:h2 "Recent Posts"]
-         [:ul
-          (->> posts-org-dir
-               io/file
-               file-seq
-               (filter #(re-matches #".*\.org" (.getName %)))
-               (sort)
-               (reverse)
-               (take 8)
-               (map #(str (.getCanonicalPath %)))
-               (map (fn [org-file]
-                      (let [org-content (slurp org-file)
-                            metadata    (extract-org-metadata org-content)
-                            read-time   (estimate-read-time org-content)
-                            post-name   (posts/get-org-file-name org-file)]
-                        [:li.no-bullet.p-0.mb-4
-                         [:a.no-underline {:href (str "/posts/" post-name)}
-                          [:div.p-4.rounded-lg.flex.flex-row.items-center.bg-grey-100.hover:shadow-md.
-                           [:img.w-24.h-24.md:w-64.md:h-64.object-cover.rounded-lg.mr-2.md:mr-4
-                            {:src (:thumbnail metadata)}]
-                           [:div
-                            [:h3 (:title metadata)]
-                            [:p (:description metadata)]
-                            [:p.text-white-900 (:date metadata)]
-                            [:p.text-white-900 (str "Read time: " read-time " mins")]]]]]))))]])]
+        [:main.grid.grid-cols-5
+         [:div.col-span-3.col-start-2
+          [:h1 "I'm a software engineer thinking out loud"]
+          [:p "If you are thinking about hiring me check out my "
+           [:a {:href "https://github.com/jgoodhcg"} "github"]
+           " and my "
+           [:a {:href "/resume"} "resume"]
+           "."]
+          [:p "If you are curious about what I'm up to check out my "
+           [:a {:href "/now"} "now page"]
+           "."]
+          [:ul.mt-4
+           (->> posts-org-dir
+                io/file
+                file-seq
+                (filter #(re-matches #".*\.org" (.getName %)))
+                (sort)
+                (reverse)
+                (take 8)
+                (map #(str (.getCanonicalPath %)))
+                (map (fn [org-file]
+                       (let [org-content (slurp org-file)
+                             metadata    (extract-org-metadata org-content)
+                             read-time   (estimate-read-time org-content)
+                             post-name   (posts/get-org-file-name org-file)]
+                         [:li.no-bullet.my-4.p-0
+                          [:hr]
+                          [:a.no-underline {:href (str "/posts/" post-name)}
+                           [:h2.mb-0 (:title metadata)]
+                           [:p (:description metadata)]
+                           [:p.text-white-900 (:date metadata)]
+                           [:p.text-white-900 (str "Read time: " read-time " mins")]]]))))]]])]
       html
       (->> (spit-with-path "./static/index.html"))))

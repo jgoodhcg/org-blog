@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-  @apply text-cyan-100;
+  @apply text-cyan-100 decoration-green;
 }
 
 .header a {
@@ -17,10 +17,10 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-white font-bold mb-2 mt-8;
+  @apply text-white font-bold my-2;
 }
 
-h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan-100 via-cyan to-green-100; }
+h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan via-cyan-100 to-green-100; }
 h2 { @apply text-3xl; }
 h3 { @apply text-2xl; }
 h4 { @apply text-xl; }
@@ -68,7 +68,7 @@ tr:nth-child(even) {
 }
 
 hr {
-  @apply border-none bg-gradient-to-r from-grey via-cyan to-grey h-1 my-4 rounded;
+  @apply border-none bg-gradient-to-r from-cyan-100 via-green-100 to-cyan-100 h-0.5 my-4 rounded;
 }
 
 ul > li, ol > li {
