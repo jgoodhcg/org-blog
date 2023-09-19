@@ -36,7 +36,7 @@
         [:header (comps/nav)]
         [:main.grid.grid-cols-5
          [:div.col-span-3.col-start-2
-          [:h1 "I'm a software engineer thinking out loud"]
+          [:h1 "???"]
           [:p "If you are thinking about hiring me check out my "
            [:a {:href "https://github.com/jgoodhcg"} "github"]
            " and my "
@@ -45,6 +45,7 @@
           [:p "If you are curious about what I'm up to check out my "
            [:a {:href "/now"} "now page"]
            "."]
+          [:h3.mt-8 "Recent Posts"]
           [:ul.mt-4
            (->> posts-org-dir
                 io/file
