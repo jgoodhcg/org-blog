@@ -22,16 +22,24 @@
        node))
    hiccup))
 
+(defn count-words [text]
+  (count (re-seq #"\b\w+\b" text)))
+
+(defn estimate-read-time [text]
+  (let [word-count (count-words text)]
+    (int (Math/ceil (/ word-count 250.0)))))
+
 (defn org->html
   "Requires at least pandoc 3.1.2 installed locally"
   [org-file]
 
-  (let [absolute-org-file  (full-path org-file)
+  (let [contents           (slurp org-file)
+        absolute-org-file  (full-path org-file)
         toc-template-path  (full-path "./src/org_blog/pandoc-template-toc.html")
         body-template-path (full-path "./src/org_blog/pandoc-template-body.html")
         toc-cmd            (str "pandoc -f org -t html "
-                                    "--template=" toc-template-path " "
-                                    "--table-of-contents " absolute-org-file)
+                                "--template=" toc-template-path " "
+                                "--table-of-contents " absolute-org-file)
         body-cmd           (str "pandoc -f org -t html "
                                 "--template=" body-template-path " "
                                 absolute-org-file)
@@ -39,7 +47,9 @@
         body-result        (shell/sh "sh" "-c" body-cmd)]
     (if (and (zero? (:exit toc-result))
              (zero? (:exit body-result)))
-      [(:out toc-result)
-       (:out body-result)]
+      {:toc       (:out toc-result)
+       :body      (:out body-result)
+       :read-time (estimate-read-time contents)}
       (do (println (str "Error(s):" [(:error toc-result) (:error body-result)]))
           nil))))
+

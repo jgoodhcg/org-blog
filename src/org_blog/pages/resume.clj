@@ -22,7 +22,7 @@
                                 io/file
                                 (.getCanonicalPath)
                                 org->html
-                                second)
+                                :body)
                 org-parsed (hickory/parse-fragment org-html)
                 org-hiccup (->> org-parsed
                                 (map hickory/as-hiccup)

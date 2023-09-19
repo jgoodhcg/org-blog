@@ -5,8 +5,8 @@
    [hiccup.core :refer [html]]
    [potpuri.core :as pot]
    [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [posts-org-dir]]
-   [org-blog.common.files :refer [spit-with-path]]
+   [org-blog.common.org :refer [count-words estimate-read-time]]
+   [org-blog.common.files :refer [posts-org-dir spit-with-path]]
    [org-blog.posts :as posts]))
 
 (defn extract-org-metadata [org-content]
@@ -20,13 +20,6 @@
         description         (second (re-find description-pattern org-content))]
 
     (pot/map-of title date description thumbnail)))
-
-(defn count-words [text]
-  (count (re-seq #"\b\w+\b" text)))
-
-(defn estimate-read-time [text]
-  (let [word-count (count-words text)]
-    (int (Math/ceil (/ word-count 250.0)))))
 
 (defn gen []
   (-> "Generating home (index) page" c/blue println)

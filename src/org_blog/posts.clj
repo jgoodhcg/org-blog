@@ -9,7 +9,7 @@
    [hickory.core :as hickory]
    [org-blog.common.components :as comps]
    [org-blog.common.files :refer [posts-org-dir posts-out-dir spit-with-path]]
-   [org-blog.common.org :refer [add-prism-class org->html]]))
+   [org-blog.common.org :refer [add-prism-class org->html estimate-read-time]]))
 
 (defn get-a-elements
   [form]
@@ -35,9 +35,9 @@
        (cons :ul)
        vec))
 
-(defn post-page-hiccup [[toc-string body-string]]
-  (let [parsed-toc  (hickory/parse-fragment toc-string)
-        parsed-body (hickory/parse-fragment body-string)
+(defn post-page-hiccup [{:keys [toc body read-time]}]
+  (let [parsed-toc  (hickory/parse-fragment toc)
+        parsed-body (hickory/parse-fragment body)
         hiccup-toc  (->> parsed-toc
                          (map hickory/as-hiccup)
                          first
@@ -52,6 +52,7 @@
       [:header (comps/nav)]
       [:main.grid.grid-cols-4.gap-4
        [:div.col-span-4.md:col-span-3
+        [:p.text-white-900 (str "Read time: " read-time " mins")]
         [:div hiccup-body]]
        [:div.hidden.md:block.md:h-full
         [:div.sticky.top-0
