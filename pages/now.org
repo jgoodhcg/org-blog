@@ -6,15 +6,23 @@
 Last updated: 2023-09-09
 #+end_verse
 What's a now page? It's an idea originally from [[https://sive.rs/nowff][Derek Sivers]]. Basically, what I'm up to.
-** Intentionally Consuming interesting things
-*** Permaculture
-Other relevant terms in this category include: gardening, composting, market gardening, anti-lawn, and no-till.
-- Red Gardens
-- Edible Acres
-- Epic Gardens
-*** City Planning
+** Intentional Consumption
+*** 🧑‍🌾 Farming
+I'm still harboring a fantasy of quitting tech and becoming a farmer.
+**** [[https://www.youtube.com/c/REDGardens][Red Gardens]]
+High signal quantitative and qualitative analysis of multiple gardening techniques in Ireland.
+**** [[https://www.youtube.com/channel/UCznk4o83WjKFCwEZ8th8wHQ][Edible Acres]]
+Consumption thoughtful nursery and composting system in New York state.
+**** [[https://www.youtube.com/channel/UCLhu5JoRWPgEGDoUFfQHTPQ/videos][No till growers]]
+High production value no-till related.
+**** [[https://www.notillgrowers.com/the-composter][The Composter]]
+A podcast interviewing different /high quality compost/ operations.
+*** SASS Business
+- Startup to Last
+- Hackers Incorporated
+- Bootstrapped Web
+- Indie Hackers
+*** Environment
 - Nerd City
-*** Ancient History
-- Great Courses
-** Thoughts
-** Production
+- PBS Terra
+- Wendover Productions
