@@ -30,8 +30,8 @@ module.exports = {
         900: '#E064B7',
       },
       cyan: {
-        100: '#33E1FD',
-        DEFAULT: '#01CDFE',
+        100: '#54E6FD',
+        DEFAULT: '#00DDFF',
         900: '#01B2D6',
       },
       green: {
