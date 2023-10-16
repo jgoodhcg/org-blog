@@ -28,7 +28,7 @@
        (comps/body
         [:header (comps/nav)]
         [:main.grid.grid-cols-5
-         [:div.col-span-3.col-start-2
+         [:div.col-span-5.p-4.md:col-span-3.md:col-start-2
           [:h1 "???"]
           [:p "If you are thinking about hiring me check out my "
            [:a {:href "https://github.com/jgoodhcg"} "github"]

@@ -3,19 +3,31 @@
 
 * Now Page
 #+begin_verse
-Last updated: 2023-09-09
+/Last updated: 2023-10-16/
 #+end_verse
 What's a now page? It's an idea originally from [[https://sive.rs/nowff][Derek Sivers]]. Basically, what I'm up to.
-** Intentional Consumption
-*** 🧑‍🌾 Farming
+** 🥕 Health
+I'm in my early 30s and I think my top focus for the rest of my life should be health and longevity. Most of the influence in this space comes from two sources:
+*** How not to die
+The website [[https://nutritionfacts.org/][nutritionfacts.org]] is the biggest influence. A doctor reviews nutrition and medical journals and distills the findings into content for regular people. tl;dr ... eat whole food plant based and your chance of dying from virtually every major risk factor decreases. I bought [[https://nutritionfacts.org/book/how-not-to-die-cookbook/][the cookbook]] and have been trying to make that a majority of my diet. I'm still regularly consuming dairy and eggs but consumption is trending down.
+*** Blueprint
+
+*** My protocol
+
+** 🛠️ Production
+*** Mi Datni
+*** Garden
+
+** 👀 Intentional Consumption
+*** Farming
 I'm still harboring a fantasy of quitting tech and becoming a farmer.
-**** [[https://www.youtube.com/c/REDGardens][Red Gardens]]
+- [[https://www.youtube.com/c/REDGardens][Red Gardens]]
 High signal quantitative and qualitative analysis of multiple gardening techniques in Ireland.
-**** [[https://www.youtube.com/channel/UCznk4o83WjKFCwEZ8th8wHQ][Edible Acres]]
+- [[https://www.youtube.com/channel/UCznk4o83WjKFCwEZ8th8wHQ][Edible Acres]]
 Consumption thoughtful nursery and composting system in New York state.
-**** [[https://www.youtube.com/channel/UCLhu5JoRWPgEGDoUFfQHTPQ/videos][No till growers]]
+- [[https://www.youtube.com/channel/UCLhu5JoRWPgEGDoUFfQHTPQ/videos][No till growers]]
 High production value no-till related.
-**** [[https://www.notillgrowers.com/the-composter][The Composter]]
+- [[https://www.notillgrowers.com/the-composter][The Composter]]
 A podcast interviewing different /high quality compost/ operations.
 *** SASS Business
 - Startup to Last
@@ -26,3 +38,4 @@ A podcast interviewing different /high quality compost/ operations.
 - Nerd City
 - PBS Terra
 - Wendover Productions
+

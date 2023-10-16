@@ -51,7 +51,7 @@
      (comps/body
       [:header (comps/nav)]
       [:main.grid.grid-cols-4.gap-4
-       [:div.col-span-4.md:col-span-3
+       [:div.p-4.col-span-4.md:col-span-3
         [:p.text-white-900 (str "Read time: " read-time " mins")]
         [:div hiccup-body]]
        [:div.hidden.md:block.md:h-full
