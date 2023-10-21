@@ -7,7 +7,7 @@
    content])
 
 (defn nav []
-  [:nav.flex.flex-row.mb-8.justify-end.w-full
+  [:nav.flex.flex-row.mb-8.justify-end.w-full.p-2
    [:a.text-2xl.font-bold.mr-2.text-white.no-underline.grow
     {:href "/"}
     [:span.text-cyan "Justin"]

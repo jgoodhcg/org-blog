@@ -14,7 +14,7 @@
        (comps/body
         [:header
          (comps/nav)]
-        [:main
+        [:main.p-4
          [:div.w-full
           [:h1 "All posts"]
           [:ul.flex.flex-col

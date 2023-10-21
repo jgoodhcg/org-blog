@@ -35,29 +35,37 @@
        (cons :ul)
        vec))
 
-(defn post-page-hiccup [{:keys [toc body read-time]}]
+(defn post-page-hiccup [{:keys [toc
+                                body
+                                read-time
+                                include-toc
+                                include-read-time]
+                         :or {include-toc true
+                              include-read-time true}}]
   (let [parsed-toc  (hickory/parse-fragment toc)
         parsed-body (hickory/parse-fragment body)
         hiccup-toc  (->> parsed-toc
                          (map hickory/as-hiccup)
                          first
-                         #_get-links-from-toc
-                         #_(cons {:id "toc"})
-                         #_(cons :nav.flex.flex-col)
                          vec)
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
      (comps/head {:prism true})
      (comps/body
       [:header (comps/nav)]
-      [:main.grid.grid-cols-4.gap-4
-       [:div.p-4.col-span-4.md:col-span-3
-        [:p.text-white-900 (str "Read time: " read-time " mins")]
+      [:main.max-w-screen-lg.mx-auto.grid.grid-cols-4.gap-4.p-4
+       [:div.col-span-4.md:col-span-3.w-full
+        {:class ".md:w-3/4"}
+        (when include-read-time
+          [:p.text-white-900 (str "Read time: " read-time " mins")])
         [:div hiccup-body]]
-       [:div.hidden.md:block.md:h-full
-        [:div.sticky.top-0
-         [:h4 "Table of Contents"]
-         hiccup-toc]]])]))
+       (when include-toc
+         [:div.hidden.md:block.md:h-full.w-full
+          {:class ".md:w-1/4"}
+          [:div.sticky.top-0
+           [:h4 "Table of Contents"]
+           hiccup-toc]])])]))
+
 
 (defn get-org-file-name [org-file]
   (str (-> org-file
