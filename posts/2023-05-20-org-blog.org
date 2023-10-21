@@ -1,12 +1,13 @@
 #+title: Building a Custom Static Site Generator
-#+description: A Digital Homesteading Journey with Clojure and Org-Mode
-#+date:<2023-04-22 Sat>
+#+description: Because the world needs another static site generator and I want to write in org mode
+#+date:<2023-05-20 Sat>
 #+thumbnail: /img/thumbnail/2023-09-09-clojure-org.png
 #+options: H:6
 
-
-* Digital Homesteading with Clojure + Org
+* Custom Static Site Generator in Clojure with Org mode
 :LOGBOOK:
+CLOCK: [2023-10-21 Sat 17:22]--[2023-10-21 Sat 18:00] =>  0:38
+CLOCK: [2023-10-21 Sat 16:23]--[2023-10-21 Sat 16:35] =>  0:12
 CLOCK: [2023-05-26 Fri 13:22]--[2023-05-26 Fri 14:07] =>  0:45
 CLOCK: [2023-05-26 Fri 12:31]--[2023-05-26 Fri 13:12] =>  0:41
 CLOCK: [2023-05-26 Fri 12:17]--[2023-05-26 Fri 12:30] =>  0:13
@@ -18,20 +19,17 @@ CLOCK: [2023-05-21 Sun 13:21]--[2023-05-21 Sun 13:54] =>  0:33
 CLOCK: [2023-05-20 Sat 10:45]--[2023-05-20 Sat 11:51] =>  1:06
 :END:
 
-** Digital Homestead?
+#+begin_verse
+Updated 2023-10-21
+#+end_verse
+
+** Digital Homestead
 :PROPERTIES:
 :CUSTOM_ID: digital-homestead
 :END:
-[[https://jackrusher.com/journal/homesteading.html][Jack Rusher]] articulates the concept of digital homesteading – a call for the crafting of your own online presence, rather than relying solely on social media platforms. This is advice that resonates with me. I firmly believe in maintaining control over my content and choosing to distribute it across social media platforms (or syndicate it) rather than being solely reliant on them.
+Jack Rusher's [[https://jackrusher.com/journal/homesteading.html][post on digital homesteading]] inspired me to craft and own my publishing tools. I'm not sure that the spirit of the post was in line with "write another static site generator that works slightly different than others". But that is one of the things I took away from it.
 
-There are numerous ready-made static site generators available, and the smart (and time-valuing) choice would be to use one of them. However, I have some specific niche needs that aren't met by any existing generator. This brings me to my digital homesteading project: building a custom static site generator from scratch.
-
-** My Custom Static Site Generator
-:PROPERTIES:
-:CUSTOM_ID: my-static-site-generator
-:END:
-
-This blog post documents creating a personal website and blog platform. The purpose of this platform is to enable me to write posts and content in Org Mode and generate a static site using Clojure. It's not intended to be a generalized platform, but rather a collection of functions that allow me to publish a static site. You can find the Github repository [[https://Github.com/jgoodhcg/org-blog][here]], and I host it using [[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform][Digital Ocean's app platform]].
+There are numerous ready-made static site generators available, and the smart (and time-valuing) choice would be to use one of them. However, I have some specific niche needs that aren't met by any existing generator.
 
 ** Specific Requirements
 :PROPERTIES:
@@ -39,22 +37,22 @@ This blog post documents creating a personal website and blog platform. The purp
 :END:
 My requirements for this project were as follows:
 
-*** Compatibility with Org-Mode
-Since I primarily use Doom Emacs as my text editor, writing in org mode is my preferred medium for content creation.
+- Compatibility with Org-Mode
+I primarily use Doom Emacs as my text editor, writing in org mode is my preferred medium for content creation.
 
-*** Ease of Styling
-I sought to leverage Clojure hiccup and Tailwind for creating HTML without learning a new template language or an arbitrary theme plugin system.
+- Ease of Styling
+I want to leverage Clojure hiccup and Tailwind for creating HTML without learning a new template language or an arbitrary theme plugin system.
 
-*** Efficient Load Times
+- Efficient Load Times
 A static site with minimal dependencies was essential for efficient loading times.
 
-*** Flexibility
+- Flexibility
 I wanted the freedom to add features such as comments or interactive experiences on my site without having to defy platform conventions.
 
-*** Minimal Overhead
+- Minimal Overhead
 I aimed to be as close to basic HTML, CSS, and JavaScript as possible, while still utilizing Clojure, hiccup, tailwind, and org mode. I also wanted an easy process for deploying and writing, as a low barrier to content production encourages more frequent writing.
 
-*** Cost Effectiveness
+- Cost Effectiveness
 A cheap or free hosting solution that wouldn't require scaling considerations was a must.
 
 ** Other Blogging Solutions
@@ -64,22 +62,17 @@ A cheap or free hosting solution that wouldn't require scaling considerations wa
 
 Several platforms I tested were interesting but ultimately fell short of meeting my needs.
 
-*** Cryogen
-Cryogen, a static site generator written in Clojure, served its purpose well, but I encountered some challenges. Writing in markdown was less comfortable for me than in Org-Mode, and deployment was somewhat tedious.
+- Cryogen
+A static site generator written in Clojure, served its purpose well, but I encountered some challenges. Writing in markdown was less comfortable for me than in Org-Mode, and deployment was somewhat tedious.
 
-*** Ghost
+- Ghost
 Ghost's themes were impressive and offered certain conveniences such as metadata for Twitter previews and Google result displays. However, the experience with the editor left something to be desired, and I was hesitant to learn another theme syntax to customize styles.
 
-*** Other Considerations
-   :PROPERTIES:
-   :CUSTOM_ID: considerations
-   :END:
+- Roam Research
+While the idea of using Roam Research was interesting, the fact that it would create a Single Page Application (SPA) and not a static site raised concerns about load times. Additionally, setting up a custom domain appeared to be either difficult or potentially costly.
 
-A few other platforms caught my attention as well:
-
-- *Roam Research* as the blog site: While the idea of using Roam Research was interesting, the fact that it would create a Single Page Application (SPA) and not a static site raised concerns about load times. Additionally, setting up a custom domain appeared to be either difficult or potentially costly.
-
-- *org-static-blog*: As the name implies, org-static-blog does exactly what it promises – it's a simple static blog generator for Emacs' Org-Mode. However, styling it proved to be an arduous task, as all the template HTML is embedded within a string in an Emacs configuration file.
+- org-static-blog
+As the name implies, org-static-blog does exactly what it promises – it's a simple static blog generator for Emacs' Org-Mode. However, styling it proved to be an arduous task, as all the template HTML is embedded within a string in an Emacs configuration file.
 
 ** Project Overview
   :PROPERTIES:
@@ -88,22 +81,55 @@ A few other platforms caught my attention as well:
 I decided to start from scratch. From an empty git repo I added a directory with some org mode blog posts and a jvm clojure file. From there I let the REPL guide me. What I ended up with looked like this:
 
   #+begin_example
+.
 ├── css
+│   └── input.css
+├── deps.edn
+├── package.json
+├── package-lock.json
 ├── pages
+│   ├── now.org
+│   └── resume.org
+├── postcss.config.js
 ├── posts
+│   ├── 2023-04-22-kitchen-sink.org
+│   └── 2023-05-20-org-blog.org
+├── README.org
 ├── src
 │   └── org_blog
 │       ├── common
-│       └── pages
-└── static
-    ├── archive
-    ├── css
-    │   └── svg
-    ├── img
-    ├── posts
-    │   ├── 2023-04-22-kitchen-sink
-    │   └── 2023-05-20-org-blog
-    └── resume
+│       │   ├── components.clj
+│       │   ├── files.clj
+│       │   └── org.clj
+│       ├── core.clj
+│       ├── dev_server.clj
+│       ├── pages
+│       │   ├── archive.clj
+│       │   ├── home.clj
+│       │   ├── now.clj
+│       │   ├── resume.clj
+│       │   └── rss.clj
+│       ├── pandoc-template-body.html
+│       ├── pandoc-template-toc.html
+│       └── posts.clj
+├── static
+│   ├── archive
+│   │   └── index.html
+│   ├── css
+│   ├── img
+│   ├── index.html
+│   ├── now
+│   │   └── index.html
+│   ├── posts
+│   │   ├── 2023-04-22-kitchen-sink
+│   │   │   └── index.html
+│   │   └── 2023-05-20-org-blog
+│   │       └── index.html
+│   ├── resume
+│   │   └── index.html
+│   └── rss.xml
+└── tailwind.config.js
+
   #+end_example
 
 *** css
@@ -138,11 +164,11 @@ This is the directory with the static assets. All of the html, css, and images a
 
 [[file:./../img/2023-05-26_12-48-repl.png]]
 
-  I can then go to ~localhost:8080~ and see the post I'm working on.
+  I can then go to ~localhost:8080~ and see the post I'm working on. The screenshot below is not what the blog looks like anymore. Originally I was trying a kind of Star Trek LCARS theme.
 
 [[file:./../img/2023-05-26_12-52-preview.png]]
 *** Custom pages
-  Not everything I want to make is an Org-Mode based blog post. For one off pages I make a clojure namespace that uses hiccup to generate an html page. All of the reusable components of the site are clojure functions that generate hiccup. Building up a page is functional and almost /React/ like.
+  Not everything I want to make is an Org-Mode based blog post. For one off pages I make a clojure namespace that uses hiccup to generate an html page. All of the reusable components of the site are clojure functions that generate hiccup. Building up a page is functional and feels similar to writing Reagent components in a React based SPA.
 
   Here is the home page generation function.
 
@@ -190,7 +216,7 @@ This is the directory with the static assets. All of the html, css, and images a
   :PROPERTIES:
   :CUSTOM_ID: code
   :END:
-There are some areas of the codebase that I think are rather interesting.
+There are some areas of the codebase that are interesting.
 
 *** Dev webserver
 To be able to develop locally the project needed a dev webserver. That exists in ~org-blog.dev-server~ namespace. It uses ~org.httpkit.server~. The heart of it is just a simple handler function that does a little something different per content type.
@@ -396,6 +422,9 @@ In ~org-blog.common.org~ is the actual conversion of Org-Mode content to html. I
   background-size: 100% 100%;
 }
   #+end_src
+
+*** Design Update (2023-10-21)
+I've done away with the LCARS design. It was fun to play around with but I want something less distracting. I stripped all the design down to basics and copied colors and layout from a few different inspiration sources.
 
 ** Handling Images
   :PROPERTIES:

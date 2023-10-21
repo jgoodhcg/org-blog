@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-black max-w-full font-nunito;
+}
+
 /* Customizations */
 a {
   @apply text-cyan underline underline-offset-2;
@@ -17,7 +21,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-white font-bold mt-8 mb-2;
+  @apply text-white font-bold mt-8 mb-2 font-lato;
 }
 
 h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan via-cyan-100 to-green-100; }
@@ -28,16 +32,11 @@ h5 { @apply text-lg; }
 h6 { @apply text-base; }
 
 p, ul, ol {
-  @apply text-white mb-2;
+  @apply text-white mb-2 text-base;
 }
 
 .archive ul {
   @apply list-disc list-inside;
-}
-
-/* Additional styles */
-body {
-  @apply bg-black max-w-full;
 }
 
 blockquote {
@@ -49,7 +48,7 @@ blockquote p {
 }
 
 .line-block{
-  @apply text-white-900;
+  @apply text-white-900 italic;
 }
 
 table {

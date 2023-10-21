@@ -50,7 +50,11 @@ module.exports = {
         900: '#E25B5B',
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'nunito': ['Nunito', 'sans-serif'],
+        'lato' : ['Lato', "sans-serif"]
+      }},
   },
   plugins: [],
 }

@@ -1,98 +1,136 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Justin Good&apos;s personal blog" name="description" /><meta content="Jgood Blog" property="og:title" /><meta content="Justin Good&apos;s personal blog" property="og:description" /><meta content="website" property="og:type" /><meta content="https://jgood.online" property="og:url" /><meta content="https://jgood.online/img/2023-05-28-og-image-robot-steps.png" property="og:image" /><title>Jgood Blog</title><link href="/css/output.css" rel="stylesheet" type="text/css" /><link href="/img/2023-06-03-vaporwave-wigle-favicon.png" rel="icon" /><link href="/css/prism-synthwave-84.css" rel="stylesheet" type="text/css" /><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body class="container mx-auto bg-grey"><header><nav class="flex flex-row mb-8 justify-end w-full p-2"><a class="text-2xl font-bold mr-2 text-white no-underline grow" href="/"><span class="text-cyan">Justin</span><span class="text-green">Good</span></a><a class="text-xl mr-2" href="/now">now</a><a class="text-xl mr-2" href="/archive">archive</a><a class="text-xl mr-2" href="/rss.xml">feed</a></nav></header><main class="max-w-screen-lg mx-auto grid grid-cols-4 gap-4 p-4"><div class="col-span-4 md:col-span-3 w-full .md:w-3/4"><p class="text-white-900">Read time: 11 mins</p><div><h1 id="digital-homesteading-with-clojure-org">Digital Homesteading with
-Clojure + Org</h1>
-<h2 id="digital-homestead">Digital Homestead?</h2>
-<p><a href="https://jackrusher.com/journal/homesteading.html">Jack
-Rusher</a> articulates the concept of digital homesteading – a call for
-the crafting of your own online presence, rather than relying solely on
-social media platforms. This is advice that resonates with me. I firmly
-believe in maintaining control over my content and choosing to
-distribute it across social media platforms (or syndicate it) rather
-than being solely reliant on them.</p>
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Justin Good&apos;s personal blog" name="description" /><meta content="Jgood Blog" property="og:title" /><meta content="Justin Good&apos;s personal blog" property="og:description" /><meta content="website" property="og:type" /><meta content="https://jgood.online" property="og:url" /><meta content="https://jgood.online/img/2023-05-28-og-image-robot-steps.png" property="og:image" /><title>Jgood Blog</title><link href="/css/output.css" rel="stylesheet" type="text/css" /><link href="/img/2023-06-03-vaporwave-wigle-favicon.png" rel="icon" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet" /><link href="/css/prism-synthwave-84.css" rel="stylesheet" type="text/css" /><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body class="container mx-auto bg-grey"><header><nav class="flex flex-row mb-8 justify-end w-full p-2"><a class="text-2xl font-bold mr-2 text-white no-underline grow" href="/"><span class="text-cyan">Justin</span><span class="text-green">Good</span></a><a class="text-xl mr-2" href="/now">now</a><a class="text-xl mr-2" href="/archive">archive</a><a class="text-xl mr-2" href="/rss.xml">feed</a></nav></header><main class="max-w-screen-lg mx-auto grid grid-cols-4 gap-4 p-4"><div class="col-span-4 md:col-span-3 w-full .md:w-3/4"><p class="text-white-900 italic">Read time: 11 mins</p><div><h1 id="custom-static-site-generator-in-clojure-with-org-mode">Custom
+Static Site Generator in Clojure with Org mode</h1>
+<div class="line-block">Updated 2023-10-21</div>
+<h2 id="digital-homestead">Digital Homestead</h2>
+<p>Jack Rusher's <a href="https://jackrusher.com/journal/homesteading.html">post on digital
+homesteading</a> inspired me to craft and own my publishing tools. I'm
+not sure that the spirit of the post was in line with &quot;write another
+static site generator that works slightly different than others&quot;. But
+that is one of the things I took away from it.</p>
 <p>There are numerous ready-made static site generators available, and
 the smart (and time-valuing) choice would be to use one of them.
 However, I have some specific niche needs that aren't met by any
-existing generator. This brings me to my digital homesteading project:
-building a custom static site generator from scratch.</p>
-<h2 id="my-static-site-generator">My Custom Static Site Generator</h2>
-<p>This blog post documents creating a personal website and blog
-platform. The purpose of this platform is to enable me to write posts
-and content in Org Mode and generate a static site using Clojure. It's
-not intended to be a generalized platform, but rather a collection of
-functions that allow me to publish a static site. You can find the
-Github repository <a href="https://Github.com/jgoodhcg/org-blog">here</a>, and I host it
-using <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform">Digital
-Ocean's app platform</a>.</p>
+existing generator.</p>
 <h2 id="requirements">Specific Requirements</h2>
 <p>My requirements for this project were as follows:</p>
-<h3 id="compatibility-with-org-mode">Compatibility with Org-Mode</h3>
-<p>Since I primarily use Doom Emacs as my text editor, writing in org
-mode is my preferred medium for content creation.</p>
-<h3 id="ease-of-styling">Ease of Styling</h3>
-<p>I sought to leverage Clojure hiccup and Tailwind for creating HTML
+<ul>
+<li>Compatibility with Org-Mode</li>
+</ul>
+<p>I primarily use Doom Emacs as my text editor, writing in org mode is
+my preferred medium for content creation.</p>
+<ul>
+<li>Ease of Styling</li>
+</ul>
+<p>I want to leverage Clojure hiccup and Tailwind for creating HTML
 without learning a new template language or an arbitrary theme plugin
 system.</p>
-<h3 id="efficient-load-times">Efficient Load Times</h3>
+<ul>
+<li>Efficient Load Times</li>
+</ul>
 <p>A static site with minimal dependencies was essential for efficient
 loading times.</p>
-<h3 id="flexibility">Flexibility</h3>
+<ul>
+<li>Flexibility</li>
+</ul>
 <p>I wanted the freedom to add features such as comments or interactive
 experiences on my site without having to defy platform conventions.</p>
-<h3 id="minimal-overhead">Minimal Overhead</h3>
+<ul>
+<li>Minimal Overhead</li>
+</ul>
 <p>I aimed to be as close to basic HTML, CSS, and JavaScript as
 possible, while still utilizing Clojure, hiccup, tailwind, and org mode.
 I also wanted an easy process for deploying and writing, as a low
 barrier to content production encourages more frequent writing.</p>
-<h3 id="cost-effectiveness">Cost Effectiveness</h3>
+<ul>
+<li>Cost Effectiveness</li>
+</ul>
 <p>A cheap or free hosting solution that wouldn't require scaling
 considerations was a must.</p>
 <h2 id="other-solutions">Other Blogging Solutions</h2>
 <p>Several platforms I tested were interesting but ultimately fell short
 of meeting my needs.</p>
-<h3 id="cryogen">Cryogen</h3>
-<p>Cryogen, a static site generator written in Clojure, served its
-purpose well, but I encountered some challenges. Writing in markdown was
-less comfortable for me than in Org-Mode, and deployment was somewhat
+<ul>
+<li>Cryogen</li>
+</ul>
+<p>A static site generator written in Clojure, served its purpose well,
+but I encountered some challenges. Writing in markdown was less
+comfortable for me than in Org-Mode, and deployment was somewhat
 tedious.</p>
-<h3 id="ghost">Ghost</h3>
+<ul>
+<li>Ghost</li>
+</ul>
 <p>Ghost's themes were impressive and offered certain conveniences such
 as metadata for Twitter previews and Google result displays. However,
 the experience with the editor left something to be desired, and I was
 hesitant to learn another theme syntax to customize styles.</p>
-<h3 id="considerations">Other Considerations</h3>
-<p>A few other platforms caught my attention as well:</p>
 <ul>
-<li><p><strong>Roam Research</strong> as the blog site: While the idea
-of using Roam Research was interesting, the fact that it would create a
-Single Page Application (SPA) and not a static site raised concerns
-about load times. Additionally, setting up a custom domain appeared to
-be either difficult or potentially costly.</p></li>
-<li><p><strong>org-static-blog</strong>: As the name implies,
-org-static-blog does exactly what it promises – it's a simple static
-blog generator for Emacs' Org-Mode. However, styling it proved to be an
-arduous task, as all the template HTML is embedded within a string in an
-Emacs configuration file.</p></li>
+<li>Roam Research</li>
 </ul>
+<p>While the idea of using Roam Research was interesting, the fact that
+it would create a Single Page Application (SPA) and not a static site
+raised concerns about load times. Additionally, setting up a custom
+domain appeared to be either difficult or potentially costly.</p>
+<ul>
+<li>org-static-blog</li>
+</ul>
+<p>As the name implies, org-static-blog does exactly what it promises –
+it's a simple static blog generator for Emacs' Org-Mode. However,
+styling it proved to be an arduous task, as all the template HTML is
+embedded within a string in an Emacs configuration file.</p>
 <h2 id="overview">Project Overview</h2>
 <p>I decided to start from scratch. From an empty git repo I added a
 directory with some org mode blog posts and a jvm clojure file. From
 there I let the REPL guide me. What I ended up with looked like
 this:</p>
-<pre class="example"><code class="language-">├── css
+<pre class="example"><code class="language-">.
+├── css
+│   └── input.css
+├── deps.edn
+├── package.json
+├── package-lock.json
 ├── pages
+│   ├── now.org
+│   └── resume.org
+├── postcss.config.js
 ├── posts
+│   ├── 2023-04-22-kitchen-sink.org
+│   └── 2023-05-20-org-blog.org
+├── README.org
 ├── src
 │   └── org_blog
 │       ├── common
-│       └── pages
-└── static
-    ├── archive
-    ├── css
-    │   └── svg
-    ├── img
-    ├── posts
-    │   ├── 2023-04-22-kitchen-sink
-    │   └── 2023-05-20-org-blog
-    └── resume
+│       │   ├── components.clj
+│       │   ├── files.clj
+│       │   └── org.clj
+│       ├── core.clj
+│       ├── dev_server.clj
+│       ├── pages
+│       │   ├── archive.clj
+│       │   ├── home.clj
+│       │   ├── now.clj
+│       │   ├── resume.clj
+│       │   └── rss.clj
+│       ├── pandoc-template-body.html
+│       ├── pandoc-template-toc.html
+│       └── posts.clj
+├── static
+│   ├── archive
+│   │   └── index.html
+│   ├── css
+│   ├── img
+│   ├── index.html
+│   ├── now
+│   │   └── index.html
+│   ├── posts
+│   │   ├── 2023-04-22-kitchen-sink
+│   │   │   └── index.html
+│   │   └── 2023-05-20-org-blog
+│   │       └── index.html
+│   ├── resume
+│   │   └── index.html
+│   └── rss.xml
+└── tailwind.config.js
+
 </code></pre>
 <h3 id="css">css</h3>
 <p>Contains one <code class="language-">input.css</code> file with some tailwind `@apply`
@@ -131,14 +169,15 @@ filewatcher so any changes to source code or the org mode blog posts
 trigger a re-generation of the static files.</p>
 <p><img src="./../img/2023-05-26_12-48-repl.png" /></p>
 <p>I can then go to <code class="language-">localhost:8080</code> and see the post I'm
-working on.</p>
+working on. The screenshot below is not what the blog looks like
+anymore. Originally I was trying a kind of Star Trek LCARS theme.</p>
 <p><img src="./../img/2023-05-26_12-52-preview.png" /></p>
 <h3 id="custom-pages">Custom pages</h3>
 <p>Not everything I want to make is an Org-Mode based blog post. For one
 off pages I make a clojure namespace that uses hiccup to generate an
 html page. All of the reusable components of the site are clojure
 functions that generate hiccup. Building up a page is functional and
-almost <em>React</em> like.</p>
+feels similar to writing Reagent components in a React based SPA.</p>
 <p>Here is the home page generation function.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode clojure"><code class="language-clojure"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> gen </span>[]</span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  (<span class="kw">-&gt;</span> <span class="st">&quot;Generating home (index) page&quot;</span> c/blue <span class="kw">println</span>)</span>
@@ -184,8 +223,7 @@ code.</p>
 <code class="language-">static/</code>.</p>
 <p><img src="./../img/2023-05-26_13-09-deploy.png" /></p>
 <h2 id="code">Code</h2>
-<p>There are some areas of the codebase that I think are rather
-interesting.</p>
+<p>There are some areas of the codebase that are interesting.</p>
 <h3 id="dev-webserver">Dev webserver</h3>
 <p>To be able to develop locally the project needed a dev webserver.
 That exists in <code class="language-">org-blog.dev-server</code> namespace. It uses
@@ -385,6 +423,11 @@ of the border.</p>
 <span id="cb8-50"><a aria-hidden="true" href="#cb8-50" tabindex="-1"></a>                                  <span class="dv">transparent</span> <span class="dv">88</span><span class="dt">%</span><span class="op">,</span> <span class="cn">#000000</span> <span class="dv">100</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
 <span id="cb8-51"><a aria-hidden="true" href="#cb8-51" tabindex="-1"></a>  <span class="kw">background-size</span>: <span class="dv">100</span><span class="dt">%</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
 <span id="cb8-52"><a aria-hidden="true" href="#cb8-52" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="design-update-2023-10-21">Design Update (2023-10-21)</h3>
+<p>I've done away with the LCARS design. It was fun to play around with
+but I want something less distracting. I stripped all the design down to
+basics and copied colors and layout from a few different inspiration
+sources.</p>
 <h2 id="images">Handling Images</h2>
 <p>I'm using two tools for image generation. <a href="https://flameshot.org/">flameshot</a> is for taking screenshots
 and <a href="https://exiftool.org/">exiftool</a> for stripping gps data
@@ -401,35 +444,15 @@ performance I'll think about doing that.</p>
 way!</p>
 </div></div><div class="hidden md:block md:h-full w-full .md:w-1/4"><div class="sticky top-0"><h4>Table of Contents</h4><nav id="table-of-contents">
   <ul>
-  <li><a href="#digital-homesteading-with-clojure-org" id="toc-digital-homesteading-with-clojure-org">Digital Homesteading
-  with Clojure + Org</a>
+  <li><a href="#custom-static-site-generator-in-clojure-with-org-mode" id="toc-custom-static-site-generator-in-clojure-with-org-mode">Custom
+  Static Site Generator in Clojure with Org mode</a>
   <ul>
   <li><a href="#digital-homestead" id="toc-digital-homestead">Digital
-  Homestead?</a></li>
-  <li><a href="#my-static-site-generator" id="toc-my-static-site-generator">My Custom Static Site
-  Generator</a></li>
+  Homestead</a></li>
   <li><a href="#requirements" id="toc-requirements">Specific
-  Requirements</a>
-  <ul>
-  <li><a href="#compatibility-with-org-mode" id="toc-compatibility-with-org-mode">Compatibility with
-  Org-Mode</a></li>
-  <li><a href="#ease-of-styling" id="toc-ease-of-styling">Ease of
-  Styling</a></li>
-  <li><a href="#efficient-load-times" id="toc-efficient-load-times">Efficient Load Times</a></li>
-  <li><a href="#flexibility" id="toc-flexibility">Flexibility</a></li>
-  <li><a href="#minimal-overhead" id="toc-minimal-overhead">Minimal
-  Overhead</a></li>
-  <li><a href="#cost-effectiveness" id="toc-cost-effectiveness">Cost
-  Effectiveness</a></li>
-  </ul></li>
+  Requirements</a></li>
   <li><a href="#other-solutions" id="toc-other-solutions">Other Blogging
-  Solutions</a>
-  <ul>
-  <li><a href="#cryogen" id="toc-cryogen">Cryogen</a></li>
-  <li><a href="#ghost" id="toc-ghost">Ghost</a></li>
-  <li><a href="#considerations" id="toc-considerations">Other
-  Considerations</a></li>
-  </ul></li>
+  Solutions</a></li>
   <li><a href="#overview" id="toc-overview">Project Overview</a>
   <ul>
   <li><a href="#css" id="toc-css">css</a></li>
@@ -456,7 +479,10 @@ way!</p>
   <li><a href="#converting-org-mode-files-with-pandoc" id="toc-converting-org-mode-files-with-pandoc">Converting Org-Mode
   Files with Pandoc</a></li>
   </ul></li>
-  <li><a href="#design" id="toc-design">Design Choices</a></li>
+  <li><a href="#design" id="toc-design">Design Choices</a>
+  <ul>
+  <li><a href="#design-update-2023-10-21" id="toc-design-update-2023-10-21">Design Update (2023-10-21)</a></li>
+  </ul></li>
   <li><a href="#images" id="toc-images">Handling Images</a></li>
   <li><a href="#conclusion" id="toc-conclusion">/End</a></li>
   </ul></li>

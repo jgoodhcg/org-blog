@@ -57,7 +57,7 @@
        [:div.col-span-4.md:col-span-3.w-full
         {:class ".md:w-3/4"}
         (when include-read-time
-          [:p.text-white-900 (str "Read time: " read-time " mins")])
+          [:p.text-white-900.italic (str "Read time: " read-time " mins")])
         [:div hiccup-body]]
        (when include-toc
          [:div.hidden.md:block.md:h-full.w-full
