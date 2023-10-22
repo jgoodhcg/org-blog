@@ -52,8 +52,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'nunito': ['Nunito', 'sans-serif'],
-        'lato' : ['Lato', "sans-serif"]
+        'grotesk': ['Schibsted Grotesk', 'sans-serif']
       }},
   },
   plugins: [],

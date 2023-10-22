@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black max-w-full font-nunito;
+  @apply bg-black max-w-full font-grotesk;
 }
 
 /* Customizations */
@@ -21,7 +21,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-white font-bold mt-8 mb-2 font-lato;
+  @apply text-white font-bold mt-8 mb-2 font-grotesk;
 }
 
 h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan via-cyan-100 to-green-100; }
