@@ -5,7 +5,8 @@
 #+begin_verse
 /Last updated: 2023-10-16/
 #+end_verse
-What's a now page? It's an idea originally from [[https://sive.rs/nowff][Derek Sivers]]. Basically, what I'm up to.
+What's a now page? It's what I'm up to right now.
+
 ** 🥕 Health
 I'm in my early 30s and I think my top focus for the rest of my life should be health and longevity. Most of the influence in this space comes from two sources:
 *** How not to die
