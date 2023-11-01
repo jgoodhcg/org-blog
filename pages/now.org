@@ -36,11 +36,13 @@ High production value no-till related.
 A podcast interviewing different /high quality compost/ operations.
 *** SASS Business
 Since I started writing software professionally I've consumed entrepreneur content. This is the stuff I like the most.
-- Startup to Last
-- Indie Hackers
+- [[https://www.startuptolast.com/][Startup to Last]]
+My favorite "two people talking" show about /bootstrappy/ tech companies. I listen to a few of them -- too many to list here. So I'll just mention this one. I think these two most align with my values and are just constantly talking about things I find interesting.
+- [[https://www.indiehackers.com/podcasts][Indie Hackers]]
+Courtland is a really good podcast host. Early episodes are interview style. I've listened to each episode two or three times. Later episodes are more conversational. This is just a good resource to get immersed and have the basics reiterated over and over.
 *** Environment
 I'm becoming more interested in urbanism and climate change and I like these sources of information.
 - [[https://www.youtube.com/@CityNerd][City Nerd]]
 The common themes are walkability, density, and public transportation. Lots of deadpan humor and sarcasm. Also deep quantitative dives and qualitative first hand accounts of experiences across cities in the United States.
-- PBS Terra
-Non alarmist, but still alarming, generally accessible explanations of climate change.
+- [[https://www.youtube.com/playlist?list=PLnNZYWyBGJ1GLPmb55WQAln2Q7rZn5AFX][PBS Terra - Weathered]]
+Non alarmist, but still alarming, generally accessible explanations of climate change topics. I watch these to feel better about living in the midwest.
