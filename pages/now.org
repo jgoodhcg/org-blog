@@ -2,10 +2,14 @@
 #+options: H:6
 
 * Now Page
+:LOGBOOK:
+CLOCK: [2023-10-25 Wed 12:40]--[2023-10-25 Wed 12:45] =>  0:05
+CLOCK: [2023-10-25 Wed 10:53]--[2023-10-25 Wed 10:56] =>  0:03
+:END:
 #+begin_verse
-/Last updated: 2023-10-16/
+/Last updated: 2023-10-25/
 #+end_verse
-What's a now page? It's what I'm up to right now.
+What I'm up to right now.
 
 ** 🥕 Health
 I'm in my early 30s and I think my top focus for the rest of my life should be health and longevity. Most of the influence in this space comes from two sources:
@@ -16,7 +20,7 @@ The website [[https://nutritionfacts.org/][nutritionfacts.org]] is the biggest i
 *** My protocol
 
 ** 🛠️ Production
-*** Mi Datni
+*** Lo Mirli
 *** Garden
 
 ** 👀 Intentional Consumption
@@ -31,12 +35,12 @@ High production value no-till related.
 - [[https://www.notillgrowers.com/the-composter][The Composter]]
 A podcast interviewing different /high quality compost/ operations.
 *** SASS Business
+Since I started writing software professionally I've consumed entrepreneur content. This is the stuff I like the most.
 - Startup to Last
-- Hackers Incorporated
-- Bootstrapped Web
 - Indie Hackers
 *** Environment
-- Nerd City
+I'm becoming more interested in urbanism and climate change and I like these sources of information.
+- [[https://www.youtube.com/@CityNerd][City Nerd]]
+The common themes are walkability, density, and public transportation. Lots of deadpan humor and sarcasm. Also deep quantitative dives and qualitative first hand accounts of experiences across cities in the United States.
 - PBS Terra
-- Wendover Productions
-
+Non alarmist, but still alarming, generally accessible explanations of climate change.

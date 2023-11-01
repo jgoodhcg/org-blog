@@ -29,7 +29,10 @@
         [:header (comps/nav)]
         [:main.grid.grid-cols-5
          [:div.col-span-5.p-4.md:col-span-3.md:col-start-2
-          [:h1 "🚧 Work In Progress 🚧"]
+          [:div.flex.flow-row.items-center
+           [:span.mt-8.mb-2.text-3xl.mr-2 "🚧"]
+           [:h1 " WIP"]
+           [:span.mt-8.mb-2.text-3xl.ml-2 "🚧"]]
           [:p "Still trying to figure out what to write about. "]
           [:p "If you want to see any of my software projects, they are all on "
            [:a {:href "https://github.com/jgoodhcg"} "github."]]
