@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black max-w-full font-grotesk;
+  @apply bg-black max-w-full font-fira-sans;
 }
 
 /* Customizations */
@@ -29,10 +29,10 @@ h2 { @apply text-3xl; }
 h3 { @apply text-2xl; }
 h4 { @apply text-xl; }
 h5 { @apply text-lg; }
-h6 { @apply text-base; }
+h6 { @apply text-lg; }
 
 p, ul, ol {
-  @apply text-white mb-2 text-base;
+  @apply text-white mb-2 text-lg;
 }
 
 .archive ul {

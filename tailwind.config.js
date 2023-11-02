@@ -52,7 +52,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'grotesk': ['Schibsted Grotesk', 'sans-serif']
+        'grotesk': ['Schibsted Grotesk', 'sans-serif'],
+        'fira-sans': ['Fira Sans', 'sans-serif']
       }},
   },
   plugins: [],

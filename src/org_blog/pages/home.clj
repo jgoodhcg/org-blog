@@ -36,7 +36,7 @@
           [:p "Still trying to figure out what to write about. "]
           [:p "If you want to see any of my software projects, they are all on "
            [:a {:href "https://github.com/jgoodhcg"} "github."]]
-          [:p "Here is my" [:a {:href "/resume"} " resume, "]" if you are looking for that."]
+          [:p "Here is my " [:a {:href "/resume"} "resume"] ", if you are looking for that."]
           [:p "If you are curious about what I'm up to check out my "
            [:a {:href "/now"} "now page"] "."]
           [:h3.mt-8 "Recent Posts"]

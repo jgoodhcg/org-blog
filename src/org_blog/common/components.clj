@@ -10,8 +10,8 @@
   [:nav.flex.flex-row.mb-8.justify-end.w-full.p-2
    [:a.text-2xl.font-bold.mr-2.text-white.no-underline.grow
     {:href "/"}
-    [:span.text-cyan "Justin"]
-    [:span.text-green "Good"]]
+    [:span.text-cyan.font-grotesk "Justin"]
+    [:span.text-green.font-grotesk "Good"]]
    [:a.text-xl.mr-2 {:href "/now"} "now"]
    [:a.text-xl.mr-2 {:href "/archive"} "archive"]
    [:a.text-xl.mr-2 {:href "/rss.xml"} "feed"]])
@@ -37,7 +37,7 @@
      [:link {:rel "icon" :href "/img/2023-06-03-vaporwave-wigle-favicon.png"}]
      [:link {:rel "preconnect" :href "https://fonts.googleapis.com"}]
      [:link {:rel "preconnect" :href "https://fonts.gstatic.com" :crossorigin true}]
-     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"}]
+     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"}]
      ]
 
      (some? prism)
