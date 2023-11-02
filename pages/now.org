@@ -3,11 +3,13 @@
 
 * Now Page
 :LOGBOOK:
+CLOCK: [2023-11-02 Thu 09:55]--[2023-11-02 Thu 10:03] =>  0:08
+CLOCK: [2023-11-01 Wed 13:11]--[2023-11-01 Wed 13:21] =>  0:10
 CLOCK: [2023-10-25 Wed 12:40]--[2023-10-25 Wed 12:45] =>  0:05
 CLOCK: [2023-10-25 Wed 10:53]--[2023-10-25 Wed 10:56] =>  0:03
 :END:
 #+begin_verse
-/Last updated: 2023-10-25/
+/Last updated: 2023-11-01/
 #+end_verse
 What I'm up to right now.
 
@@ -16,12 +18,28 @@ I'm in my early 30s and I think my top focus for the rest of my life should be h
 *** How not to die
 The website [[https://nutritionfacts.org/][nutritionfacts.org]] is the biggest influence. A doctor reviews nutrition and medical journals and distills the findings into content for regular people. tl;dr ... eat whole food plant based and your chance of dying from virtually every major risk factor decreases. I bought [[https://nutritionfacts.org/book/how-not-to-die-cookbook/][the cookbook]] and have been trying to make that a majority of my diet. I'm still regularly consuming dairy and eggs but consumption is trending down.
 *** Blueprint
-
+[[https://www.bryanjohnson.com/][Bryan Johnson]] is becoming a tech bro celebrity with his quantitative measured approach to anti-aging. I want to avoid death as much as possible and also like to nerd out about numbers. I've been watching all the content he puts out about the Blueprint protocol since I found out about it. I've adopted some aspects of it into my own diet and exercise.
 *** My protocol
+It's not consistent enough but I have some thins I'm trying to do.
+- Eat whole food plant based as much as possible
+I let myself be /pescatarian/ when I eat out. And occasionally I'll indulge in dairy at home. But I try to at least start my day out well with the Green Giant and Super Veggie from Blueprint protocol. I also have been experimenting with meals from the How Not to Die Cookbook.
+- Work out once a day
+I average 3 times a week. Ideally the workouts are just under an hour and full body. There are lots of physical therapy like movements in my routine to counteract some issues I've developed from sitting too much.
+- Take a multivitamin
+I like Thorne 2 a day.
+- Try to stop eating by 5pm
+This one is the hardest to stick to.
 
 ** 🛠️ Production
 *** Lo Mirli
+Not launched as of now.
+
 *** Garden
+I think monoculture grass yards should not exist. Our greenspaces should try to elevate biodiversity. Food production should also shift from centralized factory production to decentralized local production.
+
+I've converted my entire front and back yard into a growing space for fruits, vegetables, and flowers. I've been in my current house for three growing seasons and the space is evolving as I learn from experience and from consuming content.
+
+My main goal for the upcoming 2024 season is to eradicate perennial grasses by using ground cover the whole growing season. That means I'll be limited to growing in fabric pots on top of the ground cover until next season.
 
 ** 👀 Intentional Consumption
 *** Farming
@@ -34,7 +52,7 @@ Consumption thoughtful nursery and composting system in New York state.
 High production value no-till related.
 - [[https://www.notillgrowers.com/the-composter][The Composter]]
 A podcast interviewing different /high quality compost/ operations.
-*** SASS Business
+*** Wantrepreneur
 Since I started writing software professionally I've consumed entrepreneur content. This is the stuff I like the most.
 - [[https://www.startuptolast.com/][Startup to Last]]
 My favorite "two people talking" show about /bootstrappy/ tech companies. I listen to a few of them -- too many to list here. So I'll just mention this one. I think these two most align with my values and are just constantly talking about things I find interesting.
