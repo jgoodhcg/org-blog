@@ -6,7 +6,7 @@
 I'm a full stack engineer and obsessive note taker!
 #+end_verse
 
-** Lead Software Architect, Archemedx
+** Software Architect, Archemedx
 /2022-08-28 - Present/
 
 - Lead customer integration efforts as the main point of contact
