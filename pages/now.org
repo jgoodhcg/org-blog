@@ -55,7 +55,7 @@ A podcast interviewing different /high quality compost/ operations.
 *** Wantrepreneur
 Since I started writing software professionally I've consumed entrepreneur content. This is the stuff I like the most.
 - [[https://www.startuptolast.com/][Startup to Last]]
-My favorite "two people talking" show about /bootstrappy/ tech companies. I listen to a few of them -- too many to list here. So I'll just mention this one. I think these two most align with my values and are just constantly talking about things I find interesting.
+My favorite "two people talking" show about /bootstrappy/ tech companies. I listen to a few shows like this -- too many to list here. So I'll just mention this one. I think these two most align with my values and are just constantly talking about things I find interesting.
 - [[https://www.indiehackers.com/podcasts][Indie Hackers]]
 Courtland is a really good podcast host. Early episodes are interview style. I've listened to each episode two or three times. Later episodes are more conversational. This is just a good resource to get immersed and have the basics reiterated over and over.
 *** Environment
