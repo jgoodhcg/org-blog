@@ -10,14 +10,14 @@
 (defn create-rss-item [post-name]
   (xml/element :item {}
                (xml/element :title {} post-name)
-               (xml/element :link {} (str "http://your-site.com/posts/" post-name)))) ;; TODO
+               (xml/element :link {} (str "http://jgood.online/posts/" post-name)))) ;; TODO
 
 (defn create-rss-feed [items]
   (xml/element :rss {:version "2.0"}
                (xml/element :channel {}
                             (xml/element :title {} "Justin Good's Blog")
-                            (xml/element :link {} "http://your-site.com") ;; TODO
-                            (xml/element :description {} "Public thoughts") ;; TODO
+                            (xml/element :link {} "http://jgood.online")
+                            (xml/element :description {} "Still trying to figure out what to write about")
                             items)))
 
 ;; TODO Add more metadata

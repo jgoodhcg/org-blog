@@ -39,7 +39,7 @@
           [:p "Here is my " [:a {:href "/resume"} "resume"] ", if you are looking for that."]
           [:p "If you are curious about what I'm up to check out my "
            [:a {:href "/now"} "now page"] "."]
-          [:h3.mt-8 "Recent Posts"]
+          [:span.text-2xl.mt-8 "Recent Posts"]
           [:ul.mt-4
            (->> posts-org-dir
                 io/file

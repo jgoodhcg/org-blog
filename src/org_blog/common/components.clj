@@ -23,11 +23,11 @@
     [:head
      [:meta {:charset "utf-8"}]
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-     [:meta {:name    "description" ;; Add a description meta tag
-             :content "Justin Good's personal blog"}]
+     [:meta {:name    "description"
+             :content "Justin Good's blog"}]
      ;; Add Open Graph tags
      [:meta {:property "og:title" :content "Jgood Blog"}]
-     [:meta {:property "og:description" :content "Justin Good's personal blog"}]
+     [:meta {:property "og:description" :content "Jgood's blog"}]
      [:meta {:property "og:type" :content "website"}]
      [:meta {:property "og:url" :content "https://jgood.online"}]
      [:meta {:property "og:image" :content "https://jgood.online/img/2023-05-28-og-image-robot-steps.png"}]
