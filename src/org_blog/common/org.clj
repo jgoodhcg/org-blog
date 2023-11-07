@@ -3,7 +3,8 @@
  [clojure.java.shell :as shell]
  [clojure.string :refer [blank?]]
  [clojure.walk :as walk]
- [org-blog.common.files :refer [full-path]]))
+ [org-blog.common.files :refer [full-path]]
+ [potpuri.core :as pot]))
 
 (defn add-prism-class [hiccup]
   (walk/postwalk
@@ -52,4 +53,20 @@
        :read-time (estimate-read-time contents)}
       (do (println (str "Error(s):" [(:error toc-result) (:error body-result)]))
           nil))))
+
+(defn extract-org-metadata [org-content]
+  (let [title-pattern       #"\#\+title: (.+)"
+        date-pattern        #"\#\+date:<(\d{4}-\d{2}-\d{2}).+>"
+        description-pattern #"\#\+description: (.+)"
+        thumbnail-pattern   #"\#\+thumbnail: (.+)"
+        tags-pattern        #"\#\+tags: (.+)" ;; Pattern to match the tags line
+        title               (second (re-find title-pattern org-content))
+        date                (second (re-find date-pattern org-content))
+        description         (second (re-find description-pattern org-content))
+        thumbnail           (second (re-find thumbnail-pattern org-content))
+        tags                (second (re-find tags-pattern org-content))
+        tags-list           (when tags (clojure.string/split tags #",\s*"))] ;; Splitting tags by comma and optional whitespace
+
+    (assoc (pot/map-of :title title :date date :description description :thumbnail thumbnail)
+           :tags tags-list)))
 

@@ -3,6 +3,7 @@
 #+date:<2023-05-20 Sat>
 #+thumbnail: /img/thumbnail/2023-09-09-clojure-org.png
 #+options: H:6
+#+tags: org-blog, clojure
 
 * Custom Static Site Generator in Clojure with Org mode
 :LOGBOOK:

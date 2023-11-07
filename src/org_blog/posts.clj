@@ -3,13 +3,11 @@
    [clojure.java.io :as io]
    [clojure.string :as string]
    [clojure.term.colors :as c]
-   [clojure.walk :as walk]
    [hiccup.core :refer [html]]
-   [hiccup.page :refer [include-css]]
    [hickory.core :as hickory]
    [org-blog.common.components :as comps]
    [org-blog.common.files :refer [posts-org-dir posts-out-dir spit-with-path]]
-   [org-blog.common.org :refer [add-prism-class org->html estimate-read-time]]))
+   [org-blog.common.org :refer [add-prism-class org->html]]))
 
 (defn get-a-elements
   [form]
@@ -65,7 +63,6 @@
           [:div.sticky.top-0
            [:h4 "Table of Contents"]
            hiccup-toc]])])]))
-
 
 (defn get-org-file-name [org-file]
   (str (-> org-file

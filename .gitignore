@@ -8,3 +8,5 @@ node_modules/
 .cpcache/
 
 .nrepl-port
+
+src/org_blog/.DS_Store

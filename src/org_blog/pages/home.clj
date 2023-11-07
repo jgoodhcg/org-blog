@@ -3,23 +3,10 @@
    [clojure.java.io :as io]
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
-   [potpuri.core :as pot]
    [org-blog.common.components :as comps]
-   [org-blog.common.org :refer [count-words estimate-read-time]]
    [org-blog.common.files :refer [posts-org-dir spit-with-path]]
+   [org-blog.common.org :refer [estimate-read-time extract-org-metadata]]
    [org-blog.posts :as posts]))
-
-(defn extract-org-metadata [org-content]
-  (let [title-pattern       #"\#\+title: (.+)"
-        date-pattern        #"\#\+date:<(\d{4}-\d{2}-\d{2}).+>"
-        description-pattern #"\#\+description: (.+)"
-        thumbnail-pattern   #"\#\+thumbnail: (.+)"
-        title               (second (re-find title-pattern org-content))
-        date                (second (re-find date-pattern org-content))
-        thumbnail           (second (re-find thumbnail-pattern org-content))
-        description         (second (re-find description-pattern org-content))]
-
-    (pot/map-of title date description thumbnail)))
 
 (defn gen []
   (-> "Generating home (index) page" c/blue println)
@@ -59,7 +46,14 @@
                           [:a.no-underline {:href (str "/posts/" post-name)}
                            [:h2.mb-0 (:title metadata)]
                            [:p (:description metadata)]
-                           [:p.text-white-900 (:date metadata)]
-                           [:p.text-white-900 (str "Read time: " read-time " mins")]]]))))]]])]
+                           [:div.flex.flex-col
+                            [:p.text-white-900 (:date metadata)]
+                            [:p.text-white-900.mr-4 (str "Read time: " read-time " mins")]
+                            [:div.flex.flex-row
+                             (->> metadata
+                                  :tags
+                                  (map (fn [t]
+                                         [:span.mx-2.p-1.text-white-900.text-sm.outline.outline-2.rounded-lg.outline-cyan-900 t])))]]]]))))]]])]
+
       html
       (->> (spit-with-path "./static/index.html"))))
