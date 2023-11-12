@@ -1,0 +1,6 @@
+#+title: Implementing Real Typeahead Search with HTMX
+#+description: A deep dive on typehead search implemntation with a Clojure, Biff, XTDB, HTMX, TailwindCSS stack
+#+date:<2023-10-12 Sun>
+#+options: H:6
+
+* Hello
