@@ -26,7 +26,7 @@
           [:p "Here is my " [:a {:href "/resume"} "resume"] ", if you are looking for that."]
           [:p "If you are curious about what I'm up to check out my "
            [:a {:href "/now"} "now page"] "."]
-          [:span.text-2xl.mt-8 "Recent Posts"]
+          [:div.mt-16 [:span.text-2xl.text-cyan.font-bold "Recent Posts"]]
           [:ul.mt-4
            (->> posts-org-dir
                 io/file
@@ -53,7 +53,9 @@
                              (->> metadata
                                   :tags
                                   (map (fn [t]
-                                         [:span.mx-2.p-1.text-white-900.text-sm.outline.outline-2.rounded-lg.outline-cyan-900 t])))]]]]))))]]])]
+                                         [:a.mr-2.text-sm.rounded-lg
+                                          {:href (str "/tags/" t)}
+                                          t])))]]]]))))]]])]
 
       html
       (->> (spit-with-path "./static/index.html"))))

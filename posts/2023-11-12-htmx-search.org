@@ -1,0 +1,24 @@
+#+title: Implementing Real Typeahead Search with HTMX
+#+description: A deep dive on typehead search implemntation with a Clojure, Biff, XTDB, HTMX, TailwindCSS stack
+#+date:<2023-11-12 Sun>
+#+options: H:6
+#+tags: clojure, htmx
+
+* Typeahead Search with Clojure + HTMX
+:LOGBOOK:
+CLOCK: [2023-11-12 Sun 13:17]--[2023-11-12 Sun 13:21] =>  0:04
+:END:
+
+** Intro
+
+*** Clojure, Biff, XTDB, Tailwindcss
+*** Data Modeling
+*** Intro to HTMX
+*** API Overview
+
+** Search
+*** Main Page
+*** Search component
+*** HTMX Targeting
+*** HATEOAS
+*** Stateful URL
