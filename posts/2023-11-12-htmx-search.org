@@ -3,9 +3,11 @@
 #+date:<2023-11-12 Sun>
 #+options: H:6
 #+tags: clojure, htmx
+#+published: false
 
 * Typeahead Search with Clojure + HTMX
 :LOGBOOK:
+CLOCK: [2023-11-19 Sun 12:49]--[2023-11-19 Sun 13:15] =>  0:26
 CLOCK: [2023-11-12 Sun 13:17]--[2023-11-12 Sun 13:21] =>  0:04
 :END:
 
@@ -15,9 +17,65 @@ CLOCK: [2023-11-12 Sun 13:17]--[2023-11-12 Sun 13:21] =>  0:04
 *** Data Modeling
 *** Intro to HTMX
 *** API Overview
+This snippet of code should describe the overall API. The only requests relevant for this search example are the ~GET~ and ~POST~ requests in the ~/habits~ endpoint.
+
+#+begin_src clojure
+(def plugin
+  {:static {"/about/" about-page}
+   :routes ["/app" {:middleware [mid/wrap-signed-in]}
+            ["" {:get app}]
+            ["/db" {:get db-viz}]
+            ["/habits" {:get  habits-page
+                        :post habits-page}]
+            ["/habit/logs" {:get habit-logs-page}]
+            ["/habit/add" {:post habit-create!}]
+            ["/habit/log" {:post habit-log-create!}]
+            ["/habit/edit" {:post habit-edit!}]]})
+#+end_src
 
 ** Search
-*** Main Page
+*** Habits Page
+Here is all the code for the ~/habits~ page:
+
+#+begin_src clojure
+(defn habits-page
+  "Accepts GET and POST. POST is for search form as body."
+  [{:keys [session biff/db params query-params]}]
+  (let [user-id                        (:uid session)
+        {:user/keys [email time-zone]} (xt/entity db user-id)
+        habits                         (habits-query (pot/map-of db user-id))
+        edit-id                        (some-> params :edit (java.util.UUID/fromString))
+        sensitive                      (or (some-> params :sensitive checkbox-true?)
+                                           (some-> query-params :sensitive checkbox-true?))
+        search                         (or (some-> params :search search-str-xform)
+                                           (some-> query-params :search search-str-xform)
+                                           "")]
+    (ui/page
+     {}
+     [:div
+      (header (pot/map-of email))
+      [:button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded.w-full.md:w-96.mt-6
+       "Add habit"]
+      (habit-search-component {:sensitive sensitive :search search})
+      [:div {:id "habits-list"}
+       (->> habits
+            (filter (fn [{:habit/keys [name notes]
+                          this-habit-is-sensitive :habit/sensitive
+                          id          :xt/id}]
+                      (let [matches-name  (str/includes? (str/lower-case name) search)
+                            matches-notes (str/includes? (str/lower-case notes) search)]
+                        (and (or sensitive
+                                 (-> id (= edit-id))
+                                 (not this-habit-is-sensitive))
+                             (or matches-name
+                                 matches-notes)))))
+            (map (fn [z] (habit-list-item (-> z (assoc :edit-id edit-id))))))]])))
+#+end_src
+
+The first thing to notice is parameters for generating the habits list. They either come from ~params~ or ~query-params~. If the request is a ~GET~ then the parameters will be in ~query-params~. If it's a ~POST~ then they will be part of form submission and in the body of the request. Body form parameters are in ~params~. There might be a better way to achieve this but I just decided to use ~params~ first and fall back to ~query-params~.
+
+The other thing to notice is how the full text search works. This is a simple example that just utilizes ~filter~ and ~str/includes~. Replacing this with a more robust full text search tool like ElasticSearch or Postgres full text search would not change anything about the implementation with HTMX. Getting the parameters from the client would still work the same way.
+
 *** Search component
 *** HTMX Targeting
 *** HATEOAS
