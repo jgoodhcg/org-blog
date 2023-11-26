@@ -7,56 +7,92 @@
 
 * Typeahead Search with Clojure + HTMX
 :LOGBOOK:
+CLOCK: [2023-11-25 Sat 15:02]--[2023-11-25 Sat 16:27] =>  1:25
 CLOCK: [2023-11-19 Sun 12:49]--[2023-11-19 Sun 13:15] =>  0:26
 CLOCK: [2023-11-12 Sun 13:17]--[2023-11-12 Sun 13:21] =>  0:04
 :END:
 
 ** Intro
+I'm building a personal analytics app with Clojure, Biff, XTDB, Tailwindcss, and HTMX. Part of that app includes habit tracking. This implementation of typeahead search focuses on just the page that lists the habits for editing and review.
 
-*** Clojure, Biff, XTDB, Tailwindcss
-*** Data Modeling
-*** Intro to HTMX
-*** API Overview
-This snippet of code should describe the overall API. The only requests relevant for this search example are the ~GET~ and ~POST~ requests in the ~/habits~ endpoint.
 
-#+begin_src clojure
-(def plugin
-  {:static {"/about/" about-page}
-   :routes ["/app" {:middleware [mid/wrap-signed-in]}
-            ["" {:get app}]
-            ["/db" {:get db-viz}]
-            ["/habits" {:get  habits-page
-                        :post habits-page}]
-            ["/habit/logs" {:get habit-logs-page}]
-            ["/habit/add" {:post habit-create!}]
-            ["/habit/log" {:post habit-log-create!}]
-            ["/habit/edit" {:post habit-edit!}]]})
+[[file:./../img/habits-page.png]]
+
+** HTMX search
+The [[https://htmx.org/examples/active-search/][HTMX docs have a basic example]] of /active search/. Let's look at it real quick before we get into my more involved example.
+
+#+begin_src html
+<h3>
+  Search Contacts
+  <span class="htmx-indicator">
+    <img src="/img/bars.svg"/> Searching...
+   </span>
+</h3>
+<input class="form-control" type="search"
+       name="search" placeholder="Begin Typing To Search Users..."
+       hx-post="/search"
+       hx-trigger="input changed delay:500ms, search"
+       hx-target="#search-results"
+       hx-indicator=".htmx-indicator">
+
+<table class="table">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody id="search-results">
+    </tbody>
+</table>
 #+end_src
 
-** Search
-*** Habits Page
-Here is all the code for the ~/habits~ page:
+This is pretty straightforward. The input triggers on change and posts to ~/search~ with it's value. Then it pulls out the ~#search-results~ and replaces ~tbody~ element with it. Easy peasy ... but what if you want to add a checkbox for some kind of filter? Or even some arbitrary amount of filters and inputs to impact the search results.
+
+That's the issue I ran into. It complicates the process but I think I've figured out a minimal way to accomplish this while still staying true to ~HATEOAS~ and not adding too much overhead.
+
+** More involved HTMX search
+For my habits tracker I want to add a boolean attribute called ~sensitive~. This acts as a flag to hide the habit from general views. To see sensitive habits the user has to explicitly indicate they should present. I tend to demo my apps to friends and sometimes I don't want /all/ of my habits to be on display.
+
+I want everything about the search state to be in the URL. I also want the search to work on each action. I don't want the user to have to press a search button. The basic example from htmx docs doesn't cover this. I had to figure out a pattern for it.
+
+Below is an overview of everything that happens when a user starts typing in the search box -- as a sequence diagram. There is only one endpoint -- ~/habits~. There is one extra javascript function and a little bit of ~hyperscript~.
+
+#+begin_export html
+ <pre class="mermaid bg-white-900">
+  sequenceDiagram
+    browser ->> server: GET /habits
+    server ->> browser: Habbits page + scripts/stylesheets
+    note over browser: Start typing in search box or press filter toggle
+    browser --> browser: setURLParameter(n,v) & 'search' event
+    browser ->> server: POST /habits
+    server ->> browser: Habbits page (hx-target habits-list)
+    browser --> browser: replace habits-list
+</pre>
+#+end_export
+
+Let's walk through each step.
+
+*** GET /habits
+The initial page load is straightforward. The page renders, all the ~script~ and ~stylesheet~ dependencies load, and all habits (not sensitive) display.
+
+[[file:./../img/initial-page-load.png]]
+
+Below is some slightly redacted code for the habits page.
 
 #+begin_src clojure
 (defn habits-page
   "Accepts GET and POST. POST is for search form as body."
   [{:keys [session biff/db params query-params]}]
-  (let [user-id                        (:uid session)
-        {:user/keys [email time-zone]} (xt/entity db user-id)
-        habits                         (habits-query (pot/map-of db user-id))
-        edit-id                        (some-> params :edit (java.util.UUID/fromString))
-        sensitive                      (or (some-> params :sensitive checkbox-true?)
-                                           (some-> query-params :sensitive checkbox-true?))
-        search                         (or (some-> params :search search-str-xform)
-                                           (some-> query-params :search search-str-xform)
-                                           "")]
+  (let [
+        ;; omitted some stuff for brevity
+        habits (habits-query (pot/map-of db user-id))
+        ]
     (ui/page
      {}
      [:div
-      (header (pot/map-of email))
-      [:button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded.w-full.md:w-96.mt-6
-       "Add habit"]
-      (habit-search-component {:sensitive sensitive :search search})
+      (habits-search-component {:sensitive sensitive :search search})
       [:div {:id "habits-list"}
        (->> habits
             (filter (fn [{:habit/keys [name notes]
@@ -72,11 +108,52 @@ Here is all the code for the ~/habits~ page:
             (map (fn [z] (habit-list-item (-> z (assoc :edit-id edit-id))))))]])))
 #+end_src
 
-The first thing to notice is parameters for generating the habits list. They either come from ~params~ or ~query-params~. If the request is a ~GET~ then the parameters will be in ~query-params~. If it's a ~POST~ then they will be part of form submission and in the body of the request. Body form parameters are in ~params~. There might be a better way to achieve this but I just decided to use ~params~ first and fall back to ~query-params~.
+The request comes in and get's routed to this function. A query for the user habits happens then it gets pushed through the ~filter~ and ~map~ functions to generate some HTML to render. The value for ~search~ on the initial page load will be ~nil~ or an empty string. The value for ~sensitive~ will be false by default. So it shows all not sensitive habits.
 
-The other thing to notice is how the full text search works. This is a simple example that just utilizes ~filter~ and ~str/includes~. Replacing this with a more robust full text search tool like ElasticSearch or Postgres full text search would not change anything about the implementation with HTMX. Getting the parameters from the client would still work the same way.
+*** Start Searching
+When the user starts typing the search component starts firing off ~POST~ requests to the ~/habits~ endpoint.
 
-*** Search component
-*** HTMX Targeting
-*** HATEOAS
-*** Stateful URL
+Here is the full unaltered search component:
+
+ #+begin_src clojure
+(defn habits-search-component [{:keys [sensitive search]}]
+  [:div.my-2
+   (biff/form
+    {:id         "habit-search"
+     :hx-post    "/app/habits"
+     :hx-swap    "outerHTML"
+     :hx-trigger "search delay:500ms"
+     :hx-select  "#habits-list"
+     :hx-target  "#habits-list"}
+    [:div.flex.flex-col.justify-center.my-6
+
+     [:input.form-control.w-full.md:w-96.mb-2
+      (merge {:type        "search"
+              :name        "search"
+              :placeholder "Begin Typing To Search Habits..."
+              :script      "on keyup setURLParameter(me.name, me.value) then htmx.trigger('#habit-search', 'search', {})"}
+
+             (when (not (str/blank? search))
+               {:value search}))]
+
+     [:div.flex.flex-row.justify-start.items-center
+      [:label.mr-4 {:for "sensitive"} "Sensitive"]
+      [:input.rounded.mr-2
+       {:type         "checkbox"
+        :name         "sensitive"
+        :script       "on change setURLParameter(me.name, me.checked) then htmx.trigger('#habit-search', 'search', {})"
+        :autocomplete "off"
+        :checked      sensitive}]
+      [:label.mx-4.text-gray-500.line-through {:for "archived"} "Archived"]
+      [:input.rounded.mr-2
+       {:type         "checkbox"
+        :name         "archived"
+        :script       "on change setURLParameter(me.name, me.checked) then htmx.trigger('#habit-search', 'search', {})"
+        :autocomplete "off"
+        :disabled     true
+        :checked      false}]]])])
+ #+end_src
+
+ It starts out with a wrapping ~form~. This is to allow all search related inputs to bundle together in one ~POST~ body. The endpoint is the same endpoint that served the initial request. The same function works for both HTTP request types.
+
+ This form needs a trigger that isn't just the directly the /change/ event of one input. It needs to react to all inputs. So there is a custom event HTMX is looking for -- ~search~. In the inputs you can see the hyperscript under the ~:script~ attribute. These are doing two things. One is setting the inputs corresponding URL parameter and the other is triggering the custom event. The URL parameter doesn't affect the POST request, I'll explain it's purpose in a second. The important bit right now is the htmx trigger. Once that fires the request is sent off. Because of the ~delay~ in the trigger htmx will wait for the events to stop for 500ms before firing the request, this keeps the network traffic down as a user types.

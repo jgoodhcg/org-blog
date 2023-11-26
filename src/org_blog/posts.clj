@@ -48,7 +48,7 @@
                          vec)
         hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
     [:html
-     (comps/head {:prism true})
+     (comps/head {:prism true :mermaid true})
      (comps/body
       [:header (comps/nav)]
       [:main.max-w-screen-lg.mx-auto.grid.grid-cols-4.gap-4.p-4
@@ -62,7 +62,11 @@
           {:class ".md:w-1/4"}
           [:div.sticky.top-0
            [:h4 "Table of Contents"]
-           hiccup-toc]])])]))
+           hiccup-toc]])]
+      ;; render mermaid diagrams
+      [:script {:type "module"}
+       "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';"]
+      )]))
 
 (defn get-org-file-name [org-file]
   (str (-> org-file

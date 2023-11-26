@@ -40,8 +40,8 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	background-color: transparent !important;
 /* I (Justin) modified the background to match my blog theme */
-/* background-image: linear-gradient(to bottom, #2a2139 75%, #34294f); */
-background-image: linear-gradient(to bottom,  #32323E);
+background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+/* background-image: linear-gradient(to bottom,  #32323E); */
 }
 
 /* Inline code */

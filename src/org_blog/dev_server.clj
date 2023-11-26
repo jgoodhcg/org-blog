@@ -43,7 +43,7 @@
        :body    "Not Found"})))
 
 (defn start-server []
-  (http-kit/run-server handler {:port 8080}))
+  (http-kit/run-server handler {:port 8081}))
 
 (defonce server-atom (atom nil))
 

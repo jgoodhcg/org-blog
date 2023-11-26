@@ -1,106 +1,179 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Justin Good&apos;s blog" name="description" /><meta content="Jgood Blog" property="og:title" /><meta content="Jgood&apos;s blog" property="og:description" /><meta content="website" property="og:type" /><meta content="https://jgood.online" property="og:url" /><meta content="https://jgood.online/img/2023-05-28-og-image-robot-steps.png" property="og:image" /><title>Jgood Blog</title><link href="/css/output.css" rel="stylesheet" type="text/css" /><link href="/img/2023-06-03-vaporwave-wigle-favicon.png" rel="icon" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet" /><link href="/css/prism-synthwave-84.css" rel="stylesheet" type="text/css" /><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body class="container mx-auto bg-grey"><header><nav class="flex flex-row mb-8 justify-end w-full p-2"><a class="text-2xl font-bold mr-2 text-white no-underline grow" href="/"><span class="text-cyan font-grotesk">Justin</span><span class="text-green font-grotesk">Good</span></a><a class="text-xl mr-2" href="/now">now</a><a class="text-xl mr-2" href="/archive">archive</a><a class="text-xl mr-2" href="/rss.xml">feed</a></nav></header><main class="max-w-screen-lg mx-auto grid grid-cols-4 gap-4 p-4"><div class="col-span-4 md:col-span-3 w-full .md:w-3/4"><p class="text-white-900 italic">Read time: 3 mins</p><div><h1 id="typeahead-search-with-clojure-htmx">Typeahead Search with
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Justin Good&apos;s blog" name="description" /><meta content="Jgood Blog" property="og:title" /><meta content="Jgood&apos;s blog" property="og:description" /><meta content="website" property="og:type" /><meta content="https://jgood.online" property="og:url" /><meta content="https://jgood.online/img/2023-05-28-og-image-robot-steps.png" property="og:image" /><title>Jgood Blog</title><link href="/css/output.css" rel="stylesheet" type="text/css" /><link href="/img/2023-06-03-vaporwave-wigle-favicon.png" rel="icon" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet" /><link href="/css/prism-synthwave-84.css" rel="stylesheet" type="text/css" /><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script><script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body class="container mx-auto bg-grey"><header><nav class="flex flex-row mb-8 justify-end w-full p-2"><a class="text-2xl font-bold mr-2 text-white no-underline grow" href="/"><span class="text-cyan font-grotesk">Justin</span><span class="text-green font-grotesk">Good</span></a><a class="text-xl mr-2" href="/now">now</a><a class="text-xl mr-2" href="/archive">archive</a><a class="text-xl mr-2" href="/rss.xml">feed</a></nav></header><main class="max-w-screen-lg mx-auto grid grid-cols-4 gap-4 p-4"><div class="col-span-4 md:col-span-3 w-full .md:w-3/4"><p class="text-white-900 italic">Read time: 5 mins</p><div><h1 id="typeahead-search-with-clojure-htmx">Typeahead Search with
 Clojure + HTMX</h1>
 <h2 id="intro">Intro</h2>
-<h3 id="clojure-biff-xtdb-tailwindcss">Clojure, Biff, XTDB,
-Tailwindcss</h3>
-<h3 id="data-modeling">Data Modeling</h3>
-<h3 id="intro-to-htmx">Intro to HTMX</h3>
-<h3 id="api-overview">API Overview</h3>
-<p>This snippet of code should describe the overall API. The only
-requests relevant for this search example are the <code class="language-">GET</code> and
-<code class="language-">POST</code> requests in the <code class="language-">/habits</code> endpoint.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode clojure"><code class="language-clojure"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> plugin</span></span>
-<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  {<span class="at">:static</span> {<span class="st">&quot;/about/&quot;</span> about-page}</span>
-<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>   <span class="at">:routes</span> [<span class="st">&quot;/app&quot;</span> {<span class="at">:middleware</span> [mid/wrap-signed-in]}</span>
-<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>            [<span class="st">&quot;&quot;</span> {<span class="at">:get</span> app}]</span>
-<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>            [<span class="st">&quot;/db&quot;</span> {<span class="at">:get</span> db-viz}]</span>
-<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>            [<span class="st">&quot;/habits&quot;</span> {<span class="at">:get</span>  habits-page</span>
-<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>                        <span class="at">:post</span> habits-page}]</span>
-<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>            [<span class="st">&quot;/habit/logs&quot;</span> {<span class="at">:get</span> habit-logs-page}]</span>
-<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>            [<span class="st">&quot;/habit/add&quot;</span> {<span class="at">:post</span> habit-create!}]</span>
-<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>            [<span class="st">&quot;/habit/log&quot;</span> {<span class="at">:post</span> habit-log-create!}]</span>
-<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>            [<span class="st">&quot;/habit/edit&quot;</span> {<span class="at">:post</span> habit-edit!}]]})</span></code></pre></div>
-<h2 id="search">Search</h2>
-<h3 id="habits-page">Habits Page</h3>
-<p>Here is all the code for the <code class="language-">/habits</code> page:</p>
+<p>I'm building a personal analytics app with Clojure, Biff, XTDB,
+Tailwindcss, and HTMX. Part of that app includes habit tracking. This
+implementation of typeahead search focuses on just the page that lists
+the habits for editing and review.</p>
+<p><img src="./../img/habits-page.png" /></p>
+<h2 id="htmx-search">HTMX search</h2>
+<p>The <a href="https://htmx.org/examples/active-search/">HTMX docs have
+a basic example</a> of <em>active search</em>. Let's look at it real
+quick before we get into my more involved example.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="language-html"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">&lt;h3&gt;</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  Search Contacts</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="kw">&lt;span</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;htmx-indicator&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>    <span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;/img/bars.svg&quot;</span><span class="kw">/&gt;</span> Searching...</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>   <span class="kw">&lt;/span&gt;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="kw">&lt;/h3&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-control&quot;</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;search&quot;</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="ot">       name=</span><span class="st">&quot;search&quot;</span> <span class="er">placeholder</span><span class="ot">=</span><span class="st">&quot;Begin Typing To Search Users...&quot;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="ot">       hx-post=</span><span class="st">&quot;/search&quot;</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="ot">       hx-trigger=</span><span class="st">&quot;input changed delay:500ms, search&quot;</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="ot">       hx-target=</span><span class="st">&quot;#search-results&quot;</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="ot">       hx-indicator=</span><span class="st">&quot;.htmx-indicator&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="kw">&lt;table</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;table&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class="kw">&lt;thead&gt;</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>    <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>First Name<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>Last Name<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>Email<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>    <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>    <span class="kw">&lt;/thead&gt;</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>    <span class="kw">&lt;tbody</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;search-results&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>    <span class="kw">&lt;/tbody&gt;</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a><span class="kw">&lt;/table&gt;</span></span></code></pre></div>
+<p>This is pretty straightforward. The input triggers on change and
+posts to <code class="language-">/search</code> with it's value. Then it pulls out the
+<code class="language-">#search-results</code> and replaces <code class="language-">tbody</code> element
+with it. Easy peasy … but what if you want to add a checkbox for some
+kind of filter? Or even some arbitrary amount of filters and inputs to
+impact the search results.</p>
+<p>That's the issue I ran into. It complicates the process but I think
+I've figured out a minimal way to accomplish this while still staying
+true to <code class="language-">HATEOAS</code> and not adding too much overhead.</p>
+<h2 id="more-involved-htmx-search">More involved HTMX search</h2>
+<p>For my habits tracker I want to add a boolean attribute called
+<code class="language-">sensitive</code>. This acts as a flag to hide the habit from
+general views. To see sensitive habits the user has to explicitly
+indicate they should present. I tend to demo my apps to friends and
+sometimes I don't want <em>all</em> of my habits to be on display.</p>
+<p>I want everything about the search state to be in the URL. I also
+want the search to work on each action. I don't want the user to have to
+press a search button. The basic example from htmx docs doesn't cover
+this. I had to figure out a pattern for it.</p>
+<p>Below is an overview of everything that happens when a user starts
+typing in the search box – as a sequence diagram. There is only one
+endpoint – <code class="language-">/habits</code>. There is one extra javascript function
+and a little bit of <code class="language-">hyperscript</code>.</p>
+ <pre class="mermaid bg-white-900">  sequenceDiagram
+    browser -&gt;&gt; server: GET /habits
+    server -&gt;&gt; browser: Habbits page + scripts/stylesheets
+    note over browser: Start typing in search box or press filter toggle
+    browser --&gt; browser: setURLParameter(n,v) &amp; 'search' event
+    browser -&gt;&gt; server: POST /habits
+    server -&gt;&gt; browser: Habbits page (hx-target habits-list)
+    browser --&gt; browser: replace habits-list
+</pre>
+
+<p>Let's walk through each step.</p>
+<h3 id="get-habits">GET /habits</h3>
+<p>The initial page load is straightforward. The page renders, all the
+<code class="language-">script</code> and <code class="language-">stylesheet</code> dependencies load, and
+all habits (not sensitive) display.</p>
+<p><img src="./../img/initial-page-load.png" /></p>
+<p>Below is some slightly redacted code for the habits page.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode clojure"><code class="language-clojure"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> habits-page</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  <span class="st">&quot;Accepts GET and POST. POST is for search form as body.&quot;</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  [{<span class="at">:keys</span> [session biff/db params query-params]}]</span>
-<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  (<span class="kw">let</span> [user-id                        (<span class="at">:uid</span> session)</span>
-<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>        {<span class="at">:user/keys</span> [email time-zone]} (xt/entity db user-id)</span>
-<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>        habits                         (habits-query (pot/map-of db user-id))</span>
-<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>        edit-id                        (some-&gt; params <span class="at">:edit</span> (java.util.UUID/fromString))</span>
-<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>        sensitive                      (<span class="kw">or</span> (some-&gt; params <span class="at">:sensitive</span> checkbox-true?)</span>
-<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>                                           (some-&gt; query-params <span class="at">:sensitive</span> checkbox-true?))</span>
-<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>        search                         (<span class="kw">or</span> (some-&gt; params <span class="at">:search</span> search-str-xform)</span>
-<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>                                           (some-&gt; query-params <span class="at">:search</span> search-str-xform)</span>
-<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>                                           <span class="st">&quot;&quot;</span>)]</span>
-<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>    (ui/page</span>
-<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>     {}</span>
-<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>     [<span class="at">:div</span></span>
-<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>      (header (pot/map-of email))</span>
-<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>      [<span class="at">:button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded.w-full.md:w-96.mt-6</span></span>
-<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>       <span class="st">&quot;Add habit&quot;</span>]</span>
-<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>      (habit-search-component {<span class="at">:sensitive</span> sensitive <span class="at">:search</span> search})</span>
-<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>      [<span class="at">:div</span> {<span class="at">:id</span> <span class="st">&quot;habits-list&quot;</span>}</span>
-<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>       (<span class="kw">-&gt;&gt;</span> habits</span>
-<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>            (<span class="kw">filter</span> (<span class="kw">fn</span> [{<span class="at">:habit/keys</span> [<span class="kw">name</span> notes]</span>
-<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>                          this-habit-is-sensitive <span class="at">:habit/sensitive</span></span>
-<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>                          id          <span class="at">:xt/id</span>}]</span>
-<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>                      (<span class="kw">let</span> [matches-name  (str/includes? (str/lower-case <span class="kw">name</span>) search)</span>
-<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>                            matches-notes (str/includes? (str/lower-case notes) search)]</span>
-<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>                        (<span class="kw">and</span> (<span class="kw">or</span> sensitive</span>
-<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a>                                 (<span class="kw">-&gt;</span> id (<span class="kw">=</span> edit-id))</span>
-<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a>                                 (<span class="kw">not</span> this-habit-is-sensitive))</span>
-<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>                             (<span class="kw">or</span> matches-name</span>
-<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a>                                 matches-notes)))))</span>
-<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a>            (<span class="kw">map</span> (<span class="kw">fn</span> [z] (habit-list-item (<span class="kw">-&gt;</span> z (<span class="kw">assoc</span> <span class="at">:edit-id</span> edit-id))))))]])))</span></code></pre></div>
-<p>The first thing to notice is parameters for generating the habits
-list. They either come from <code class="language-">params</code> or
-<code class="language-">query-params</code>. If the request is a <code class="language-">GET</code> then the
-parameters will be in <code class="language-">query-params</code>. If it's a
-<code class="language-">POST</code> then they will be part of form submission and in the
-body of the request. Body form parameters are in <code class="language-">params</code>.
-There might be a better way to achieve this but I just decided to use
-<code class="language-">params</code> first and fall back to
-<code class="language-">query-params</code>.</p>
-<p>The other thing to notice is how the full text search works. This is
-a simple example that just utilizes <code class="language-">filter</code> and
-<code class="language-">str/includes</code>. Replacing this with a more robust full text
-search tool like ElasticSearch or Postgres full text search would not
-change anything about the implementation with HTMX. Getting the
-parameters from the client would still work the same way.</p>
-<h3 id="search-component">Search component</h3>
-<h3 id="htmx-targeting">HTMX Targeting</h3>
-<h3 id="hateoas">HATEOAS</h3>
-<h3 id="stateful-url">Stateful URL</h3>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  (<span class="kw">let</span> [</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>        <span class="co">;; omitted some stuff for brevity</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>        habits (habits-query (pot/map-of db user-id))</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>        ]</span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>    (ui/page</span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>     {}</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>     [<span class="at">:div</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>      (habits-search-component {<span class="at">:sensitive</span> sensitive <span class="at">:search</span> search})</span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>      [<span class="at">:div</span> {<span class="at">:id</span> <span class="st">&quot;habits-list&quot;</span>}</span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>       (<span class="kw">-&gt;&gt;</span> habits</span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>            (<span class="kw">filter</span> (<span class="kw">fn</span> [{<span class="at">:habit/keys</span> [<span class="kw">name</span> notes]</span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>                          this-habit-is-sensitive <span class="at">:habit/sensitive</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>                          id          <span class="at">:xt/id</span>}]</span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>                      (<span class="kw">let</span> [matches-name  (str/includes? (str/lower-case <span class="kw">name</span>) search)</span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>                            matches-notes (str/includes? (str/lower-case notes) search)]</span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>                        (<span class="kw">and</span> (<span class="kw">or</span> sensitive</span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>                                 (<span class="kw">-&gt;</span> id (<span class="kw">=</span> edit-id))</span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>                                 (<span class="kw">not</span> this-habit-is-sensitive))</span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>                             (<span class="kw">or</span> matches-name</span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>                                 matches-notes)))))</span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>            (<span class="kw">map</span> (<span class="kw">fn</span> [z] (habit-list-item (<span class="kw">-&gt;</span> z (<span class="kw">assoc</span> <span class="at">:edit-id</span> edit-id))))))]])))</span></code></pre></div>
+<p>The request comes in and get's routed to this function. A query for
+the user habits happens then it gets pushed through the
+<code class="language-">filter</code> and <code class="language-">map</code> functions to generate some HTML
+to render. The value for <code class="language-">search</code> on the initial page load
+will be <code class="language-">nil</code> or an empty string. The value for
+<code class="language-">sensitive</code> will be false by default. So it shows all not
+sensitive habits.</p>
+<h3 id="start-searching">Start Searching</h3>
+<p>When the user starts typing the search component starts firing off
+<code class="language-">POST</code> requests to the <code class="language-">/habits</code> endpoint.</p>
+<p>Here is the full unaltered search component:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode clojure"><code class="language-clojure"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> habits-search-component </span>[{<span class="at">:keys</span> [sensitive search]}]</span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>  [<span class="at">:div.my-2</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>   (biff/form</span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>    {<span class="at">:id</span>         <span class="st">&quot;habit-search&quot;</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>     <span class="at">:hx-post</span>    <span class="st">&quot;/app/habits&quot;</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>     <span class="at">:hx-swap</span>    <span class="st">&quot;outerHTML&quot;</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>     <span class="at">:hx-trigger</span> <span class="st">&quot;search delay:500ms&quot;</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>     <span class="at">:hx-select</span>  <span class="st">&quot;#habits-list&quot;</span></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>     <span class="at">:hx-target</span>  <span class="st">&quot;#habits-list&quot;</span>}</span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    [<span class="at">:div.flex.flex-col.justify-center.my-6</span></span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>     [<span class="at">:input.form-control.w-full.md:w-96.mb-2</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>      (<span class="kw">merge</span> {<span class="at">:type</span>        <span class="st">&quot;search&quot;</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>              <span class="at">:name</span>        <span class="st">&quot;search&quot;</span></span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>              <span class="at">:placeholder</span> <span class="st">&quot;Begin Typing To Search Habits...&quot;</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>              <span class="at">:script</span>      <span class="st">&quot;on keyup setURLParameter(me.name, me.value) then htmx.trigger('#habit-search', 'search', {})&quot;</span>}</span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a></span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>             (<span class="kw">when</span> (<span class="kw">not</span> (str/blank? search))</span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>               {<span class="at">:value</span> search}))]</span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a></span>
+<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>     [<span class="at">:div.flex.flex-row.justify-start.items-center</span></span>
+<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a>      [<span class="at">:label.mr-4</span> {<span class="at">:for</span> <span class="st">&quot;sensitive&quot;</span>} <span class="st">&quot;Sensitive&quot;</span>]</span>
+<span id="cb3-23"><a aria-hidden="true" href="#cb3-23" tabindex="-1"></a>      [<span class="at">:input.rounded.mr-2</span></span>
+<span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a>       {<span class="at">:type</span>         <span class="st">&quot;checkbox&quot;</span></span>
+<span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a>        <span class="at">:name</span>         <span class="st">&quot;sensitive&quot;</span></span>
+<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a>        <span class="at">:script</span>       <span class="st">&quot;on change setURLParameter(me.name, me.checked) then htmx.trigger('#habit-search', 'search', {})&quot;</span></span>
+<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a>        <span class="at">:autocomplete</span> <span class="st">&quot;off&quot;</span></span>
+<span id="cb3-28"><a aria-hidden="true" href="#cb3-28" tabindex="-1"></a>        <span class="at">:checked</span>      sensitive}]</span>
+<span id="cb3-29"><a aria-hidden="true" href="#cb3-29" tabindex="-1"></a>      [<span class="at">:label.mx-4.text-gray-500.line-through</span> {<span class="at">:for</span> <span class="st">&quot;archived&quot;</span>} <span class="st">&quot;Archived&quot;</span>]</span>
+<span id="cb3-30"><a aria-hidden="true" href="#cb3-30" tabindex="-1"></a>      [<span class="at">:input.rounded.mr-2</span></span>
+<span id="cb3-31"><a aria-hidden="true" href="#cb3-31" tabindex="-1"></a>       {<span class="at">:type</span>         <span class="st">&quot;checkbox&quot;</span></span>
+<span id="cb3-32"><a aria-hidden="true" href="#cb3-32" tabindex="-1"></a>        <span class="at">:name</span>         <span class="st">&quot;archived&quot;</span></span>
+<span id="cb3-33"><a aria-hidden="true" href="#cb3-33" tabindex="-1"></a>        <span class="at">:script</span>       <span class="st">&quot;on change setURLParameter(me.name, me.checked) then htmx.trigger('#habit-search', 'search', {})&quot;</span></span>
+<span id="cb3-34"><a aria-hidden="true" href="#cb3-34" tabindex="-1"></a>        <span class="at">:autocomplete</span> <span class="st">&quot;off&quot;</span></span>
+<span id="cb3-35"><a aria-hidden="true" href="#cb3-35" tabindex="-1"></a>        <span class="at">:disabled</span>     <span class="va">true</span></span>
+<span id="cb3-36"><a aria-hidden="true" href="#cb3-36" tabindex="-1"></a>        <span class="at">:checked</span>      <span class="va">false</span>}]]])])</span></code></pre></div>
+<p>It starts out with a wrapping <code class="language-">form</code>. This is to allow all
+search related inputs to bundle together in one <code class="language-">POST</code> body.
+The endpoint is the same endpoint that served the initial request. The
+same function works for both HTTP request types.</p>
+<p>This form needs a trigger that isn't just the directly the
+<em>change</em> event of one input. It needs to react to all inputs. So
+there is a custom event HTMX is looking for – <code class="language-">search</code>. In
+the inputs you can see the hyperscript under the <code class="language-">:script</code>
+attribute. These are doing two things. One is setting the inputs
+corresponding URL parameter and the other is triggering the custom
+event. The URL parameter doesn't affect the POST request, I'll explain
+it's purpose in a second. The important bit right now is the htmx
+trigger. Once that fires the request is sent off. Because of the
+<code class="language-">delay</code> in the trigger htmx will wait for the events to stop
+for 500ms before firing the request, this keeps the network traffic down
+as a user types.</p>
 </div></div><div class="hidden md:block md:h-full w-full .md:w-1/4"><div class="sticky top-0"><h4>Table of Contents</h4><nav id="table-of-contents">
   <ul>
   <li><a href="#typeahead-search-with-clojure-htmx" id="toc-typeahead-search-with-clojure-htmx">Typeahead Search with
   Clojure + HTMX</a>
   <ul>
-  <li><a href="#intro" id="toc-intro">Intro</a>
+  <li><a href="#intro" id="toc-intro">Intro</a></li>
+  <li><a href="#htmx-search" id="toc-htmx-search">HTMX search</a></li>
+  <li><a href="#more-involved-htmx-search" id="toc-more-involved-htmx-search">More involved HTMX search</a>
   <ul>
-  <li><a href="#clojure-biff-xtdb-tailwindcss" id="toc-clojure-biff-xtdb-tailwindcss">Clojure, Biff, XTDB,
-  Tailwindcss</a></li>
-  <li><a href="#data-modeling" id="toc-data-modeling">Data
-  Modeling</a></li>
-  <li><a href="#intro-to-htmx" id="toc-intro-to-htmx">Intro to
-  HTMX</a></li>
-  <li><a href="#api-overview" id="toc-api-overview">API
-  Overview</a></li>
-  </ul></li>
-  <li><a href="#search" id="toc-search">Search</a>
-  <ul>
-  <li><a href="#habits-page" id="toc-habits-page">Habits Page</a></li>
-  <li><a href="#search-component" id="toc-search-component">Search
-  component</a></li>
-  <li><a href="#htmx-targeting" id="toc-htmx-targeting">HTMX
-  Targeting</a></li>
-  <li><a href="#hateoas" id="toc-hateoas">HATEOAS</a></li>
-  <li><a href="#stateful-url" id="toc-stateful-url">Stateful
-  URL</a></li>
+  <li><a href="#get-habits" id="toc-get-habits">GET /habits</a></li>
+  <li><a href="#start-searching" id="toc-start-searching">Start
+  Searching</a></li>
   </ul></li>
   </ul></li>
   </ul>
-</nav></div></div></main></body></html>
+</nav></div></div></main><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';</script></body></html>
