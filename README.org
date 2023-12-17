@@ -15,7 +15,7 @@ cider-eval-buffer # in org-blog.core
 # in a shell at the project root
 npx tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
 
-# Go to http://localhost:8080 to see the site locally
+# Go to http://localhost:8081 to see the site locally
 
 # Push the repository, with the site in static/ dir, and Digital Ocean will deploy it
 #+end_src

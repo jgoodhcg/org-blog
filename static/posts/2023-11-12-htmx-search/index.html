@@ -4,30 +4,30 @@
 a basic example</a> of <em>active search</em>. It's inticing to have a
 feature like that with just so few lines of declarative html. Let's look
 at it real quick before we get into my more involved example.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="language-html"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">&lt;h3&gt;</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="language-html"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  Search Contacts</span>
-<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="kw">&lt;span</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;htmx-indicator&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>    <span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;/img/bars.svg&quot;</span><span class="kw">/&gt;</span> Searching...</span>
-<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>   <span class="kw">&lt;/span&gt;</span></span>
-<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="kw">&lt;/h3&gt;</span></span>
-<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-control&quot;</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;search&quot;</span></span>
-<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="ot">       name=</span><span class="st">&quot;search&quot;</span> <span class="er">placeholder</span><span class="ot">=</span><span class="st">&quot;Begin Typing To Search Users...&quot;</span></span>
-<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="ot">       hx-post=</span><span class="st">&quot;/search&quot;</span></span>
-<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="ot">       hx-trigger=</span><span class="st">&quot;input changed delay:500ms, search&quot;</span></span>
-<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="ot">       hx-target=</span><span class="st">&quot;#search-results&quot;</span></span>
-<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="ot">       hx-indicator=</span><span class="st">&quot;.htmx-indicator&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;htmx-indicator&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;/img/bars.svg&quot;</span><span class="dt">/&gt;</span> Searching...</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>   <span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;form-control&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;search&quot;</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="ot">       name</span><span class="op">=</span><span class="st">&quot;search&quot;</span><span class="ot"> placeholder</span><span class="op">=</span><span class="st">&quot;Begin Typing To Search Users...&quot;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="ot">       hx-post</span><span class="op">=</span><span class="st">&quot;/search&quot;</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="ot">       hx-trigger</span><span class="op">=</span><span class="st">&quot;input changed delay:500ms, search&quot;</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="ot">       hx-target</span><span class="op">=</span><span class="st">&quot;#search-results&quot;</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="ot">       hx-indicator</span><span class="op">=</span><span class="st">&quot;.htmx-indicator&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a></span>
-<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="kw">&lt;table</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;table&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class="kw">&lt;thead&gt;</span></span>
-<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>    <span class="kw">&lt;tr&gt;</span></span>
-<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>First Name<span class="kw">&lt;/th&gt;</span></span>
-<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>Last Name<span class="kw">&lt;/th&gt;</span></span>
-<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>      <span class="kw">&lt;th&gt;</span>Email<span class="kw">&lt;/th&gt;</span></span>
-<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>    <span class="kw">&lt;/tr&gt;</span></span>
-<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>    <span class="kw">&lt;/thead&gt;</span></span>
-<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>    <span class="kw">&lt;tbody</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;search-results&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>    <span class="kw">&lt;/tbody&gt;</span></span>
-<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a><span class="kw">&lt;/table&gt;</span></span></code></pre></div>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;table&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">thead</span><span class="dt">&gt;</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>First Name<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Last Name<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Email<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">thead</span><span class="dt">&gt;</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">tbody</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;search-results&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">tbody</span><span class="dt">&gt;</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>This is pretty straightforward. The input triggers on change and
 posts to <code class="language-">/search</code> with it's value.</p>
 <p>Then it pulls out the <code class="language-">#search-results</code> and replaces
