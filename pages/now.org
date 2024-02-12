@@ -34,7 +34,7 @@ My main goal for the upcoming 2024 season is to eradicate perennial grasses by u
 ** Curating 📚
 Interesting things worth sharing.
 
-*** Health 🥦
+*** Health
 I'm in my early 30s and I'm thinking about health and longevity often. These are two sources of content that are impacting my thinking the most:
 
 - [[https://nutritionfacts.org/][Nutritionfacts.org]]
