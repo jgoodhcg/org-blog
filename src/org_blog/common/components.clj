@@ -32,18 +32,19 @@
      [:meta {:property "og:url" :content "https://jgood.online"}]
      [:meta {:property "og:image" :content "https://jgood.online/img/2023-05-28-og-image-robot-steps.png"}]
 
-     [:title "Jgood Blog"]
+     [:title "jGood"]
      [:link {:href "/css/output.css" :rel "stylesheet" :type "text/css"}]
      [:link {:rel "icon" :href "/img/2023-06-03-vaporwave-wigle-favicon.png"}]
      [:link {:rel "preconnect" :href "https://fonts.googleapis.com"}]
      [:link {:rel "preconnect" :href "https://fonts.gstatic.com" :crossorigin true}]
      [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"}]
-     ]
+     ;; plausible analytics
+     [:script {:defer true :data-domain "jgood.online" :src "https://plausible.io/js/script.js"}]]
 
      (some? prism)
      (concat [;; prism code syntax highlighting
               [:link {:href "/css/prism-synthwave-84.css" :rel "stylesheet" :type "text/css"}]
-               ;; [:link {:href "/css/prism-vsc-dark-plus.css" :rel "stylesheet" :type "text/css"}]
+              ;; [:link {:href "/css/prism-vsc-dark-plus.css" :rel "stylesheet" :type "text/css"}]
               [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
                         :crossorigin    "anonymous"
                         :referrerpolicy "no-referrer"}]
@@ -51,7 +52,7 @@
                         :crossorigin    "anonymous"
                         :referrerpolicy "no-referrer"}]
 
-               ;; LaTeX rendering
+              ;; LaTeX rendering
               [:script {:src "https://polyfill.io/v3/polyfill.min.js?features=es6"}]
               [:script {:id "MathJax-script", :async true, :src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}]])
 
