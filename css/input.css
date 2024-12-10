@@ -72,14 +72,17 @@ hr {
 
 ul > li, ol > li {
   @apply relative pl-6;
+  position: relative;
+  padding-left: 1rem; /* Adjust as needed */
+  list-style: none; /* Remove default bullets */
 }
 
 ul > li::before, ol > li::before {
   content: '';
-  @apply w-2 h-2 rounded-full bg-gradient-to-r from-cyan-900 to-cyan absolute;
+  position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0.5em;
+  @apply w-2 h-2 rounded-full bg-gradient-to-r from-cyan-900 to-cyan;
 }
 
 /* Removes nested, might need to be removed in favor of explicit nesting levels */
