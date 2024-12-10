@@ -37,6 +37,8 @@
   (reset! dev-server/server-atom (dev-server/start-server)))
 
 ;; Start file watcher
+;; TODO implement a m series compatible file watcher
+#_
 (when (nil? @dev-server/source-watchers)
   (reset! dev-server/source-watchers
           (dev-server/watch-source-files
