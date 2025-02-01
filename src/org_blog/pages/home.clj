@@ -49,6 +49,7 @@
                            [:div.flex.flex-col
                             [:p.text-white-900 (:date metadata)]
                             [:p.text-white-900.mr-4 (str "Read time: " read-time " mins")]
+                            #_
                             [:div.flex.flex-row
                              (->> metadata
                                   :tags

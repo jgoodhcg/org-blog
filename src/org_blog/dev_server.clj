@@ -42,10 +42,19 @@
        :headers {"Content-Type" "text/plain"}
        :body    "Not Found"})))
 
-(defn start-server []
-  (http-kit/run-server handler {:port 8081}))
-
 (defonce server-atom (atom nil))
+
+(defn start-server []
+  (let [port 8081]
+    (println (str "Starting server on port " port))
+    (println (str "http://localhost:" port))
+    (reset! server-atom (http-kit/run-server handler {:port port}))))
+
+(defn stop-server []
+  (when-not (nil? @server-atom)
+    (println "Stopping server ...")
+    (@server-atom :timeout 100)
+    (reset! server-atom nil)))
 
 (defn watch-source-files [dirs handler]
   (hawk/watch! [{:paths   dirs

@@ -11,7 +11,9 @@ CLOCK: [2024-11-01 Fri 14:03]--[2024-11-01 Fri 14:42] =>  0:39
 
 ** Professional Summary
 
+#+begin_quote
 Senior Full Stack Software Engineer with over 8 years of experience in designing, developing, and leading complex software projects. Demonstrates rapid learning ability, strong problem-solving skills, and excellence in both independent and collaborative environments. Proven track record of effectively representing organizations to external stakeholders, including vendors and clients. Experienced in reverse-engineering complex systems, integrating AI functionalities, and maintaining secure systems.
+#+end_quote
 
 ** Skills
 
@@ -26,7 +28,7 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
 
 ** Experience
 
-*** Software Architect, Archemedx
+*** =Software Architect, Archemedx=
 
 /August 2022 – Present/
 
@@ -39,7 +41,7 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
 - Recruited and mentored other developers
 - Diagnosed and resolved intricate performance issues
 
-*** Senior Software Engineer, Archemedx
+*** =Senior Software Engineer, Archemedx=
 
 /November 2020 – August 2022/
 
@@ -48,7 +50,7 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
 - Collaborated with the product team to scope, define, and prioritize projects
 - Handled DevOps tasks involving CloudFormation and CDK
 
-*** Full Stack Developer, Gordon Food Service
+*** =Full Stack Developer, Gordon Food Service=
 
 /May 2018 – October 2020/
 
@@ -56,21 +58,21 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
 - Worked on automated and live chat support using WebSockets, Spring Boot, Pub/Sub, and Dialogflow
 - Contributed to a GitOps-style CI/CD process utilizing Cloud Build, Jenkins, and Kubernetes
 
-*** Software Developer, Tek Systems (GFS)
+*** =Software Developer, Tek Systems (GFS)=
 
 /May 2017 – May 2018/
 
 - Developed a targeted advertising service built with Drupal, supporting a new revenue stream
 - Extended an internal news site with features that improved engagement and scaled content management
 
-*** Web Developer, One Stop Inc
+*** =Web Developer, One Stop Inc=
 
 /February 2016 – May 2017/
 
 - Automated initialization and failover processes for the e-commerce platform, improving fault tolerance and system upgrades
 - Enhanced the ordering process with new features in the e-commerce application
 
-*** IT Intern, City of Wyoming MI
+*** =IT Intern, City of Wyoming MI=
 
 /May 2015 – November 2015/
 
@@ -79,7 +81,7 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
 
 ** Projects
 
-*** Time Tracking Application
+*** =Time Tracking Application=
 
 - **Overview:** Developed a time tracking app through several iterations to improve personal productivity
 - **Technologies:** ClojureScript, Re-frame, React Native, Expo, Tick library, DigitalOcean hosting
@@ -89,21 +91,21 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
   - Utilized the Tick library extensively for time management features
   - Deployed and used the native app on a personal mobile device for daily time tracking
 
-*** Expo CLJS Project Generator
+*** =Expo CLJS Project Generator=
 
 - **Overview:** Created and published an npm package to streamline the setup of Expo projects using ClojureScript
 - **Technologies:** Node.js, npm, Expo, ClojureScript
 - **Achievements:**
   - Had a few people engage with it in the clojure community with generally positive responses
 
-*** "Everything" Tracker with Biff
+*** ="Everything" Tracker with Biff=
 
 - **Overview:** Currently developing a comprehensive tracking application to manage various aspects of personal and professional life
 - **Technologies:** Biff (Clojure web framework), XTDB
 - **Details:**
   - Still an early work in progress but with lots of ambition
 
-*** OpenAI API-based DnD Music Selector
+*** =OpenAI API-based DnD Music Selector=
 
 - **Overview:** Prototyped an application to enhance tabletop gaming sessions with dynamic music selection
 - **Technologies:** JavaScript, OpenAI API, Web Audio API
@@ -112,7 +114,7 @@ Senior Full Stack Software Engineer with over 8 years of experience in designing
   - Intending to use an AI assistant to analyze game narration and select appropriate background music
   - Aimed to improve immersion during Dungeons & Dragons sessions
 
-*** Game Development Exploration
+*** =Game Development Exploration=
 
 - **Overview:** Explored game development and audio programming as a hobby
 - **Technologies:** Rust, Bevy game engine, Godot game engine, Edna (MIDI music library)

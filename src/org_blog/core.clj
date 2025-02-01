@@ -30,12 +30,15 @@
      @rss-future
      @posts-future)))
 
-;; Start dev server
-(when (nil? @dev-server/server-atom)
-  (-> "starting server" c/blue println)
-  (regenerate-site)
-  (reset! dev-server/server-atom (dev-server/start-server)))
-
+;; Start and restart the server at the repl
+(comment
+  (do
+    (dev-server/stop-server)
+    (ns-repl/refresh)
+    (regenerate-site)
+    (dev-server/start-server))
+  ;;
+  )
 ;; Start file watcher
 ;; TODO implement a m series compatible file watcher
 #_

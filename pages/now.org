@@ -3,78 +3,14 @@
 
 * Now Page
 :LOGBOOK:
+CLOCK: [2025-02-01 Sat 11:23]--[2025-02-01 Sat 11:24] =>  0:01
 CLOCK: [2023-11-02 Thu 09:55]--[2023-11-02 Thu 10:03] =>  0:08
 CLOCK: [2023-11-01 Wed 13:11]--[2023-11-01 Wed 13:21] =>  0:10
 CLOCK: [2023-10-25 Wed 12:40]--[2023-10-25 Wed 12:45] =>  0:05
 CLOCK: [2023-10-25 Wed 10:53]--[2023-10-25 Wed 10:56] =>  0:03
 :END:
 #+begin_verse
-/Last updated: 2024-02-12/
+/Last updated: 2025-02-01/
 #+end_verse
 
-** Making 🏗️
-These are projects that I'm working on or intend to work on soon.
-
-*** Gleanmo
-Clojure based web app for capturing and visualizing different aspects of life. Habits, exercise, time are the first things I'm building out. [[https://github.com/jgoodhcg/gleanmo][Githu repo.]]
-
-*** Games
-I haven't really started anything in this space but my goals are to explore different tech stacks.
-I'd like to make some simple games like pictionary and family fued with web technologies like Nextjs, Expo, Rails, and Django. Then I'd like to get deeper into real game development with Godot and Bevy. Hopefully when I'm done with the simple games I'll have a decent understanding of more web and game frameworks as well as new languages.
-
-Then I will try and build a dream game in either Godot or Bevy.
-
-*** Garden
-I think monoculture grass yards should not exist. Our greenspaces should try to elevate biodiversity. Food production should also shift from centralized factory production to decentralized local production.
-
-I've converted my entire front and back yard into a growing space for fruits, vegetables, and flowers. I've been in my current house for three growing seasons and the space is evolving as I learn from experience and from consuming content.
-
-My main goal for the upcoming 2024 season is to eradicate perennial grasses by using ground cover the whole growing season. This limits growing to fabric pots on top of the ground cover until next season.
-
-** Curating 📚
-Interesting things worth sharing.
-
-*** Health
-I'm in my early 30s and I'm thinking about health and longevity often. These are two sources of content that are impacting my thinking the most:
-
-- [[https://nutritionfacts.org/][Nutritionfacts.org]]
-The biggest influence on my health choices. A doctor reviews nutrition and medical journals and distills the findings into content for regular people. tl;dr ... eat whole food plant based and your chance of dying from virtually every major risk factor decreases. I bought [[https://nutritionfacts.org/book/how-not-to-die-cookbook/][the cookbook]] and have been trying to make that a majority of my diet. I'm still regularly consuming dairy and eggs but consumption is trending down.
-
-- [[https://protocol.bryanjohnson.com/][Bryan Johnson's blueprint protocol]]
-A tech bro celebrity with a quantitative measured approach to anti-aging. I've been watching all the content he puts out about the Blueprint protocol since I found out about it. I've adopted some aspects of it into my own diet and exercise. I'm not fully on board with his brand but I'm interested in the approach.
-
-*** Farming
-I'm still harboring a fantasy of quitting tech and becoming a farmer.
-
-- [[https://www.youtube.com/c/REDGardens][Red Gardens]]
-High signal quantitative and qualitative analysis of multiple gardening techniques in Ireland.
-
-- [[https://www.youtube.com/channel/UCznk4o83WjKFCwEZ8th8wHQ][Edible Acres]]
-Consumption thoughtful nursery and composting system in New York state.
-
-- [[https://www.youtube.com/channel/UCLhu5JoRWPgEGDoUFfQHTPQ/videos][No till growers]]
-High production value no-till related.
-
-- [[https://www.notillgrowers.com/the-composter][The Composter]]
-A podcast interviewing different /high quality compost/ operations.
-
-*** Wantrepreneur
-Since I started writing software professionally I've consumed entrepreneur content. This is the stuff I like the most.
-
-- [[https://www.startuptolast.com/][Startup to Last]]
-My favorite "two people talking" show about /bootstrappy/ tech companies. I listen to a few shows like this -- too many to list here. So I'll just mention this one. I think these two most align with my values and are just constantly talking about things I find interesting.
-
-- [[https://www.indiehackers.com/podcasts][Indie Hackers]]
-Courtland is a really good podcast host. Early episodes are interview style. I've listened to each episode two or three times. Later episodes are more conversational. This is just a good resource to get immersed and have the basics reiterated over and over.
-
-*** Environment
-I'm becoming more interested in urbanism and climate change and I like these sources of information.
-
-- [[https://www.youtube.com/@CityNerd][City Nerd]]
-The common themes are walkability, density, and public transportation. Lots of deadpan humor and sarcasm. Also deep quantitative dives and qualitative first hand accounts of experiences across cities in the United States.
-
-- [[https://www.youtube.com/playlist?list=PLnNZYWyBGJ1GLPmb55WQAln2Q7rZn5AFX][PBS Terra - Weathered]]
-Non alarmist, but still alarming, generally accessible explanations of climate change topics. I watch these to feel better about living in the midwest.
-
-- [[https://www.urbangr.org][Urban GR]]
-A site about engaging in urban planning for the city I live in. Really great resource for how developments happen and god commentary on what makes a livable city.
+** 🚧 WIP 🚧
