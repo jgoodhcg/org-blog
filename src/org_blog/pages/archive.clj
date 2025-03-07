@@ -12,8 +12,6 @@
   (-> [:html {:lang "en"} ; Add language attribute
        (comps/head)
        (comps/body
-        [:header
-         (comps/nav)]
         [:main.p-4
          [:div.w-full
           [:h1 "All posts"]

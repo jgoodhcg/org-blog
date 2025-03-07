@@ -2,23 +2,9 @@
   (:require
    [hiccup.page :refer [include-css]]))
 
-(defn body [& content]
-  [:body.container.mx-auto.bg-grey
-   content])
-
-(defn nav []
-  [:nav.flex.flex-row.mb-8.justify-end.w-full.p-2
-   [:a.text-2xl.font-bold.mr-2.text-white.no-underline.grow
-    {:href "/"}
-    [:span.text-cyan.font-grotesk "Justin"]
-    [:span.text-green.font-grotesk "Good"]]
-   [:a.text-xl.mr-2 {:href "/now"} "now"]
-   [:a.text-xl.mr-2 {:href "/archive"} "archive"]
-   [:a.text-xl.mr-2 {:href "/rss.xml"} "feed"]])
-
 (defn head
   ([] (head {}))
-  ([{:keys [prism mermaid]}]
+  ([{:keys [prism mermaid title]}]
    (cond->
     [:head
      [:meta {:charset "utf-8"}]
@@ -32,7 +18,7 @@
      [:meta {:property "og:url" :content "https://jgood.online"}]
      [:meta {:property "og:image" :content "https://jgood.online/img/2023-05-28-og-image-robot-steps.png"}]
 
-     [:title "jGood"]
+     [:title (or title "jGood Blog")]
      [:link {:href "/css/output.css" :rel "stylesheet" :type "text/css"}]
      [:link {:rel "icon" :href "/img/2023-06-03-vaporwave-wigle-favicon.png"}]
      [:link {:rel "preconnect" :href "https://fonts.googleapis.com"}]
@@ -58,3 +44,40 @@
 
      :default
      vec)))
+
+(defn header []
+  [:header.mb-8
+   [:div.container.mx-auto.px-4
+    [:div.flex.flex-col.md:flex-row.justify-between.items-center
+     [:div.mb-4.md:mb-0
+      [:div.flex.items-center
+       [:a.text-xl.font-bold.text-gray-800.no-underline.hover:text-gray-600.transition-colors
+        {:href "/"}
+        [:span.text-cyan.font-grotesk "Justin"]
+        [:span.text-green.font-grotesk "Good"]]]]
+
+     [:div.flex.flex-col.md:flex-row.space-y-2.md:space-y-0.md:space-x-6.text-center.md:text-left
+      [:a.text-gray-600.hover:text-gray-900.transition-colors {:href "/"} "Home"]
+      [:a.text-gray-600.hover:text-gray-900.transition-colors {:href "/now"} "Now"]
+      [:a.text-gray-600.hover:text-gray-900.transition-colors {:href "/archive"} "Archive"]
+      [:a.text-gray-600.hover:text-gray-900.transition-colors {:href "/resume"} "Resume"]
+      [:a.text-gray-600.hover:text-gray-900.transition-colors {:href "/rss.xml"} "RSS"]]]]])
+
+(defn footer []
+  [:footer.mt-12.py-8
+   [:hr]
+   [:div.container.mx-auto.px-4
+    [:div.mt-6.text-center.text-gray-500.text-sm
+     [:p "© " (.getYear (java.time.LocalDate/now)) " Justin Good. Built with "
+      [:a.text-cyan.hover:underline
+       {:href "https://github.com/jgoodhcg/org-blog"
+        :target "_blank"
+        :rel "noopener"}
+       "Clojure and OrgMode"]]
+     [:p.mt-2 "All content is © Justin Good. Code snippets may be used under MIT license unless noted otherwise."]]]])
+
+(defn body [& content]
+  [:body.container.mx-auto.bg-grey
+   (header)
+   content
+   (footer)])

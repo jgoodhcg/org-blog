@@ -50,7 +50,6 @@
     [:html
      (comps/head {:prism true :mermaid true})
      (comps/body
-      [:header (comps/nav)]
       [:main.max-w-screen-lg.mx-auto.grid.grid-cols-4.gap-4.p-4
        [:div.col-span-4.md:col-span-3.w-full
         {:class ".md:w-3/4"}

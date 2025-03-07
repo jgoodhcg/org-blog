@@ -13,7 +13,6 @@
   (-> [:html {:lang "en"} ; Add language attribute
        (comps/head)
        (comps/body
-        [:header (comps/nav)]
         [:main.grid.grid-cols-5
          [:div.col-span-5.p-4.md:col-span-3.md:col-start-2
           [:div.flex.flow-row.items-center
