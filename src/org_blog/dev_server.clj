@@ -2,8 +2,6 @@
   (:require
    [clojure.java.io :as io]
    [clojure.string :refer [split] :as string]
-   [potpuri.core :as pot]
-   [hawk.core :as hawk]
    [org.httpkit.server :as http-kit]))
 
 (def content-types
@@ -56,8 +54,3 @@
     (@server-atom :timeout 100)
     (reset! server-atom nil)))
 
-(defn watch-source-files [dirs handler]
-  (hawk/watch! [{:paths   dirs
-                 :handler handler}]))
-
-(defonce source-watchers (atom nil))
