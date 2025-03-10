@@ -51,6 +51,7 @@
 (defn stop-server []
   (when-not (nil? @server-atom)
     (println "Stopping server ...")
-    (@server-atom :timeout 100)
-    (reset! server-atom nil)))
-
+    (let [stop-fn @server-atom]
+      (stop-fn :timeout 3000) ; Use a longer timeout
+      (reset! server-atom nil)
+      (Thread/sleep 1000)))) ; Wait for resources to be fully released
