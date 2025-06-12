@@ -1,1 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Justin Good's Blog</title><link>http://jgood.online</link><description>Still trying to figure out what to write about</description><item><title>2023-04-22-kitchen-sink</title><link>http://jgood.online/posts/2023-04-22-kitchen-sink</link></item><item><title>2023-05-20-org-blog</title><link>http://jgood.online/posts/2023-05-20-org-blog</link></item><item><title>2023-11-12-htmx-search</title><link>http://jgood.online/posts/2023-11-12-htmx-search</link></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss.xsl"?><rss version="2.0">
+  <channel>
+    <title>Justin Good's Blog</title>
+    <link>http://jgood.online</link>
+    <description>Still trying to figure out what to write about</description>
+    <item>
+      <title>Hello World!</title>
+      <link>http://jgood.online/posts/2023-04-22-kitchen-sink</link>
+      <description>A kitchen sink of org mode elements to test rendering to html</description>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://jgood.online/posts/2023-04-22-kitchen-sink</guid>
+    </item>
+    <item>
+      <title>Building a Custom Static Site Generator</title>
+      <link>http://jgood.online/posts/2023-05-20-org-blog</link>
+      <description>Because the world needs another static site generator and I want to write in org mode</description>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://jgood.online/posts/2023-05-20-org-blog</guid>
+    </item>
+    <item>
+      <title>Typeahead Search with HTMX</title>
+      <link>http://jgood.online/posts/2023-11-12-htmx-search</link>
+      <description>Real example of a typeahead search implementation that includes filter options and URL state sync</description>
+      <pubDate>Sun, 12 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://jgood.online/posts/2023-11-12-htmx-search</guid>
+    </item>
+  </channel>
+</rss>
