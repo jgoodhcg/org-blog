@@ -1,0 +1,75 @@
+# My Static Blog Generator for Org-mode
+
+## What is this?
+This is my personal static blog generator written in Clojure. It converts Org-mode files to HTML for my personal [website](https://jgood.online). I built it to match my writing workflow with Emacs and Org-mode. The generated static site is hosted on Digital Ocean App Platform.
+
+## How it works
+The generator takes Org-mode files from the posts and pages directories, processes them through Pandoc, and applies styling and layout templates. It includes:
+
+- Automatic conversion of Org-mode to HTML using Pandoc
+- Development server
+- Responsive design using Tailwind CSS
+- Automatic table of contents generation
+- Read time estimation
+- RSS feed generation
+- Support for custom pages
+- Code syntax highlighting
+- LaTeX rendering in the browser
+
+## Project Structure
+- `posts/` :: Blog posts written in Org-mode
+- `pages/` :: Custom static pages
+- `src/` :: Clojure source code for generating the site
+- `static/` :: Generated site output
+- `css/` :: Tailwind CSS source files
+
+## Technical Requirements
+- [Pandoc](https://pandoc.org/) for Org-mode conversion
+- [Clojure](https://clojure.org/) (1.10+)
+- [Node.js](https://nodejs.org/) for Tailwind CSS processing
+- [Emacs](https://github.com/doomemacs/doomemacs) with [CIDER](https://github.com/clojure-emacs/cider) for development
+
+## Local Development Setup
+```shell
+# Install Node.js dependencies
+npm install
+```
+
+## How I use this
+```shell
+# In Emacs
+cider-jack-in-clj
+cider-eval-buffer # in org-blog.core
+
+# This starts a file watcher that regenerates the site and reloads the REPL
+# with any changes to the src/, posts/, or pages/ directories
+
+# In a separate terminal
+npx tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
+
+# Preview at http://localhost:8081
+```
+
+## Content Creation Process
+### Writing Blog Posts
+I write Org-mode files in the `posts/` directory using the filename format `YYYY-MM-DD-title.org`. After evaluating `org-blog.core` to generate static files, I commit changes to the repo and Digital Ocean automatically publishes the updated site.
+
+### Creating Static Pages
+For static pages, I place Org-mode content in the `pages/` directory and create a corresponding `.clj` file in the `org-blog.pages` namespace for rendering with custom layout. Some pages skip Org-mode entirely and are written directly in Clojure using Hiccup.
+
+## Deployment
+The site is automatically deployed when changes are pushed to the main branch. Digital Ocean App Platform publishes all files from the `static/` directory.
+
+## License
+
+### Software License
+The code for this blog generator is provided under the MIT License:
+
+MIT License
+
+Copyright (c) 2023-2025 Justin Good
+
+### Content License
+The blog content (posts, articles, and other written materials) is © Justin Good.
+
+All rights reserved. The content of this blog may not be used for training AI models, machine learning algorithms, or other automated systems without explicit permission from the author. You may read, share, and link to the content, but usage for AI training, republishing, or commercial purposes requires prior written consent.
