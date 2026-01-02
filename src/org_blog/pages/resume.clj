@@ -88,19 +88,16 @@
     [:html
      (comps/head {:title "Resume - Justin Good"})
      (comps/body
-       [:main.max-w-4xl.mx-auto.px-4
-        [:div.flex.flex-col.lg:flex-row.gap-12
-         [:div.max-w-2xl.flex-1.min-w-0
-          [:section.mb-10
-           [:h1.text-2xl.font-semibold.mb-2 (:name basics)]
-           [:p.text-lg.text-text-secondary.mb-4 (:label basics)]
-           [:p.text-sm (:summary basics)]]
+       [:main.max-w-2xl.mx-auto.px-4
+        [:section.mb-10
+         [:h1.text-2xl.font-semibold.mb-2 (:name basics)]
+         [:p.text-lg.text-text-secondary.mb-4 (:label basics)]
+         [:p.text-sm (:summary basics)]]
 
-          (skills-section skills)
-          (work-experience-section work)
-          (projects-section projects)
-          (education-section education)]
-         [:div.hidden.lg:block.w-48.flex-shrink-0]]])]))
+        (skills-section skills)
+        (work-experience-section work)
+        (projects-section projects)
+        (education-section education)])]))
 
 (defn gen []
   (-> "Generating resume page" c/blue println)
