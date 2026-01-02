@@ -58,7 +58,7 @@
         [:article.max-w-2xl.flex-1
          [:header.mb-12
           [:h1.text-3xl.font-bold.mb-2 title]
-          [:div.flex.flex-wrap.gap-x-4.gap-y-1.text-sm.text-text-secondary
+          [:div.flex.flex-col.gap-1.text-sm.text-text-secondary
            (when date
              [:span "Published: " date])
            (when updated

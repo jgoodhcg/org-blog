@@ -26,7 +26,7 @@
 
      (some? prism)
      (concat [;; prism code syntax highlighting - using a calm theme
-              [:link {:href "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+              [:link {:href "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-coy.min.css"
                       :rel "stylesheet" :type "text/css"}]
               [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
                         :crossorigin    "anonymous"
@@ -43,7 +43,7 @@
 
 (defn header []
   [:header.py-8.mb-8
-   [:div.w-full.px-4.sm:px-8
+   [:div.max-w-4xl.mx-auto.px-4
     [:div.flex.flex-col.sm:flex-row.justify-between.items-baseline
      [:a.text-xl.font-semibold.no-underline.text-text.hover:text-accent
       {:href "/"}

@@ -89,7 +89,7 @@ hr {
 
 /* Tables - clean and readable */
 table {
-  @apply w-full mb-6 text-left;
+  @apply block w-full mb-6 text-left overflow-x-auto;
 }
 
 th {
