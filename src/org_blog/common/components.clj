@@ -25,8 +25,8 @@
      [:script {:defer true :data-domain "jgood.online" :src "https://plausible.io/js/script.js"}]]
 
      (some? prism)
-     (concat [;; prism code syntax highlighting - using a calm theme
-              [:link {:href "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-coy.min.css"
+     (concat [;; prism code syntax highlighting - using local ghcolors theme
+              [:link {:href "/css/prism/ghcolors.css"
                       :rel "stylesheet" :type "text/css"}]
               [:script {:src            "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
                         :crossorigin    "anonymous"

@@ -61,8 +61,17 @@
     [:html
      (comps/head {:prism true, :mermaid true, :title title})
      (comps/body
-       [:main.max-w-2xl.mx-auto.px-4
-        [:article.min-w-0
+[:main.max-w-2xl.mx-auto.px-4
+       ;; TOC Sidebar - Navigation Landmark
+       ;; Fixed to the bottom-left of the screen
+       (when include-toc
+         [:nav {:class "hidden xl:block fixed bottom-8 left-8 w-64 max-h-[70vh] overflow-y-auto pr-4"
+                :aria-label "Table of Contents"}
+          [:div.flex.flex-col.justify-end.h-full
+           [:p.text-xs.uppercase.tracking-wide.text-text-secondary.mb-2 "Contents"]
+           hiccup-toc]])
+
+       [:article.min-w-0
          [:header.mb-12
           [:h1.text-3xl.font-bold.mb-2 title]
           [:div.flex.flex-col.gap-1.text-sm.text-text-secondary

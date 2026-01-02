@@ -16,78 +16,108 @@
   --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/* Base styles */
-body {
-  @apply bg-paper text-text font-sans break-words overflow-x-hidden;
-  font-size: 1.125rem;
-  line-height: 1.65;
-}
+@layer base {
+  /* Base styles */
+  body {
+    @apply bg-paper text-text font-sans break-words overflow-x-hidden;
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
 
-/* Links - subtle, calm */
-a {
-  @apply text-accent underline underline-offset-2 break-words;
-}
+  /* Links - subtle, calm */
+  a {
+    @apply underline underline-offset-2 text-accent break-words;
+  }
 
-/* ... */
+  a:hover {
+    @apply text-accent-hover;
+  }
 
-/* Lists - generous spacing, simple bullets */
-ul, ol {
-  @apply mb-6 pl-6;
-}
+  /* Headings - same font, hierarchy through size/weight */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text font-semibold;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
 
-ul {
-  list-style-type: disc;
-}
+  h1 { @apply text-3xl; }
+  h2 { @apply text-2xl; }
+  h3 { @apply text-xl; }
+  h4 { @apply text-lg font-medium; }
+  h5 { @apply text-base font-medium; }
+  h6 { @apply text-base font-medium; }
 
-ol {
-  list-style-type: decimal;
-}
+  /* Body text */
+  p {
+    @apply mb-6;
+  }
 
-li {
-  @apply mb-3 pl-1;
-}
+  /* Lists - generous spacing, simple bullets */
+  ul, ol {
+    @apply mb-6 pl-6;
+  }
 
-li::marker {
+  ul {
+    list-style-type: disc;
+  }
 
+  ol {
+    list-style-type: decimal;
+  }
 
-/* Blockquotes - simple left rule */
-blockquote {
-  @apply border-l-2 border-border pl-6 py-1 my-6 text-text-secondary italic;
-}
+  li {
+    @apply mb-3 pl-1;
+  }
 
-blockquote p {
-  @apply mb-0;
-}
+  li::marker {
+    @apply text-text-secondary;
+  }
 
-/* Horizontal rules - subtle */
-hr {
-  @apply border-t border-border my-8;
-}
+  /* Blockquotes - simple left rule */
+  blockquote {
+    @apply border-l-2 border-border pl-6 py-1 my-6 text-text-secondary italic;
+  }
 
-/* Tables - clean and readable */
-table {
-  @apply block w-full mb-6 text-left overflow-x-auto;
-}
+  blockquote p {
+    @apply mb-0;
+  }
 
-th {
-  @apply text-sm font-semibold text-text-secondary uppercase tracking-wide pb-2 border-b border-border;
-}
+  /* Horizontal rules - subtle */
+  hr {
+    @apply border-t border-border my-8;
+  }
 
-td {
-  @apply py-2 border-b border-border;
-}
+  /* Tables - clean and readable */
+  table {
+    @apply block w-full mb-6 text-left overflow-x-auto;
+  }
 
-/* Code - calm, readable */
-code {
-  @apply font-mono text-base bg-paper-dark px-1.5 py-0.5 rounded;
-}
+  th {
+    @apply text-sm font-semibold text-text-secondary uppercase tracking-wide pb-2 border-b border-border;
+  }
 
-pre {
-  @apply bg-paper-dark p-4 rounded-lg overflow-x-auto mb-6 max-w-full;
-}
+  td {
+    @apply py-2 border-b border-border;
+  }
 
-pre code {
-  @apply bg-transparent p-0;
+  /* Code - calm, readable */
+  code {
+    @apply font-mono text-base px-1.5 py-0.5 rounded text-accent bg-accent/10;
+  }
+
+  pre {
+    @apply bg-paper-dark p-4 rounded-lg overflow-x-auto mb-6 max-w-full;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  /* Images */
+  img {
+    @apply rounded max-w-full h-auto;
+  }
 }
 
 /* Table of contents - quiet, secondary */
@@ -114,11 +144,6 @@ pre code {
 /* Metadata - muted, secondary */
 .metadata, .read-time {
   @apply text-sm text-text-secondary;
-}
-
-/* Images */
-img {
-  @apply rounded max-w-full h-auto;
 }
 
 /* Line blocks (poetry, etc) */
