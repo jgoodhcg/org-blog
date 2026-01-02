@@ -18,39 +18,17 @@
 
 /* Base styles */
 body {
-  @apply bg-paper text-text font-sans;
+  @apply bg-paper text-text font-sans break-words overflow-x-hidden;
   font-size: 1.125rem;
   line-height: 1.65;
 }
 
 /* Links - subtle, calm */
 a {
-  @apply text-accent underline underline-offset-2;
+  @apply text-accent underline underline-offset-2 break-words;
 }
 
-a:hover {
-  @apply text-accent-hover;
-}
-
-/* Headings - same font, hierarchy through size/weight */
-h1, h2, h3, h4, h5, h6 {
-  @apply text-text font-semibold;
-  line-height: 1.3;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-h1 { @apply text-3xl; }
-h2 { @apply text-2xl; }
-h3 { @apply text-xl; }
-h4 { @apply text-lg font-medium; }
-h5 { @apply text-base font-medium; }
-h6 { @apply text-base font-medium; }
-
-/* Body text */
-p {
-  @apply mb-6;
-}
+/* ... */
 
 /* Lists - generous spacing, simple bullets */
 ul, ol {
@@ -66,12 +44,11 @@ ol {
 }
 
 li {
-  @apply mb-2;
+  @apply mb-3 pl-1;
 }
 
 li::marker {
-  @apply text-text-secondary;
-}
+
 
 /* Blockquotes - simple left rule */
 blockquote {
@@ -106,7 +83,7 @@ code {
 }
 
 pre {
-  @apply bg-paper-dark p-4 rounded-lg overflow-x-auto mb-6;
+  @apply bg-paper-dark p-4 rounded-lg overflow-x-auto mb-6 max-w-full;
 }
 
 pre code {

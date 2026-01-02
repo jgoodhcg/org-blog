@@ -53,9 +53,9 @@
      (comps/head {:prism true :mermaid true :title title})
      (comps/body
       [:main.max-w-4xl.mx-auto.px-4
-       [:div.flex.gap-12
+       [:div.flex.flex-col.lg:flex-row.gap-12
         ;; Main content column
-        [:article.max-w-2xl.flex-1
+        [:article.max-w-2xl.flex-1.min-w-0
          [:header.mb-12
           [:h1.text-3xl.font-bold.mb-2 title]
           [:div.flex.flex-col.gap-1.text-sm.text-text-secondary
