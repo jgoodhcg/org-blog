@@ -1,6 +1,7 @@
 ---
-title: Test render page 
+title: Kitchen Sink
 date: 2026-01-02
+updated: 2026-01-03
 description: A test post showing off all the design elements
 ---
 
