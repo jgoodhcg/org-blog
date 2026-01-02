@@ -2,7 +2,7 @@
 
 ## Work Unit Summary
 
-- **Status:** active
+- **Status:** done
 - **Problem/Intent:** Remove all remnants of npm/node from the project now that we're using Tailwind standalone binary.
 - **Constraints:** None
 - **Proposed Approach:** Delete `tailwind.config.js` and any other npm-related files. Already deleted `node_modules/`, `package.json`, `package-lock.json`.

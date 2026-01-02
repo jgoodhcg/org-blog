@@ -38,72 +38,66 @@
   (str (date-formatter start-date) " – " (date-formatter end-date)))
 
 (defn skills-section [skills]
-  [:section.skills.my-8
-   [:h2 "Skills"]
-   [:div.grid.grid-cols-2.md:grid-cols-3.lg:grid-cols-4.gap-4
-    (for [skill skills]
-      [:div.rounded.p-3
-       [:h3.text-white.mb-2.border-b.border-gray-700.pb-1 (:name skill)]
-       [:div.flex.flex-wrap.gap-1
-        (for [keyword (:keywords skill)]
-          [:span.inline-block.text-white.text-sm.py-1 keyword
-           (when-not (= keyword (last (:keywords skill)))
-             [:span.mx-1.text-cyan "•"])])]])]])
+  [:section.my-10
+   [:h2.text-xl.font-semibold.mb-4 "Skills"]
+   [:div.flex.flex-wrap.gap-2
+    (for [skill skills
+          keyword (:keywords skill)]
+      [:span.text-sm.text-text-secondary keyword])]])
 
 (defn work-experience-section [work]
-  [:section.experience.my-8
-   [:h2 "Experience"]
+  [:section.my-10
+   [:h2.text-xl.font-semibold.mb-6 "Experience"]
    (for [job work]
-     [:div.job.mb-8
-      [:div.flex.flex-col.md:flex-row.justify-between.items-baseline
-       [:h3.mb-0 (:position job)", " [:span.text-cyan (:company job)]]
-       [:div.text-white-900.italic (format-date-range (:startDate job) (:endDate job))]]
-      [:ul.mt-4
+     [:div.mb-8
+      [:div.flex.flex-col.sm:flex-row.sm:justify-between.sm:items-baseline.mb-2
+       [:h3.text-base.font-medium.mb-0
+        (:position job) " at " [:span.text-accent (:company job)]]
+       [:span.text-sm.text-text-secondary (format-date-range (:startDate job) (:endDate job))]]
+      [:ul.mt-2.text-sm
        (for [highlight (:highlights job)]
-         [:li.mb-2 highlight])]])])
+         [:li.mb-1 highlight])]])])
 
 (defn projects-section [projects]
-  [:section.projects.my-8
-   [:h2 "Projects"]
+  [:section.my-10
+   [:h2.text-xl.font-semibold.mb-6 "Projects"]
    (for [project projects]
-     [:div.project.mb-8
-      [:h3.mb-0 (:name project)]
-      [:p.mb-2 (:description project)]
-      [:div.mb-3
-       [:span.text-cyan.font-bold "Technologies: "]
-       [:span.text-white (str/join ", " (:technologies project))]]
+     [:div.mb-6
+      [:h3.text-base.font-medium.mb-1 (:name project)]
+      [:p.text-sm.text-text-secondary.mb-2 (:description project)]
+      [:p.text-xs.text-text-secondary
+       [:span.font-medium "Technologies: "]
+       (str/join ", " (:technologies project))]
       (when (or (:details project) (:achievements project))
-        [:ul.mt-2
+        [:ul.mt-2.text-sm
          (for [detail (or (:details project) (:achievements project))]
-           [:li.mb-2 detail])])])])
+           [:li.mb-1 detail])])])])
 
 (defn education-section [education]
-  [:section.education.my-8
-   [:h2 "Education"]
+  [:section.my-10
+   [:h2.text-xl.font-semibold.mb-4 "Education"]
    (for [edu education]
-     [:div.education-item.mb-4
-      [:h3.mb-0
-       (:studyType edu) " in " (:area edu) ", "
-       [:span.text-cyan  (:institution edu)]]
-      [:div.text-white-900.italic (str (:startDate edu) " - " (:endDate edu))]])])
+     [:div.mb-4
+      [:h3.text-base.font-medium.mb-0
+       (:studyType edu) " in " (:area edu)]
+      [:p.text-sm.text-text-secondary
+       (:institution edu) " · " (:startDate edu) "–" (:endDate edu)]])])
 
 (defn resume-hiccup [resume]
   (let [{:keys [basics skills work projects education]} resume]
     [:html
      (comps/head {:title "Resume - Justin Good"})
      (comps/body
-       [:div.container.mx-auto.px-4.py-8.max-w-4xl
-        [:div.p-6
-         [:section.header.mb-8
-          [:h1 (:name basics)]
-          [:p.text-xl.text-white (:label basics)]
-          [:div.my-6.p-4
-           [:p.text-white.italic (:summary basics)]]]
+       [:main.max-w-2xl.mx-auto.px-4
+        [:section.mb-10
+         [:h1.text-2xl.font-semibold.mb-2 (:name basics)]
+         [:p.text-lg.text-text-secondary.mb-4 (:label basics)]
+         [:p.text-sm (:summary basics)]]
 
-         (skills-section skills)
-         (work-experience-section work)
-         (projects-section projects)
-         (education-section education)]])]))
+        (skills-section skills)
+        (work-experience-section work)
+        (projects-section projects)
+        (education-section education)])]))
 
 (defn gen []
   (-> "Generating resume page" c/blue println)

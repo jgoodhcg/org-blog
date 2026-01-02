@@ -2,7 +2,7 @@
 
 ## Work Unit Summary
 
-- **Status:** active
+- **Status:** done
 - **Problem/Intent:** Site uses Tailwind v4 standalone binary but config is still v3 JS-based. CSS compilation fails with "unknown utility class" errors. Old output.css from v3 build is being served unchanged.
 - **Constraints:** Must use standalone binary (no npm). V4 uses CSS-based configuration with `@theme` directive instead of JS config.
 - **Proposed Approach:** Rewrite `css/input.css` for v4 syntax. Move color/font definitions into `@theme` block. Delete old `tailwind.config.js`. Regenerate output.css.

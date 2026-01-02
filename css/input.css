@@ -1,125 +1,150 @@
-/* npx tailwindcss -i ./css/input.css -o ./static/css/output.css --watch */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* tailwindcss -i ./css/input.css -o ./static/css/output.css --watch */
+@import "tailwindcss";
 
-body {
-  @apply bg-black max-w-full font-fira-sans;
+@theme {
+  /* Colors - calm, editorial palette */
+  --color-paper: #F9FAFB;
+  --color-paper-dark: #F3F4F6;
+  --color-text: #111827;
+  --color-text-secondary: #6B7280;
+  --color-accent: #4F6C8F;
+  --color-accent-hover: #3D5A7A;
+  --color-border: #E5E7EB;
+
+  /* Typography */
+  --font-sans: "Inter", "Source Sans 3", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/* Customizations */
+/* Base styles */
+body {
+  @apply bg-paper text-text font-sans;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+/* Links - subtle, calm */
 a {
-  @apply text-cyan underline underline-offset-2;
+  @apply text-accent underline underline-offset-2;
 }
 
 a:hover {
-  @apply text-cyan-100 decoration-green;
+  @apply text-accent-hover;
 }
 
-.header a {
-  @apply no-underline;
-}
-
+/* Headings - same font, hierarchy through size/weight */
 h1, h2, h3, h4, h5, h6 {
-  @apply text-white font-bold mt-8 mb-2 font-grotesk;
+  @apply text-text font-semibold;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
-h1 { @apply text-4xl bg-clip-text text-transparent bg-gradient-to-b from-cyan via-cyan-100 to-green-100; }
-h2 { @apply text-3xl; }
-h3 { @apply text-2xl; }
-h4 { @apply text-xl; }
-h5 { @apply text-lg; }
-h6 { @apply text-lg; }
+h1 { @apply text-3xl; }
+h2 { @apply text-2xl; }
+h3 { @apply text-xl; }
+h4 { @apply text-lg font-medium; }
+h5 { @apply text-base font-medium; }
+h6 { @apply text-base font-medium; }
 
-p, ul, ol {
-  @apply text-white mb-2 text-lg;
+/* Body text */
+p {
+  @apply mb-6;
 }
 
-.archive ul {
-  @apply list-disc list-inside;
+/* Lists - generous spacing, simple bullets */
+ul, ol {
+  @apply mb-6 pl-6;
 }
 
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  @apply mb-2;
+}
+
+li::marker {
+  @apply text-text-secondary;
+}
+
+/* Blockquotes - simple left rule */
 blockquote {
-  @apply border-l-4 pl-4 py-2 my-4 italic border-cyan-100 bg-grey-100 rounded-r;
+  @apply border-l-2 border-border pl-6 py-1 my-6 text-text-secondary italic;
 }
 
 blockquote p {
-  @apply m-0;
+  @apply mb-0;
 }
 
-.line-block{
-  @apply text-white-900 italic;
+/* Horizontal rules - subtle */
+hr {
+  @apply border-t border-border my-8;
 }
 
+/* Tables - clean and readable */
 table {
-  @apply w-full text-center mb-4 text-cyan;
+  @apply w-full mb-6 text-left;
 }
 
 th {
-  @apply uppercase text-sm font-bold border border-cyan bg-cyan text-black border;
+  @apply text-sm font-semibold text-text-secondary uppercase tracking-wide pb-2 border-b border-border;
 }
 
 td {
-  @apply border border-cyan p-2;
+  @apply py-2 border-b border-border;
 }
 
-tr:nth-child(even) {
+/* Code - calm, readable */
+code {
+  @apply font-mono text-base bg-paper-dark px-1.5 py-0.5 rounded;
 }
 
-hr {
-  @apply border-none bg-gradient-to-r from-cyan-100 via-green-100 to-cyan-100 h-0.5 my-4 rounded;
+pre {
+  @apply bg-paper-dark p-4 rounded-lg overflow-x-auto mb-6;
 }
 
-ul > li, ol > li {
-  @apply relative pl-6;
-  position: relative;
-  padding-left: 1rem; /* Adjust as needed */
-  list-style: none; /* Remove default bullets */
+pre code {
+  @apply bg-transparent p-0;
 }
 
-ul > li::before, ol > li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  @apply w-2 h-2 rounded-full bg-gradient-to-r from-cyan-900 to-cyan;
-}
-
-/* Removes nested, might need to be removed in favor of explicit nesting levels */
-ul li *::before, ol li *::before {
-  content: none;
-}
-
-li.no-bullet::before {
-  content: none;
+/* Table of contents - quiet, secondary */
+#table-of-contents {
+  @apply text-sm text-text-secondary;
 }
 
 #table-of-contents a {
-  @apply no-underline rounded;
-  transition: background-color 3s ease;
+  @apply text-text-secondary no-underline;
 }
 
-#table-of-contents > a:hover {
-  animation: pulse 3s infinite;
+#table-of-contents a:hover {
+  @apply text-accent;
 }
 
-#table-of-contents li::before {
-  content: none;
+#table-of-contents ul {
+  @apply list-none pl-4 mb-0;
 }
 
-@keyframes pulse {
-  0% {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+#table-of-contents li {
+  @apply mb-1;
 }
 
-/* Wide code blocks break the responsive formatting, limit them in width responsively */
-pre {
-  @apply max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl;
+/* Metadata - muted, secondary */
+.metadata, .read-time {
+  @apply text-sm text-text-secondary;
+}
+
+/* Images */
+img {
+  @apply rounded max-w-full h-auto;
+}
+
+/* Line blocks (poetry, etc) */
+.line-block {
+  @apply text-text-secondary italic mb-6;
 }

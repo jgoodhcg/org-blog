@@ -10,23 +10,20 @@
 
 (defn gen []
   (-> "Generating home (index) page" c/blue println)
-  (-> [:html {:lang "en"} ; Add language attribute
+  (-> [:html {:lang "en"}
        (comps/head)
        (comps/body
-        [:main.grid.grid-cols-5
-         [:div.col-span-5.p-4.md:col-span-3.md:col-start-2
-          [:div.flex.flow-row.items-center
-           [:span.mt-8.mb-2.text-3xl.mr-2 "🚧"]
-           [:h1 " WIP"]
-           [:span.mt-8.mb-2.text-3xl.ml-2 "🚧"]]
-          [:p "Still trying to figure out what to write about. "]
-          [:p "If you want to see any of my software projects, they are all on "
-           [:a {:href "https://github.com/jgoodhcg"} "github."]]
-          [:p "Here is my " [:a {:href "/resume"} "resume"] ", if you are looking for that."]
-          [:p "If you are curious about what I'm up to check out my "
-           [:a {:href "/now"} "now page"] "."]
-          [:div.mt-16 [:span.text-2xl.text-cyan.font-bold "Recent Posts"]]
-          [:ul.mt-4
+        [:main.max-w-2xl.mx-auto.px-4
+         [:section.mb-12
+          [:p.text-lg "Software engineer. Writing about code, tools, and whatever else comes to mind."]
+          [:p.text-text-secondary.text-sm.mt-4
+           "See what I'm up to " [:a {:href "/now"} "now"] ", "
+           "browse the " [:a {:href "/archive"} "archive"] ", "
+           "or check out my " [:a {:href "/resume"} "resume"] "."]]
+
+         [:section
+          [:h2.text-lg.font-semibold.mb-6 "Recent Posts"]
+          [:div.space-y-8
            (->> posts-dir
                 io/file
                 file-seq
@@ -40,22 +37,14 @@
                              metadata   (extract-metadata md-content)
                              read-time  (estimate-read-time md-content)
                              post-name  (posts/get-post-name md-file)]
-                         [:li.no-bullet.my-4.p-0
-                          [:hr]
-                          [:a.no-underline {:href (str "/posts/" post-name)}
-                           [:h2.mb-0 (:title metadata)]
-                           [:p (:description metadata)]
-                           [:div.flex.flex-col
-                            [:p.text-white-900 (:date metadata)]
-                            [:p.text-white-900.mr-4 (str "Read time: " read-time " mins")]
-                            #_
-                            [:div.flex.flex-row
-                             (->> metadata
-                                  :tags
-                                  (map (fn [t]
-                                         [:a.mr-2.text-sm.rounded-lg
-                                          {:href (str "/tags/" t)}
-                                          t])))]]]]))))]]])]
-
+                         [:article
+                          [:a.no-underline.block.group {:href (str "/posts/" post-name)}
+                           [:h3.text-base.font-medium.text-text.group-hover:text-accent.mb-1
+                            (:title metadata)]
+                           (when (:description metadata)
+                             [:p.text-text-secondary.text-sm.mb-1 (:description metadata)])
+                           [:p.text-text-secondary.text-xs
+                            (:date metadata)
+                            (when read-time (str " · " read-time " min read"))]]]))))]]])]
       html
       (->> (spit-with-path "./static/index.html"))))

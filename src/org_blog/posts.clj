@@ -50,22 +50,22 @@
     [:html
      (comps/head {:prism true :mermaid true})
      (comps/body
-      [:main.max-w-screen-lg.mx-auto.grid.grid-cols-4.gap-4.p-4
-       [:div.col-span-4.md:col-span-3.w-full
-        {:class ".md:w-3/4"}
-        (when include-read-time
-          [:p.text-white-900.italic (str "Read time: " read-time " mins")])
-        [:div hiccup-body]]
-       (when include-toc
-         [:div.hidden.md:block.md:h-full.w-full
-          {:class ".md:w-1/4"}
-          [:div.sticky.top-0
-           [:h4 "Table of Contents"]
-           hiccup-toc]])]
+      [:main.max-w-4xl.mx-auto.px-4
+       [:div.flex.gap-12
+        ;; Main content column
+        [:article.max-w-2xl.flex-1
+         (when include-read-time
+           [:p.text-sm.text-text-secondary.mb-8 (str read-time " min read")])
+         [:div hiccup-body]]
+        ;; TOC sidebar - quiet, secondary
+        (when include-toc
+          [:aside.hidden.lg:block.w-48.flex-shrink-0
+           [:div.sticky.top-8
+            [:p.text-xs.uppercase.tracking-wide.text-text-secondary.mb-2 "Contents"]
+            hiccup-toc]])]]
       ;; render mermaid diagrams
       [:script {:type "module"}
-       "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';"]
-      )]))
+       "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';"])]))
 
 (defn get-post-name
   "Extracts the post name from a markdown file path (without extension)."

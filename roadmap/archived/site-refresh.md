@@ -2,7 +2,7 @@
 
 ## Work Unit Summary
 
-- **Status:** active
+- **Status:** done
 - **Problem/Intent:** Current dark neon synthwave aesthetic no longer fits. Site has accumulated cruft. Want a clean, minimal canvas ready for content.
 - **Constraints:** Keep Hiccup templating. Keep Tailwind (v4). Must work with pandoc-generated HTML structure.
 - **Proposed Approach:** Follow the design spec. Implement calm, editorial aesthetic with warm off-white background, single accent color, generous spacing.
