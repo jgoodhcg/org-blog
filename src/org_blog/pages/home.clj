@@ -4,8 +4,8 @@
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
    [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [posts-org-dir spit-with-path]]
-   [org-blog.common.org :refer [estimate-read-time extract-org-metadata]]
+   [org-blog.common.files :refer [posts-dir spit-with-path]]
+   [org-blog.common.markdown :refer [estimate-read-time extract-metadata]]
    [org-blog.posts :as posts]))
 
 (defn gen []
@@ -27,19 +27,19 @@
            [:a {:href "/now"} "now page"] "."]
           [:div.mt-16 [:span.text-2xl.text-cyan.font-bold "Recent Posts"]]
           [:ul.mt-4
-           (->> posts-org-dir
+           (->> posts-dir
                 io/file
                 file-seq
-                (filter #(re-matches #".*\.org" (.getName %)))
+                (filter #(re-matches #".*\.md" (.getName %)))
                 (sort)
                 (reverse)
                 (take 8)
                 (map #(str (.getCanonicalPath %)))
-                (map (fn [org-file]
-                       (let [org-content (slurp org-file)
-                             metadata    (extract-org-metadata org-content)
-                             read-time   (estimate-read-time org-content)
-                             post-name   (posts/get-org-file-name org-file)]
+                (map (fn [md-file]
+                       (let [md-content (slurp md-file)
+                             metadata   (extract-metadata md-content)
+                             read-time  (estimate-read-time md-content)
+                             post-name  (posts/get-post-name md-file)]
                          [:li.no-bullet.my-4.p-0
                           [:hr]
                           [:a.no-underline {:href (str "/posts/" post-name)}

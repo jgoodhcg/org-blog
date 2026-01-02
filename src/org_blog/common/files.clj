@@ -2,9 +2,9 @@
   (:require
    [clojure.java.io :as io]))
 
-(def pages-org-dir "./pages")
+(def pages-dir "./pages")
 
-(def posts-org-dir "./posts")
+(def posts-dir "./posts")
 
 (def posts-out-dir "./static/posts")
 

@@ -6,7 +6,7 @@
    [hiccup.core :refer [html]]
    [clojure.edn :as edn]
    [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [pages-org-dir spit-with-path]]))
+   [org-blog.common.files :refer [spit-with-path]]))
 
 (defn read-resume-edn []
   (-> "./pages/resume.edn"

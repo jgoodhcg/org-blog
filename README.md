@@ -1,12 +1,12 @@
-# My Static Blog Generator for Org-mode
+# My Static Blog Generator
 
 ## What is this?
-This is my personal static blog generator written in Clojure. It converts Org-mode files to HTML for my personal [website](https://jgood.online). I built it to match my writing workflow with Emacs and Org-mode. The generated static site is hosted on Digital Ocean App Platform.
+A personal static blog generator written in Clojure. It converts Markdown files to HTML for my personal [website](https://jgood.online). The generated static site is hosted on Digital Ocean App Platform.
 
 ## How it works
-The generator takes Org-mode files from the posts and pages directories, processes them through Pandoc, and applies styling and layout templates. It includes:
+The generator takes Markdown files from the posts and pages directories, processes them through Pandoc, and applies styling and layout templates using Hiccup. It includes:
 
-- Automatic conversion of Org-mode to HTML using Pandoc
+- Automatic conversion of Markdown to HTML using Pandoc
 - Development server
 - Responsive design using Tailwind CSS
 - Automatic table of contents generation
@@ -17,45 +17,70 @@ The generator takes Org-mode files from the posts and pages directories, process
 - LaTeX rendering in the browser
 
 ## Project Structure
-- `posts/` :: Blog posts written in Org-mode
-- `pages/` :: Custom static pages
-- `src/` :: Clojure source code for generating the site
-- `static/` :: Generated site output
-- `css/` :: Tailwind CSS source files
+- `posts/` - Blog posts written in Markdown
+- `pages/` - Custom static pages
+- `src/` - Clojure source code for generating the site
+- `static/` - Generated site output
+- `css/` - Tailwind CSS source files
 
 ## Technical Requirements
-- [Pandoc](https://pandoc.org/) for Org-mode conversion
+- [Pandoc](https://pandoc.org/) for Markdown conversion
 - [Clojure](https://clojure.org/) (1.10+)
-- [Node.js](https://nodejs.org/) for Tailwind CSS processing
-- [Emacs](https://github.com/doomemacs/doomemacs) with [CIDER](https://github.com/clojure-emacs/cider) for development
+- [Tailwind CSS](https://tailwindcss.com/blog/standalone-cli) standalone binary
 
 ## Local Development Setup
+
 ```shell
-# Install Node.js dependencies
-npm install
-```
+# Install Tailwind standalone binary (if not already in PATH)
+# Download from https://github.com/tailwindlabs/tailwindcss/releases
 
-## How I use this
-```shell
-# In Emacs
-cider-jack-in-clj
-cider-eval-buffer # in org-blog.core
+# Start an nREPL server (for editor connection)
+clj -M:nrepl
 
-# This starts a file watcher that regenerates the site and reloads the REPL
-# with any changes to the src/, posts/, or pages/ directories
+# Or start a basic REPL without editor support
+clj -M
 
-# In a separate terminal
-npx tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
+# In the REPL
+(org-blog.dev-server/start-server)    ; Start server on port 8081
+(org-blog.core/regenerate-site)       ; Regenerate all static files
+
+# In a separate terminal - compile CSS
+tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
 
 # Preview at http://localhost:8081
 ```
 
+### Connecting Your Editor
+
+Start the nREPL server with `clj -M:nrepl`. It will print a port number.
+
+- **Emacs/CIDER**: `M-x cider-connect-clj` → localhost → port
+- **VS Code/Calva**: Command Palette → "Calva: Connect to a Running REPL Server"
+- **IntelliJ/Cursive**: Run → Edit Configurations → Clojure REPL → Remote
+
 ## Content Creation Process
+
 ### Writing Blog Posts
-I write Org-mode files in the `posts/` directory using the filename format `YYYY-MM-DD-title.org`. After evaluating `org-blog.core` to generate static files, I commit changes to the repo and Digital Ocean automatically publishes the updated site.
+Write Markdown files in the `posts/` directory using the filename format `YYYY-MM-DD-title.md`.
+
+Posts use YAML frontmatter for metadata:
+
+```markdown
+---
+title: My Post Title
+date: 2024-01-15
+description: A description of the post
+thumbnail: /img/thumbnail.png
+tags: [tag1, tag2, tag3]
+---
+
+Post content here...
+```
+
+After regenerating static files, commit changes and Digital Ocean automatically publishes the updated site.
 
 ### Creating Static Pages
-For static pages, I place Org-mode content in the `pages/` directory and create a corresponding `.clj` file in the `org-blog.pages` namespace for rendering with custom layout. Some pages skip Org-mode entirely and are written directly in Clojure using Hiccup.
+Place Markdown content in the `pages/` directory. Some pages skip Markdown entirely and are written directly in Clojure using Hiccup (like the resume page which uses EDN data).
 
 ## Deployment
 The site is automatically deployed when changes are pushed to the main branch. Digital Ocean App Platform publishes all files from the `static/` directory.
@@ -70,6 +95,6 @@ MIT License
 Copyright (c) 2023-2025 Justin Good
 
 ### Content License
-The blog content (posts, articles, and other written materials) is © Justin Good.
+The blog content (posts, articles, and other written materials) is Justin Good.
 
 All rights reserved. The content of this blog may not be used for training AI models, machine learning algorithms, or other automated systems without explicit permission from the author. You may read, share, and link to the content, but usage for AI training, republishing, or commercial purposes requires prior written consent.

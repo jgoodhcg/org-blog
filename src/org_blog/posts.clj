@@ -6,8 +6,8 @@
    [hiccup.core :refer [html]]
    [hickory.core :as hickory]
    [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [posts-org-dir posts-out-dir spit-with-path]]
-   [org-blog.common.org :refer [add-prism-class org->html]]))
+   [org-blog.common.files :refer [posts-dir posts-out-dir spit-with-path]]
+   [org-blog.common.markdown :refer [add-prism-class md->html]]))
 
 (defn get-a-elements
   [form]
@@ -22,8 +22,8 @@
   (get-a-elements toc))
 
 (comment
-  (->> "./posts/2023-04-22-kitchen-sink.org"
-       org->html
+  (->> "./posts/2023-04-22-kitchen-sink.md"
+       md->html
        first
        hickory/parse-fragment
        (map hickory/as-hiccup)
@@ -67,32 +67,34 @@
        "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';"]
       )]))
 
-(defn get-org-file-name [org-file]
-  (str (-> org-file
-           (java.io.File.)
-           (.getName)
-           (clojure.string/replace #"\.org$" ""))))
+(defn get-post-name
+  "Extracts the post name from a markdown file path (without extension)."
+  [md-file]
+  (-> md-file
+      (java.io.File.)
+      (.getName)
+      (clojure.string/replace #"\.md$" "")))
 
-(defn gen-post [org-file out-dir]
-  (let [post           (->> org-file
-                            org->html
+(defn gen-post [md-file out-dir]
+  (let [post           (->> md-file
+                            md->html
                             post-page-hiccup
                             html)
-        post-name      (get-org-file-name org-file)
+        post-name      (get-post-name md-file)
         post-file-path (str out-dir "/" post-name "/index.html")]
     (spit-with-path post-file-path post)))
 
 (defn gen []
   (-> "Generating posts..." c/blue println)
   (-> posts-out-dir io/file .mkdirs)
-  (let [org-files (->> posts-org-dir
-                       io/file
-                       file-seq
-                       (filter #(re-matches #".*\.org" (.getName %)))
-                       (map #(.getCanonicalPath %)))]
-    (->> org-files
-         (pmap (fn [org-file]
-                 (-> "  Generating html for  " (str org-file) c/blue println)
-                 (gen-post org-file posts-out-dir)))
+  (let [md-files (->> posts-dir
+                      io/file
+                      file-seq
+                      (filter #(re-matches #".*\.md" (.getName %)))
+                      (map #(.getCanonicalPath %)))]
+    (->> md-files
+         (pmap (fn [md-file]
+                 (-> "  Generating html for  " (str md-file) c/blue println)
+                 (gen-post md-file posts-out-dir)))
          doall))
   (-> "Done!" c/blue println))

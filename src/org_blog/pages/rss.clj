@@ -2,7 +2,7 @@
   (:require
    [clojure.data.xml :as xml]
    [clojure.java.io :as io]
-   [org-blog.common.files :refer [posts-org-dir spit-with-path]]
+   [org-blog.common.files :refer [posts-dir spit-with-path]]
    [org-blog.posts :as posts]
    [potpuri.core :as pot]
    [clojure.pprint :refer [pprint]]))
@@ -27,14 +27,14 @@
 ;; TODO XSLT (Extensible Stylesheet Language Transformations)
 (defn gen []
   (println "Generating RSS feed")
-  (let [items (->> posts-org-dir
+  (let [items (->> posts-dir
                    io/file
                    file-seq
-                   (filter #(re-matches #".*\.org" (.getName %)))
+                   (filter #(re-matches #".*\.md" (.getName %)))
                    (sort)
                    (map #(str (.getCanonicalPath %)))
-                   (map (fn [org-file]
-                          (let [post-name (posts/get-org-file-name org-file)]
+                   (map (fn [md-file]
+                          (let [post-name (posts/get-post-name md-file)]
                             (create-rss-item post-name)))))
         rss-feed (create-rss-feed items)]
     (with-open [out-file (java.io.FileWriter. "./static/rss.xml")]
