@@ -74,6 +74,7 @@
    ---
    title: My Post Title
    date: 2024-01-15
+   updated: 2024-01-20
    description: A description of the post
    thumbnail: /img/thumbnail.png
    tags: [tag1, tag2, tag3]
@@ -82,6 +83,7 @@
   (let [{:keys [frontmatter]} (parse-yaml-frontmatter md-content)]
     {:title       (:title frontmatter)
      :date        (:date frontmatter)
+     :updated     (:updated frontmatter)
      :description (:description frontmatter)
      :thumbnail   (:thumbnail frontmatter)
      :tags        (:tags frontmatter)}))
@@ -92,6 +94,7 @@
   [md-file]
   (let [contents           (slurp md-file)
         {:keys [content]}  (parse-yaml-frontmatter contents)
+        metadata           (extract-metadata contents)
         absolute-md-file   (full-path md-file)
         toc-template-path  (full-path "./src/org_blog/pandoc-template-toc.html")
         body-template-path (full-path "./src/org_blog/pandoc-template-body.html")
@@ -107,6 +110,7 @@
              (zero? (:exit body-result)))
       {:toc       (:out toc-result)
        :body      (:out body-result)
-       :read-time (estimate-read-time contents)}
+       :read-time (estimate-read-time contents)
+       :metadata  metadata}
       (do (println (str "Error(s):" [(:err toc-result) (:err body-result)]))
           nil))))

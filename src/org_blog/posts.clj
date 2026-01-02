@@ -36,6 +36,7 @@
 (defn post-page-hiccup [{:keys [toc
                                 body
                                 read-time
+                                metadata
                                 include-toc
                                 include-read-time]
                          :or {include-toc true
@@ -46,16 +47,24 @@
                          (map hickory/as-hiccup)
                          first
                          vec)
-        hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)]
+        hiccup-body (->> parsed-body (map hickory/as-hiccup) add-prism-class)
+        {:keys [title date updated]} metadata]
     [:html
-     (comps/head {:prism true :mermaid true})
+     (comps/head {:prism true :mermaid true :title title})
      (comps/body
       [:main.max-w-4xl.mx-auto.px-4
        [:div.flex.gap-12
         ;; Main content column
         [:article.max-w-2xl.flex-1
-         (when include-read-time
-           [:p.text-sm.text-text-secondary.mb-8 (str read-time " min read")])
+         [:header.mb-12
+          [:h1.text-3xl.font-bold.mb-2 title]
+          [:div.flex.flex-wrap.gap-x-4.gap-y-1.text-sm.text-text-secondary
+           (when date
+             [:span "Published: " date])
+           (when updated
+             [:span "Updated: " updated])
+           (when include-read-time
+             [:span (str read-time " min read")])]]
          [:div hiccup-body]]
         ;; TOC sidebar - quiet, secondary
         (when include-toc

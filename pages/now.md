@@ -1,19 +1,11 @@
 ---
 title: Now
-date: 2025-01-02
+date: 2025-02-01
 description: What I'm up to right now
 ---
 
-# What I'm Doing Now
+# Now Page
 
-This is my [now page](https://nownownow.com/about).
+*Last updated: 2025-02-01*
 
-## Currently
-
-- Refactoring my blog to use Markdown instead of Org-mode
-- Experimenting with agentic coding tools
-- Building things with Clojure
-
----
-
-*Last updated: January 2025*
+## 🚧 WIP 🚧
