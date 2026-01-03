@@ -6,14 +6,17 @@ A simple, maintainable static blog generator using markdown, Clojure/Hiccup, and
 
 ## Current Focus
 
-Core redesign complete. Site now uses Tailwind v4 with a calm, editorial aesthetic per design spec.
+Expanding content features and polishing pages.
 
 ## Active Work
 
-- [resume-update](resume-update.md) - Word cloud skills, add AI CLI tools
-- [project-rename](project-rename.md) - Rename from org-blog to TBD
+- [resume-update](resume-update.md) - Full content revision, word cloud skills, AI tools.
+- [now-page-update](now-page-update.md) - Refresh content, add Memento Mori chart.
+- [rss-page-style](rss-page-style.md) - Stylize RSS page (transistor.fm style).
+- [project-rename](project-rename.md) - Rename from org-blog to TBD.
 
 ## Key Links
 
 - [Dev setup](../README.md#local-development-setup)
 - [Post format](../CLAUDE.md#style-guide)
+- [Archived Items](archived/)
