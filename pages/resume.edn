@@ -1,8 +1,7 @@
 {:basics
  {:name "Justin Good",
-  :label "Software Architect",
   :summary
-  "Senior individual contributor focused on complex, regulated systems. Delivers high-risk features to production-ready states under constraint, spanning architecture, security, integrations, and developer enablement."},
+  "Technical leader and individual contributor focused on complex, regulated systems. Delivers high-risk features to production-ready states under constraint through hands-on design and implementation, while reducing ambiguity, setting clear technical direction, and enabling other engineers."},
  :work
  [{:company "ArcheMedX",
    :position "Software Architect",
