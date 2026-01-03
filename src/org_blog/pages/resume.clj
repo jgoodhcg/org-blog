@@ -55,6 +55,10 @@
                           " ("
                           (format-date-range (:startDate position) (:endDate position))
                           ")")))])
+      (when (seq (:technologies job))
+        [:p.text-xs.text-text-secondary.mt-1
+         [:span.font-medium "Technologies: "]
+         (str/join ", " (:technologies job))])
       [:ul.mt-2.text-sm
        (for [highlight (:highlights job)]
          [:li.mb-1 highlight])]])])

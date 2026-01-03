@@ -5,12 +5,39 @@
  :work
  [{:company "ArcheMedX",
    :position "Software Architect",
-   :startDate "2020-11",
+   :startDate "2020-11", ;; this is the start date for my entire tenure
+                         ;; at archemedx not just at this position
    :endDate "Present",
    :pastPositions
    [{:position  "Senior Software Engineer",
      :startDate "2020-11",
-     :endDate   "2022-08"}],
+     :endDate   "2022-08" ;; this end date is just for this position
+                          ;; and it's fine if it overlaps with the
+                          ;; above start date.
+     }],
+   :technologies
+   ["ClojureScript"
+    "JavaScript"
+    "TypeScript"
+    "Python"
+    "Node.js"
+    "Pathom"
+    "Amazon Web Services (AWS)"
+    "Lambda"
+    "DynamoDB"
+    "SQS"
+    "EventBridge"
+    "CodePipeline"
+    "CloudFormation"
+    "CDK"
+    "OpenAI API"
+    "Anthropic (Claude Code)"
+    "XTDB"
+    "Babashka"
+    "Cypress"
+    "Message-Format"
+    "Re-frame"
+    "SAML"],
    :highlights
    ["Led design and implementation of regulated platform capabilities, including an end-to-end electronic signature system (21 CFR Part 11), from wireframes through fully exercised Cypress E2E tests, working with external compliance consultants"
     "Took an AI feature for document-driven question generation from proof-of-concept to production-ready integration using OpenAI APIs, structured prompt pipelines, and function calling"
@@ -22,6 +49,25 @@
    :position "Full Stack Developer",
    :startDate "2018-05",
    :endDate "2020-10",
+   :technologies
+   ["Angular"
+    "React"
+    "React Native"
+    "Expo"
+    "Redux"
+    "Redux-Saga"
+    "Java"
+    "Kotlin"
+    "JavaScript"
+    "Spring Boot"
+    "Jenkins"
+    "Google Cloud Platform (GCP)"
+    "Cloud Build"
+    "Kubernetes (GKE)"
+    "GitOps"
+    "Docker"
+    "CI/CD"
+    "MySQL"],
    :highlights
    ["Led development of Gordon Now, a React Native and Expo mobile application that automated and exposed customer-service workflows traditionally handled by phone-based support"
     "Contributed to automated and live chat systems using WebSockets, Spring Boot, and cloud messaging"
@@ -30,27 +76,59 @@
    :position "Software Developer",
    :startDate "2017-05",
    :endDate "2018-05",
+   :technologies ["Drupal" "PHP" "JavaScript"],
    :highlights
    ["Developed a targeted advertising service using Drupal, supporting a new revenue stream"
-    "Extended internal publishing platforms to improve engagement and content scalability"]}],
+    "Extended internal publishing platforms to improve engagement and content scalability"]}
+  {:company "One Stop Inc",
+   :position "Web Developer",
+   :startDate "2016-02",
+   :endDate "2017-05",
+   :technologies ["PHP" "JavaScript" "jQuery" "Bash"],
+   :highlights
+   ["Automated initialization and failover for the e-commerce platform to improve fault tolerance"
+    "Extended ordering workflows and white-label CMS tooling for customer-branded storefronts that routed orders into the in-house fulfillment system"]}
+  {:company "City of Wyoming MI",
+   :position "IT Intern",
+   :startDate "2015-05",
+   :endDate "2015-11",
+   :technologies ["PHP" "JavaScript" "jQuery"],
+   :highlights
+   ["Built an internal prototype to capture and record work orders, reducing manual tracking"]}],
  :projects
  [{:name         "Personal Analytics Platform",
    :description  "Longitudinal tracking of time, habits, and projects",
-   :technologies ["Biff" "XTDB"]}
+   :technologies ["Biff"
+                  "XTDB"
+                  "Clojure"
+                  "HTMX"
+                  "TailwindCSS"
+                  "Postgres"
+                  "DigitalOcean App Platform"]}
   {:name "Text-to-Podcast Generator",
    :description
    "CLI tool using the OpenAI API to convert forum and link-based discussions into private, listenable podcast feeds",
-   :technologies ["OpenAI API"]}
+   :technologies ["TypeScript" "OpenAI API" "DigitalOcean Spaces"
+                  "TailwindCSS"]}
   {:name "Expo + ClojureScript Generator",
    :description
    "Published npm tool simplifying Expo project setup; saw early community adoption",
    :technologies ["npm" "Expo" "ClojureScript"]}
-  {:name        "Static Site Generator",
-   :description "Custom tooling used to build and publish a personal blog"}
+  {:name         "Static Site Generator",
+   :description  "Custom tooling used to build and publish a personal blog",
+   :technologies ["Clojure" "DigitalOcean App Platform" "TailwindCSS"]}
   {:name "Game Prototypes",
    :description
    "Early explorations in Bevy (Rust), Godot, and a web-based game using Go and HTMX",
-   :technologies ["Bevy" "Rust" "Godot" "Go" "HTMX"]}],
+   :technologies
+   ["Bevy"
+    "Rust"
+    "Godot"
+    "Go"
+    "HTMX"
+    "TailwindCSS"
+    "Postgres"
+    "DigitalOcean App Platform"]}],
  :education [{:institution "Grand Valley State University",
               :area        "Computer Science",
               :studyType   "B.S.",
