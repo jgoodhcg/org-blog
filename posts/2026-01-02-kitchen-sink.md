@@ -75,8 +75,9 @@ let exampleLongLine = "This is a very long line of code in JavaScript that might
 
 ## Blockquotes
 
-> "The best way to predict the future is to invent it."
-> — Alan Kay
+
+> Programming is not about typing, it's about thinking.
+> — Rich Hickey 
 
 ## Tables
 
