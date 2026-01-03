@@ -37,14 +37,6 @@
 (defn format-date-range [start-date end-date]
   (str (date-formatter start-date) " – " (date-formatter end-date)))
 
-(defn skills-section [skills]
-  [:section.my-10
-   [:h2.text-xl.font-semibold.mb-4 "Skills"]
-   [:div.flex.flex-wrap.gap-2
-    (for [skill skills
-          keyword (:keywords skill)]
-      [:span.text-sm.text-text-secondary keyword])]])
-
 (defn work-experience-section [work]
   [:section.my-10
    [:h2.text-xl.font-semibold.mb-6 "Experience"]
@@ -54,6 +46,15 @@
        [:h3.text-base.font-medium.mb-0
         (:position job) " at " [:span.text-accent (:company job)]]
        [:span.text-sm.text-text-secondary (format-date-range (:startDate job) (:endDate job))]]
+      (when (seq (:pastPositions job))
+        [:div.text-xs.text-text-secondary
+         [:span.font-medium "Previously: "]
+         (str/join "; "
+                   (for [position (:pastPositions job)]
+                     (str (:position position)
+                          " ("
+                          (format-date-range (:startDate position) (:endDate position))
+                          ")")))])
       [:ul.mt-2.text-sm
        (for [highlight (:highlights job)]
          [:li.mb-1 highlight])]])])
@@ -84,7 +85,7 @@
        (:institution edu) " · " (:startDate edu) "–" (:endDate edu)]])])
 
 (defn resume-hiccup [resume]
-  (let [{:keys [basics skills work projects education]} resume]
+  (let [{:keys [basics work projects education]} resume]
     [:html
      (comps/head {:title "Resume - Justin Good"})
      (comps/body
@@ -94,7 +95,6 @@
          [:p.text-lg.text-text-secondary.mb-4 (:label basics)]
          [:p.text-sm (:summary basics)]]
 
-        (skills-section skills)
         (work-experience-section work)
         (projects-section projects)
         (education-section education)])]))
