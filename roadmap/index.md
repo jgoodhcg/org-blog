@@ -15,6 +15,11 @@ Expanding content features and polishing pages.
 - [rss-page-style](rss-page-style.md) - Stylize RSS page (transistor.fm style).
 - [project-rename](project-rename.md) - Rename from org-blog to TBD.
 
+## Ideas / Backlog
+
+- [blogroll-and-discovery](blogroll-and-discovery.md) - Blogroll page and directory submissions.
+- [nextjournal-clerk](nextjournal-clerk.md) - Data-rich, interactive posts/pages via Clerk.
+
 ## Key Links
 
 - [Dev setup](../README.md#local-development-setup)

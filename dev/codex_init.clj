@@ -4,7 +4,7 @@
             [org-blog.dev-server :as dev-server])
   (:gen-class))
 
-;; This file provides functions for Codex agent environment (non-interactive)
+;; DEPRECATED: legacy Codex web integration. Do not use for Codex CLI.
 
 (defn log-info [& messages]
   (println "[INFO]" (apply str messages)))
@@ -16,6 +16,7 @@
   "Validates that the environment is properly set up.
    Returns exit code 0 for success, 1 for failure."
   []
+  (log-info "DEPRECATED: legacy Codex web integration. Do not use for Codex CLI.")
   (log-info "Validating Org-Blog environment...")
   (try
     ;; Test basic Clojure functionality

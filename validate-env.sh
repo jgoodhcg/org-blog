@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-env.sh — Validate Org-Blog environment for Codex (non-interactive)
+# validate-env.sh — DEPRECATED (legacy Codex web integration). Do not use for Codex CLI.
 set -euo pipefail
 
 # Log levels for machine-readable output
@@ -19,6 +19,7 @@ EXIT_MISSING_FILE=2
 EXIT_CLOJURE_ERROR=3
 
 log "$LOG_INFO" "Validating Org-Blog environment for Codex"
+log "$LOG_INFO" "DEPRECATED: legacy Codex web integration. Do not use for Codex CLI."
 
 # Check if essential tools are installed
 check_command() {
