@@ -14,6 +14,7 @@ Expanding content features and polishing pages.
 - [now-page-update](now-page-update.md) - Refresh content, add Memento Mori chart.
 - [rss-page-style](rss-page-style.md) - Stylize RSS page (transistor.fm style).
 - [project-rename](project-rename.md) - Rename from org-blog to TBD.
+- [stream-feed](stream-feed.md) - HTMX-powered feed for microblog content.
 
 ## Ideas / Backlog
 
