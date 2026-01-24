@@ -86,7 +86,7 @@
       [:h3.text-base.font-medium.mb-0
        (:studyType edu) " in " (:area edu)]
       [:p.text-sm.text-text-secondary
-       (:institution edu) " · " (:startDate edu) "–" (:endDate edu)]])])
+       (:institution edu) " · " (:endDate edu)]])])
 
 (defn resume-hiccup [resume]
   (let [{:keys [basics work projects education]} resume]

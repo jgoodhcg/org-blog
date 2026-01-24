@@ -129,8 +129,8 @@
     "TailwindCSS"
     "Postgres"
     "DigitalOcean App Platform"]}],
- :education [{:institution "Grand Valley State University",
-              :area        "Computer Science",
-              :studyType   "B.S.",
-              :startDate   "2012",
-              :endDate     "2015"}]}
+  :education [{:institution "Grand Valley State University",
+               :area        "Computer Science",
+               :studyType   "B.S.",
+               :startDate   "2012",
+               :endDate     "2015"}]}
