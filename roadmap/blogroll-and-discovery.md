@@ -1,17 +1,31 @@
+---
+title: "Blogroll and Directory Discovery"
+status: idea
+description: "Increase visibility by creating a blogroll and submitting to directories."
+tags: [area/marketing, type/feature]
+priority: medium
+created: 2026-02-01
+updated: 2026-02-01
+---
+
 # Blogroll and Directory Discovery
 
-## Work Unit Summary
+## Problem / Intent
 
-- **Status:** idea
-- **Problem/Intent:** To increase the visibility of the blog and connect with the wider blogging community. This involves both linking to other blogs (blogroll) and listing this blog in various "slashpage" directories.
-- **Constraints:** None currently.
-- **Proposed Approach:**
-    1.  **Create a Blogroll/Links Page:** Add a dedicated page or a section to the site to list and link to other interesting blogs.
-    2.  **Submit to Directories:** Systematically submit `org-blog` to relevant directories.
-- **Open Questions:**
-    - Should the blogroll be a standalone page (`/links`) or part of an existing page (like `home` or `about`)?
+To increase the visibility of the blog and connect with the wider blogging community. This involves both linking to other blogs (blogroll) and listing this blog in various "slashpage" directories.
 
----
+## Constraints
+
+None currently.
+
+## Proposed Approach
+
+1.  **Create a Blogroll/Links Page:** Add a dedicated page or a section to the site to list and link to other interesting blogs.
+2.  **Submit to Directories:** Systematically submit `org-blog` to relevant directories.
+
+## Open Questions
+
+- Should the blogroll be a standalone page (`/links`) or part of an existing page (like `home` or `about`)?
 
 ## Notes
 

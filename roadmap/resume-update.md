@@ -1,16 +1,32 @@
+---
+title: "Resume Update"
+status: active
+description: "Full content revision and visual update for the resume."
+tags: [area/content, type/update]
+priority: high
+created: 2026-02-01
+updated: 2026-02-01
+---
+
 # Resume Update
 
-## Work Unit Summary
+## Problem / Intent
 
-- **Status:** active
-- **Problem/Intent:** Resume needs a full content revision and visual update.
-- **Constraints:** `pages/resume.edn` (data) and `src/org_blog/pages/resume.clj` (template).
-- **Proposed Approach:**
-    - **Content:** Revise all job descriptions, summaries, and skills.
-    - **Visuals:** Replace grid-based skills with a word cloud.
-    - **Additions:** Add AI/CLI tools section.
-- **Open Questions:**
-    - Word cloud implementation details?
+Resume needs a full content revision and visual update.
+
+## Constraints
+
+`pages/resume.edn` (data) and `src/org_blog/pages/resume.clj` (template).
+
+## Proposed Approach
+
+- **Content:** Revise all job descriptions, summaries, and skills.
+- **Visuals:** Replace grid-based skills with a word cloud.
+- **Additions:** Add AI/CLI tools section.
+
+## Open Questions
+
+- Word cloud implementation details?
 
 ## Notes
 

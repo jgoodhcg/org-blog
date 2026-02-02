@@ -1,14 +1,32 @@
+---
+title: "Project Rename"
+status: planned
+description: "Rename project from org-blog to blog to reflect removal of org-mode."
+tags: [area/infrastructure, type/refactor]
+priority: high
+created: 2026-02-01
+updated: 2026-02-01
+---
+
 # Project Rename
 
-## Work Unit Summary
+## Problem / Intent
 
-- **Status:** approved
-- **Problem/Intent:** Project is named "org-blog" but no longer uses org-mode. Name should reflect what it actually is.
-- **Constraints:** Requires coordinated changes across multiple systems: GitHub repo, Digital Ocean app platform, local directory, and all Clojure namespaces.
-- **Proposed Approach:** Rename to `blog`. Rename in order: local directory, Clojure namespaces (all `org-blog.*` → `blog.*`), GitHub repo, Digital Ocean instance.
-- **Decision:** Rename to **blog**.
+Project is named "org-blog" but no longer uses org-mode. Name should reflect what it actually is.
 
----
+## Constraints
+
+Requires coordinated changes across multiple systems: GitHub repo, Digital Ocean app platform, local directory, and all Clojure namespaces.
+
+## Proposed Approach
+
+Rename to `blog`. Rename in order: local directory, Clojure namespaces (all `org-blog.*` → `blog.*`), GitHub repo, Digital Ocean instance.
+
+**Decision:** Rename to **blog**.
+
+## Open Questions
+
+None.
 
 ## Notes
 

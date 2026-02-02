@@ -1,13 +1,31 @@
+---
+title: "Now Page Update"
+status: planned
+description: "Refresh Now page content and add a visual Memento Mori life chart."
+tags: [area/content, type/enhancement]
+priority: medium
+created: 2026-02-01
+updated: 2026-02-01
+---
+
 # Now Page Update
 
-## Work Unit Summary
+## Problem / Intent
 
-- **Status:** planned
-- **Problem/Intent:** The Now page needs a content refresh and a visual "Memento Mori" life chart to visualize time passed/remaining.
-- **Constraints:** `pages/now.md` (content) and `src/org_blog/pages/now.clj` (logic).
-- **Proposed Approach:**
-    - Update the markdown content to reflect current focus.
-    - Implement a chart component (Hiccup/SVG) that renders a grid of weeks/months/years lived vs expected lifespan.
-- **Open Questions:**
-    - What is the expected lifespan for the chart? 80? 90?
-    - Weeks or months resolution? (Weeks = ~4000 dots, Months = ~1000 dots).
+The Now page needs a content refresh and a visual "Memento Mori" life chart to visualize time passed/remaining.
+
+## Constraints
+
+`pages/now.md` (content) and `src/org_blog/pages/now.clj` (logic).
+
+## Proposed Approach
+
+- Update the markdown content to reflect current focus.
+- Implement a chart component (Hiccup/SVG) that renders a grid of weeks/months/years lived vs expected lifespan.
+
+## Open Questions
+
+- What is the expected lifespan for the chart? 80? 90?
+- Weeks or months resolution? (Weeks = ~4000 dots, Months = ~1000 dots).
+
+## Notes

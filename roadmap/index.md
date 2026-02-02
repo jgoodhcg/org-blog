@@ -1,28 +1,20 @@
-# Blog Roadmap
+---
+title: "Blog Roadmap"
+goal: "A simple, maintainable static blog generator using markdown, Clojure/Hiccup, and Tailwind CSS standalone binary."
+---
 
-## Goal
-
-A simple, maintainable static blog generator using markdown, Clojure/Hiccup, and Tailwind CSS standalone binary. Easy to write, build, and deploy.
+# Roadmap
 
 ## Current Focus
 
 Expanding content features and polishing pages.
 
-## Active Work
+## Work Units
 
-- [resume-update](resume-update.md) - Full content revision, word cloud skills, AI tools.
-- [now-page-update](now-page-update.md) - Refresh content, add Memento Mori chart.
-- [rss-page-style](rss-page-style.md) - Stylize RSS page (transistor.fm style).
-- [project-rename](project-rename.md) - Rename from org-blog to TBD.
-- [stream-feed](stream-feed.md) - HTMX-powered feed for microblog content.
+See individual `*.md` files in this directory. Each contains frontmatter with status, priority, and other metadata.
 
-## Ideas / Backlog
+## Quick Ideas
 
-- [blogroll-and-discovery](blogroll-and-discovery.md) - Blogroll page and directory submissions.
-- [nextjournal-clerk](nextjournal-clerk.md) - Data-rich, interactive posts/pages via Clerk.
+Ideas not yet promoted to work units:
 
-## Key Links
-
-- [Dev setup](../README.md#local-development-setup)
-- [Post format](../CLAUDE.md#style-guide)
-- [Archived Items](archived/)
+- None currently.
