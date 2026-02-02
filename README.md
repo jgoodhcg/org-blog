@@ -30,25 +30,57 @@ The generator takes Markdown files from the posts and pages directories, process
 
 ## Local Development Setup
 
+The project uses `just` as a command runner for common tasks.
+
 ```shell
-# Install Tailwind standalone binary (if not already in PATH)
-# Download from https://github.com/tailwindlabs/tailwindcss/releases
+# Install e2e dependencies
+just e2e-install
 
-# Start an nREPL server (for editor connection)
-clj -M:nrepl
+# Start the dev server and Tailwind CSS watcher
+just dev
 
-# Or start a basic REPL without editor support
-clj -M
-
-# In the REPL
-(org-blog.dev-server/start-server)    ; Start server on port 8081
-(org-blog.core/regenerate-site)       ; Regenerate all static files
-
-# In a separate terminal - compile CSS
-tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
+# Regenerate all static files (one-off)
+just build
 
 # Preview at http://localhost:8081
 ```
+
+### Manual Setup (Alternative)
+
+If you don't have `just` installed:
+
+```shell
+# Start an nREPL server (for editor connection)
+clj -M:nrepl
+```
+
+In the REPL:
+```clojure
+(org-blog.dev-server/start-server)    ; Start server on port 8081
+(org-blog.core/regenerate-site)       ; Regenerate all static files
+```
+
+In a separate terminal:
+```shell
+tailwindcss -i ./css/input.css -o ./static/css/output.css --watch
+```
+
+## Visual Validation & Testing
+
+We use Playwright for smoke tests and visual "agentic flows" to ensure the site looks correct.
+
+```shell
+# Run smoke tests
+just smoke
+
+# Run a navigation flow and capture screenshots
+just flow-nav
+
+# Take a screenshot of a specific route
+just screenshot /resume
+```
+
+Screenshots are saved to `e2e/screenshots/`.
 
 ### Connecting Your Editor
 

@@ -26,6 +26,8 @@ This is the source of truth for all AI agents (Claude, Gemini, etc.) working on 
 - **Templates:** Hiccup
 - **Markdown:** Pandoc pipeline
 - **Styling:** Tailwind CSS (standalone CLI)
+- **E2E/Visual:** Playwright (TypeScript) in `e2e/` folder
+- **Task Runner:** `just`
 - **Hosting:** Digital Ocean App Platform serves `static/`
 
 ## Allowed Verification Commands
@@ -33,13 +35,16 @@ The agent **IS** permitted to run these commands when needed:
 
 | Command | Description |
 |---------|-------------|
-| `clojure -e "(require 'org-blog.core) (org-blog.core/regenerate-site)"` | Regenerates all static site output. |
+| `just build` | Regenerates all static site output. |
+| `just smoke` | Runs basic Playwright smoke tests. |
+| `just flow-nav` | Runs navigation flow and captures screenshots. |
+| `just screenshot <path>` | Captures a screenshot of a specific route. |
 
 ## User-Only Commands
 The agent must **NOT** run these unless explicitly instructed:
 
 | Command | Description |
 |---------|-------------|
-| `clojure -e "(require 'org-blog.dev-server) (org-blog.dev-server/start-server)"` | Starts the dev server (port 8081). |
-| `tailwindcss -i ./css/input.css -o ./static/css/output.css` | Rebuilds Tailwind CSS output (confirm before running). |
-| `tailwindcss -i ./css/input.css -o ./static/css/output.css --watch` | Starts Tailwind in watch mode. |
+| `just dev` | Starts server and tailwind watcher (concurrent). |
+| `just server` | Starts the dev server (port 8081). |
+| `just watch-css` | Starts Tailwind in watch mode. |
