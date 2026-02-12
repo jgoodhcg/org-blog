@@ -7,6 +7,7 @@
    [org-blog.pages.now :as now]
    [org-blog.pages.resume :as resume]
    [org-blog.pages.rss :as rss]
+   [org-blog.pages.snapshots :as snapshots]
    [org-blog.posts :as posts]))
 
 (defn -main [& args]
@@ -20,6 +21,7 @@
          resume-future  (future (resume/gen))
          now-future     (future (now/gen))
          rss-future     (future (rss/gen))
+         snapshots-future (future (snapshots/gen))
          posts-future   (future (posts/gen))]
      ;; ensure all futures are completed before moving forward
      @home-future
@@ -27,6 +29,7 @@
      @resume-future
      @now-future
      @rss-future
+     @snapshots-future
      @posts-future)))
 
 ;; Start and restart the server at the repl

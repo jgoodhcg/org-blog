@@ -11,3 +11,9 @@ node_modules/
 
 src/org_blog/.DS_Store
 
+
+e2e/playwright-report/data/
+
+e2e/test-results/
+
+e2e/playwright-report/

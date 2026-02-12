@@ -17,4 +17,4 @@ See individual `*.md` files in this directory. Each contains frontmatter with st
 
 Ideas not yet promoted to work units:
 
-- None currently.
+- AI content discovery — Allow AI to read blog content and provide guidance on surfacing posts to consumers.

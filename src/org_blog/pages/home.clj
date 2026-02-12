@@ -30,13 +30,17 @@
                 (filter #(re-matches #".*\.md" (.getName %)))
                 (sort)
                 (reverse)
+                (keep (fn [file]
+                        (let [md-file    (str (.getCanonicalPath file))
+                              md-content (slurp md-file)
+                              metadata   (extract-metadata md-content)]
+                          (when-not (some #{"snapshot"} (:tags metadata))
+                            {:file md-file
+                             :metadata metadata
+                             :read-time (estimate-read-time md-content)
+                             :post-name (posts/get-post-name md-file)}))))
                 (take 8)
-                (map #(str (.getCanonicalPath %)))
-                (map (fn [md-file]
-                       (let [md-content (slurp md-file)
-                             metadata   (extract-metadata md-content)
-                             read-time  (estimate-read-time md-content)
-                             post-name  (posts/get-post-name md-file)]
+                (map (fn [{:keys [metadata read-time post-name]}]
                          [:article
                           [:a.no-underline.block.group {:href (str "/posts/" post-name)}
                            [:h3.text-base.font-medium.text-text.group-hover:text-accent.mb-1
@@ -45,6 +49,6 @@
                              [:p.text-text-secondary.text-sm.mb-1 (:description metadata)])
                            [:p.text-text-secondary.text-xs
                             (:date metadata)
-                            (when read-time (str " · " read-time " min read"))]]]))))]]])]
+                            (when read-time (str " · " read-time " min read"))]]])))]]])]
       html
       (->> (spit-with-path "./static/index.html"))))

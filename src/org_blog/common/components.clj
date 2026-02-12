@@ -48,10 +48,10 @@
      [:a.text-xl.font-semibold.no-underline.text-text.hover:text-accent
       {:href "/"}
       "Justin Good"]
-     [:nav.flex.flex-wrap.gap-4.mt-4.sm:mt-0.text-sm {:aria-label "Main Navigation"}
-      [:a.text-text-secondary.no-underline.hover:text-accent {:href "/"} "Home"]
-      [:a.text-text-secondary.no-underline.hover:text-accent {:href "/now"} "Now"]
-      [:a.text-text-secondary.no-underline.hover:text-accent {:href "/archive"} "Archive"]
+           [:nav.flex.flex-wrap.gap-4.mt-4.sm:mt-0.text-sm {:aria-label "Main Navigation"}
+           [:a.text-text-secondary.no-underline.hover:text-accent {:href "/"} "Home"]
+           [:a.text-text-secondary.no-underline.hover:text-accent {:href "/snapshots"} "Stream"]
+           [:a.text-text-secondary.no-underline.hover:text-accent {:href "/now"} "Now"]      [:a.text-text-secondary.no-underline.hover:text-accent {:href "/archive"} "Archive"]
       [:a.text-text-secondary.no-underline.hover:text-accent {:href "/resume"} "Resume"]
       [:a.text-text-secondary.no-underline.hover:text-accent {:href "/rss.xml"} "RSS"]]]]])
 

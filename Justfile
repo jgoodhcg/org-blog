@@ -24,6 +24,10 @@ e2e-install:
 smoke:
     cd e2e && npx playwright test tests/smoke.spec.ts
 
+# Run snapshots stream tests
+test-snapshots:
+    cd e2e && npx playwright test tests/snapshots.spec.ts
+
 # Take a screenshot of a specific path (usage: just screenshot /resume)
 screenshot path="":
     cd e2e && npx tsx scripts/screenshot.ts {{path}}
