@@ -1,11 +1,11 @@
 ---
 title: "Now Page Update"
-status: ready
+status: draft
 description: "Refresh Now page content and add a visual Memento Mori life chart."
 tags: [area/content, type/enhancement]
 priority: medium
 created: 2026-02-01
-updated: 2026-02-01
+updated: 2026-02-14
 ---
 
 # Now Page Update

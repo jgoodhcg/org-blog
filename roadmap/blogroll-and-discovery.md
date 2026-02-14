@@ -5,7 +5,7 @@ description: "Increase visibility by creating a blogroll and submitting to direc
 tags: [area/marketing, type/feature]
 priority: medium
 created: 2026-02-01
-updated: 2026-02-01
+updated: 2026-02-14
 ---
 
 # Blogroll and Directory Discovery

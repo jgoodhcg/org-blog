@@ -5,7 +5,7 @@ description: "Enable data-rich, interactive posts/pages (charts, tables, noteboo
 tags: [area/content, type/enhancement, tech/clojure]
 priority: low
 created: 2026-02-01
-updated: 2026-02-01
+updated: 2026-02-14
 ---
 
 # Nextjournal Clerk for Data-Rich Posts
