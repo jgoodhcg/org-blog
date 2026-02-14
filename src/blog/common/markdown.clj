@@ -1,9 +1,9 @@
-(ns org-blog.common.markdown
+(ns blog.common.markdown
   (:require
    [clojure.java.shell :as shell]
    [clojure.string :as str]
    [clojure.walk :as walk]
-   [org-blog.common.files :refer [full-path]]))
+   [blog.common.files :refer [full-path]]))
 
 (defn add-prism-class
   "Adds Prism.js language classes to code blocks for syntax highlighting."
@@ -96,8 +96,8 @@
         {:keys [content]}  (parse-yaml-frontmatter contents)
         metadata           (extract-metadata contents)
         absolute-md-file   (full-path md-file)
-        toc-template-path  (full-path "./src/org_blog/pandoc-template-toc.html")
-        body-template-path (full-path "./src/org_blog/pandoc-template-body.html")
+        toc-template-path  (full-path "./src/blog/pandoc-template-toc.html")
+        body-template-path (full-path "./src/blog/pandoc-template-body.html")
         ;; Use echo to pipe content without frontmatter to pandoc
         toc-cmd            (str "pandoc -f markdown -t html "
                                 "--template=" toc-template-path " "

@@ -1,12 +1,12 @@
-(ns org-blog.pages.archive
+(ns blog.pages.archive
   (:require
    [clojure.java.io :as io]
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
-   [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [posts-dir spit-with-path]]
-   [org-blog.common.markdown :refer [extract-metadata]]
-   [org-blog.posts :as posts]))
+   [blog.common.components :as comps]
+   [blog.common.files :refer [posts-dir spit-with-path]]
+   [blog.common.markdown :refer [extract-metadata]]
+   [blog.posts :as posts]))
 
 (defn gen []
   (-> "Generating archive page" c/blue println)

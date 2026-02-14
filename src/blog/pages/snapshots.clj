@@ -1,13 +1,13 @@
-(ns org-blog.pages.snapshots
+(ns blog.pages.snapshots
   (:require
    [clojure.java.io :as io]
    [clojure.term.colors :as c]
    [hiccup.core :refer [html]]
    [hickory.core :as hickory]
-   [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [posts-dir spit-with-path]]
-   [org-blog.common.markdown :refer [extract-metadata md->html add-prism-class]]
-   [org-blog.posts :as posts]))
+   [blog.common.components :as comps]
+   [blog.common.files :refer [posts-dir spit-with-path]]
+   [blog.common.markdown :refer [extract-metadata md->html add-prism-class]]
+   [blog.posts :as posts]))
 
 (def page-size 5)
 

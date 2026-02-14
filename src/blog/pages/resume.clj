@@ -1,12 +1,12 @@
-(ns org-blog.pages.resume
+(ns blog.pages.resume
   (:require
    [clojure.java.io :as io]
    [clojure.term.colors :as c]
    [clojure.string :as str]
    [hiccup.core :refer [html]]
    [clojure.edn :as edn]
-   [org-blog.common.components :as comps]
-   [org-blog.common.files :refer [spit-with-path]]))
+   [blog.common.components :as comps]
+   [blog.common.files :refer [spit-with-path]]))
 
 (defn read-resume-edn []
   (-> "./pages/resume.edn"

@@ -1,4 +1,4 @@
-(ns org-blog.common.components
+(ns blog.common.components
   (:require
    [hiccup.page :refer [include-css]]))
 

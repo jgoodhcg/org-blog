@@ -56,8 +56,8 @@ clj -M:nrepl
 
 In the REPL:
 ```clojure
-(org-blog.dev-server/start-server)    ; Start server on port 8081
-(org-blog.core/regenerate-site)       ; Regenerate all static files
+(blog.dev-server/start-server)    ; Start server on port 8081
+(blog.core/regenerate-site)       ; Regenerate all static files
 ```
 
 In a separate terminal:

@@ -1,9 +1,9 @@
-(ns org-blog.pages.rss
+(ns blog.pages.rss
   (:require
    [clojure.data.xml :as xml]
    [clojure.java.io :as io]
-   [org-blog.common.files :refer [posts-dir spit-with-path]]
-   [org-blog.posts :as posts]
+   [blog.common.files :refer [posts-dir spit-with-path]]
+   [blog.posts :as posts]
    [potpuri.core :as pot]
    [clojure.pprint :refer [pprint]]))
 

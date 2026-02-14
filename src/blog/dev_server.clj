@@ -1,4 +1,4 @@
-(ns org-blog.dev-server
+(ns blog.dev-server
   (:require
    [clojure.java.io :as io]
    [clojure.string :refer [split] :as string]

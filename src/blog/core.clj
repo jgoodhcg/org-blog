@@ -1,14 +1,14 @@
-(ns org-blog.core
+(ns blog.core
   (:require
    [clojure.tools.namespace.repl :as ns-repl]
-   [org-blog.dev-server :as dev-server]
-   [org-blog.pages.archive :as archive]
-   [org-blog.pages.home :as home]
-   [org-blog.pages.now :as now]
-   [org-blog.pages.resume :as resume]
-   [org-blog.pages.rss :as rss]
-   [org-blog.pages.snapshots :as snapshots]
-   [org-blog.posts :as posts]))
+   [blog.dev-server :as dev-server]
+   [blog.pages.archive :as archive]
+   [blog.pages.home :as home]
+   [blog.pages.now :as now]
+   [blog.pages.resume :as resume]
+   [blog.pages.rss :as rss]
+   [blog.pages.snapshots :as snapshots]
+   [blog.posts :as posts]))
 
 (defn -main [& args]
   (println "I don't do anything yet")

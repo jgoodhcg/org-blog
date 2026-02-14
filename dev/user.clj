@@ -1,8 +1,8 @@
 (ns user
   (:require
    [clojure.tools.namespace.repl :as ns-repl]
-   [org-blog.core :as core]
-   [org-blog.dev-server :as dev-server]))
+   [blog.core :as core]
+   [blog.dev-server :as dev-server]))
 
 (defn regenerate
   "Regenerate all site content"

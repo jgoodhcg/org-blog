@@ -1,7 +1,7 @@
 (ns codex-init
   (:require [clojure.test :refer [run-tests]]
-            [org-blog.core :as core]
-            [org-blog.dev-server :as dev-server])
+            [blog.core :as core]
+            [blog.dev-server :as dev-server])
   (:gen-class))
 
 ;; DEPRECATED: legacy Codex web integration. Do not use for Codex CLI.
@@ -22,9 +22,9 @@
     ;; Test basic Clojure functionality
     (assert (= 4 (+ 2 2)) "Basic Clojure functionality works")
 
-    ;; Test that org-blog namespaces can be loaded
-    (require 'org-blog.core)
-    (require 'org-blog.dev-server)
+    ;; Test that blog namespaces can be loaded
+    (require 'blog.core)
+    (require 'blog.dev-server)
 
     ;; Check for essential directories
     (assert (.exists (java.io.File. "posts")) "Posts directory exists")

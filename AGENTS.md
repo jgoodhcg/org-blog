@@ -41,7 +41,7 @@ A static blog generator using Clojure/Hiccup, and Tailwind CSS (standalone binar
 ## Never Run
 
 - `tailwindcss ... --watch` — Automatically (use `just watch-css` with confirmation).
-- `org-blog.dev-server/start-server` — Automatically.
+- `blog.dev-server/start-server` — Automatically.
 
 ## Project-Specific Rules
 
@@ -53,7 +53,7 @@ A static blog generator using Clojure/Hiccup, and Tailwind CSS (standalone binar
 
 ## Key Files
 
-- `src/org_blog/core.clj` — Main entry point.
+- `src/blog/core.clj` — Main entry point.
 - `Justfile` — Task definitions.
 - `deps.edn` — Clojure dependencies.
 - `roadmap/index.md` — Project roadmap.

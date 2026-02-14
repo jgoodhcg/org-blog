@@ -1,8 +1,8 @@
-# Justfile for org-blog
+# Justfile for blog
 
 # Start the dev server (blocks)
 server:
-    clj -M -e "(do (require 'org-blog.dev-server) (org-blog.dev-server/start-server) @(promise))"
+    clj -M -e "(do (require 'blog.dev-server) (blog.dev-server/start-server) @(promise))"
 
 # Watch Tailwind CSS changes
 watch-css:
@@ -14,7 +14,7 @@ dev:
 
 # Regenerate the site (one-off)
 build:
-    clj -M -e "(do (require 'org-blog.core) (org-blog.core/regenerate-site) (shutdown-agents))"
+    clj -M -e "(do (require 'blog.core) (blog.core/regenerate-site) (shutdown-agents))"
 
 # Install e2e dependencies
 e2e-install:

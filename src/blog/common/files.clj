@@ -1,4 +1,4 @@
-(ns org-blog.common.files
+(ns blog.common.files
   (:require
    [clojure.java.io :as io]))
 

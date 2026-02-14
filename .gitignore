@@ -9,7 +9,7 @@ node_modules/
 
 .nrepl-port
 
-src/org_blog/.DS_Store
+src/blog/.DS_Store
 
 
 e2e/playwright-report/data/
