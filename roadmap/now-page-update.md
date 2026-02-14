@@ -1,6 +1,6 @@
 ---
 title: "Now Page Update"
-status: planned
+status: ready
 description: "Refresh Now page content and add a visual Memento Mori life chart."
 tags: [area/content, type/enhancement]
 priority: medium

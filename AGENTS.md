@@ -15,6 +15,20 @@ A static blog generator using Clojure/Hiccup, and Tailwind CSS (standalone binar
 - **Task Runner:** `just`
 - **Hosting:** Digital Ocean App Platform serves `static/`
 
+## Commit Trailer Template
+
+```text
+Co-authored-by: [AI_PRODUCT_NAME] <[AI_PRODUCT_EMAIL]>
+AI-Provider: [AI_PROVIDER]
+AI-Product: [AI_PRODUCT_LINE]
+AI-Model: [AI_MODEL]
+```
+
+Template rules:
+- `AI_PRODUCT_LINE` must be one of: `codex|claude|gemini|opencode`.
+- For OpenCode sessions (including z.ai), use `opencode`.
+- Fill this template at commit time; do not persist filled values in `AGENTS.md`.
+
 ## Validation Commands
 
 | Level | Command | When |
@@ -57,3 +71,9 @@ A static blog generator using Clojure/Hiccup, and Tailwind CSS (standalone binar
 - `Justfile` — Task definitions.
 - `deps.edn` — Clojure dependencies.
 - `roadmap/index.md` — Project roadmap.
+
+## Decision Artifacts
+
+- For high-impact decisions, record in `.decisions/[name].json`.
+- Optionally add `.decisions/[name].md` for narrative context.
+- See `AGENT_BLUEPRINT.md` section `Decision Artifacts [BP-DECISIONS]` for format.

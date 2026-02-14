@@ -1,6 +1,6 @@
 ---
 title: "Stylized RSS Page"
-status: planned
+status: ready
 description: "Create a human-friendly landing page or styling for the RSS feed."
 tags: [area/frontend, type/enhancement]
 priority: medium

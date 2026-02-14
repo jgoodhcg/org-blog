@@ -1,6 +1,6 @@
 ---
 title: "Blogroll and Directory Discovery"
-status: idea
+status: draft
 description: "Increase visibility by creating a blogroll and submitting to directories."
 tags: [area/marketing, type/feature]
 priority: medium

@@ -1,6 +1,6 @@
 ---
 title: "Project Rename"
-status: planned
+status: ready
 description: "Rename project from org-blog to blog to reflect removal of org-mode."
 tags: [area/infrastructure, type/refactor]
 priority: high

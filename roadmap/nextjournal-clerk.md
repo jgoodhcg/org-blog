@@ -1,6 +1,6 @@
 ---
 title: "Nextjournal Clerk for Data-Rich Posts"
-status: idea
+status: draft
 description: "Enable data-rich, interactive posts/pages (charts, tables, notebooks) using Nextjournal Clerk."
 tags: [area/content, type/enhancement, tech/clojure]
 priority: low
